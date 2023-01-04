@@ -1,8 +1,11 @@
+import AppHeader from './components/molecules/AppHeader';
+
 const App = () => (
-	<div className='p-4'>
+	<>
+		<AppHeader />
 		<h1>Esteban Salazar</h1>
 		<img src='/vite.svg' />
-	</div>
+	</>
 );
 
 export default App;
