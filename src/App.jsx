@@ -6,12 +6,14 @@ import ProtectedRoute from './components/atoms/ProtectedRoute';
 import ListsPage from './components/pages/ListsPage';
 import NotFoundPage from './components/pages/NotFoundPage';
 import ListPage from './components/pages/ListPage';
+import RegisterPage from './components/pages/RegisterPage';
 
 const App = () => (
 	<>
 		<AppHeader />
 		<Routes>
 			<Route path='/login' element={<LoginPage />} />
+			<Route path='/register' element={<RegisterPage />} />
 			<Route
 				exact
 				path='/list'

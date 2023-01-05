@@ -28,6 +28,32 @@ module.exports = {
 				success: '#039ff4',
 				'success-300': '#4fbcf7',
 				overlay: '#232a3beb'
+			},
+			keyframes: {
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' }
+				},
+				'slide-in-left': {
+					'0%': { opacity: '0', transform: 'translateX(-125%)' },
+					'20%': { opacity: '1' },
+					'100%': { opacity: '1', transform: 'translateX(0)' }
+				},
+				'slide-out-left': {
+					'0%': { opacity: '1', transform: 'translateX(0)' },
+					'80%': { opacity: '1' },
+					'100%': { opacity: '0', transform: 'translateX(-125%)' }
+				}
+			},
+			animation: {
+				'fade-in': 'fade-in .4s ease-in both',
+				'fade-out': 'fade-out .4s ease-out both',
+				'slide-in-left': 'slide-in-left .8s ease-in both',
+				'slide-out-left': 'slide-out-left 1s ease-out both'
 			}
 		}
 	},

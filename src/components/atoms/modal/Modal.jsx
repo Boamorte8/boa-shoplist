@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import IconButton from '../buttons/IconButton';
 import CrossIcon from '../icons/CrossIcon';
 
+// TODO - Change to Dialog from headless ui
 const Modal = ({ closeModal, children }) => {
 	useEffect(() => {
 		if (!children) return;

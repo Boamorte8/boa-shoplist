@@ -1,6 +1,10 @@
 {
+	"login": "Login",
 	"logo": "BS",
+	"logout": "Logout",
 	"logoComplete": "Boa Shoplist",
+	"menu": "Menu",
+	"register": "Register",
 	"langs": {
 		"english": "English",
 		"spanish": "Spanish"

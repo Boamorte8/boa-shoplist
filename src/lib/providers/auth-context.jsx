@@ -1,33 +1,9 @@
-import {
-	createContext,
-	useCallback,
-	useContext,
-	useEffect,
-	useMemo
-} from 'react';
-import { queryCache } from 'react-query';
+import { createContext, useCallback, useMemo } from 'react';
+// import { queryCache } from 'react-query';
 import * as auth from '../utils/auth-provider';
-import { client } from 'lib/utils/api-client';
-import { useAsync } from 'utils/hooks';
-import { setQueryDataForBook } from 'utils/books';
-import { FullPageSpinner, FullPageErrorFallback } from 'components/lib';
-
-async function bootstrapAppData() {
-	let user = null;
-
-	const token = await auth.getToken();
-	if (token) {
-		const data = await client('bootstrap', { token });
-		queryCache.setQueryData('list-items', data.listItems, {
-			staleTime: 5000
-		});
-		for (const listItem of data.listItems) {
-			setQueryDataForBook(listItem.book);
-		}
-		user = data.user;
-	}
-	return user;
-}
+import { useAsync } from '../hooks/useAsync';
+import ErrorPage from '../../components/pages/ErrorPage';
+import FullSpinner from '../../components/pages/FullSpinner';
 
 const AuthContext = createContext();
 AuthContext.displayName = 'AuthContext';
@@ -41,14 +17,8 @@ function AuthProvider(props) {
 		isIdle,
 		isError,
 		isSuccess,
-		run,
 		setData
 	} = useAsync();
-
-	useEffect(() => {
-		const appDataPromise = bootstrapAppData();
-		run(appDataPromise);
-	}, [run]);
 
 	const login = useCallback(
 		form => auth.login(form).then(user => setData(user)),
@@ -60,7 +30,7 @@ function AuthProvider(props) {
 	);
 	const logout = useCallback(() => {
 		auth.logout();
-		queryCache.clear();
+		// queryCache.clear();
 		setData(null);
 	}, [setData]);
 
@@ -69,36 +39,19 @@ function AuthProvider(props) {
 		[login, logout, register, user]
 	);
 
-	if (isLoading || isIdle) {
-		return <FullPageSpinner />;
+	if (isLoading) {
+		return <FullSpinner />;
 	}
 
 	if (isError) {
-		return <FullPageErrorFallback error={error} />;
+		return <ErrorPage error={error} />;
 	}
 
-	if (isSuccess) {
+	if (isSuccess || isIdle) {
 		return <AuthContext.Provider value={value} {...props} />;
 	}
 
 	throw new Error(`Unhandled status: ${status}`);
 }
 
-function useAuth() {
-	const context = useContext(AuthContext);
-	if (context === undefined) {
-		throw new Error(`useAuth must be used within a AuthProvider`);
-	}
-	return context;
-}
-
-function useClient() {
-	const { user } = useAuth();
-	const token = user?.token;
-	return useCallback(
-		(endpoint, config) => client(endpoint, { ...config, token }),
-		[token]
-	);
-}
-
-export { AuthProvider, useAuth, useClient };
+export { AuthProvider, AuthContext };
