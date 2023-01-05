@@ -27,7 +27,7 @@ const IconButton = ({
 				className || ''
 			}`}
 		>
-			<Icon className='h-4 w-4 border-none outline-none text-primary-300' />
+			<Icon className='h-5 w-5 border-none outline-none text-primary-300' />
 		</button>
 	);
 };

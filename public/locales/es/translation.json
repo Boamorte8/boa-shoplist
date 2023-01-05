@@ -1,4 +1,8 @@
 {
 	"logo": "BS",
-	"logoComplete": "Boa Shopes"
+	"logoComplete": "Boa Shoplist",
+	"langs": {
+		"english": "Inglés",
+		"spanish": "Español"
+	}
 }

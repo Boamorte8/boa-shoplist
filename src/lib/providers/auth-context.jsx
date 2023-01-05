@@ -6,7 +6,7 @@ import {
 	useMemo
 } from 'react';
 import { queryCache } from 'react-query';
-import * as auth from 'auth-provider';
+import * as auth from '../utils/auth-provider';
 import { client } from 'lib/utils/api-client';
 import { useAsync } from 'utils/hooks';
 import { setQueryDataForBook } from 'utils/books';
