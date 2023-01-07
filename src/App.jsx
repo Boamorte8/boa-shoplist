@@ -1,19 +1,34 @@
 import { Route, Routes } from 'react-router-dom';
 
-import LoginPage from './components/pages/LoginPage';
 import AppHeader from './components/molecules/AppHeader';
-import ProtectedRoute from './components/atoms/ProtectedRoute';
-import ListsPage from './components/pages/ListsPage';
-import NotFoundPage from './components/pages/NotFoundPage';
 import ListPage from './components/pages/ListPage';
-import RegisterPage from './components/pages/RegisterPage';
+import ListsPage from './components/pages/ListsPage';
+import LoginPage from './components/pages/auth/LoginPage';
+import NotFoundPage from './components/pages/NotFoundPage';
+import ProtectedRoute from './components/atoms/ProtectedRoute';
+import PublicRoute from './components/atoms/PublicRoute';
+import RegisterPage from './components/pages/auth/RegisterPage';
 
 const App = () => (
 	<>
 		<AppHeader />
 		<Routes>
-			<Route path='/login' element={<LoginPage />} />
-			<Route path='/register' element={<RegisterPage />} />
+			<Route
+				path='/login'
+				element={
+					<PublicRoute isAuthenticated={false}>
+						<LoginPage />
+					</PublicRoute>
+				}
+			/>
+			<Route
+				path='/register'
+				element={
+					<PublicRoute isAuthenticated={false}>
+						<RegisterPage />
+					</PublicRoute>
+				}
+			/>
 			<Route
 				exact
 				path='/list'

@@ -1,10 +1,26 @@
 {
+	"email": "Email",
 	"login": "Login",
 	"logo": "BS",
 	"logout": "Logout",
 	"logoComplete": "Boa Shoplist",
 	"menu": "Menu",
+	"password": "Password",
 	"register": "Register",
+	"auth": {
+		"confirmPassword": "Confirm password",
+		"errors": {
+			"confirmPassword": "Passwords don't match",
+			"email": {
+				"format": "Email has invalid format",
+				"length": "Email must be at least 5 characters long"
+			},
+			"password": {
+				"format": "Password must contain at least 1 upper case character, 1 lower case character, and 1 number",
+				"length": "Password must be at least 10 characters long"
+			}
+		}
+	},
 	"langs": {
 		"english": "English",
 		"spanish": "Spanish"

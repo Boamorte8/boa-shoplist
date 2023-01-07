@@ -15,7 +15,7 @@ const AppHeader = () => {
 	));
 	return (
 		<>
-			<header className='h-16 lg:h-22 top-0 w-full px-5 lg:px-24 py-3 grid grid-cols-3 lg:grid-cols-2 items-center z-20 bg-background-300'>
+			<header className='h-16 lg:h-24 top-0 w-full px-5 lg:px-24 py-3 grid grid-cols-3 lg:grid-cols-2 items-center z-20 bg-background-700'>
 				<IconButton
 					className='lg:hidden outline-none'
 					icon={HamburguerIcon}

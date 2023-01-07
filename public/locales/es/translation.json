@@ -1,10 +1,26 @@
 {
+	"email": "Correo",
 	"login": "Autenticar",
 	"logo": "BS",
 	"logout": "Cerrar sesión",
 	"logoComplete": "Boa Shoplist",
 	"menu": "Menú",
+	"password": "Contraseña",
 	"register": "Registrar",
+	"auth": {
+		"confirmPassword": "Confirmar contraseña",
+		"errors": {
+			"confirmPassword": "Las contraseñas no son iguales",
+			"email": {
+				"format": "El email tiene el formato inválido",
+				"length": "El email debe ser de al menos 5 caracteres"
+			},
+			"password": {
+				"format": "La contraseña debe contener como mínimo una mayúscula, una minúscula y un número",
+				"length": "La contraseña debe contener como mínimo 10 caracteres"
+			}
+		}
+	},
 	"langs": {
 		"english": "Inglés",
 		"spanish": "Español"
