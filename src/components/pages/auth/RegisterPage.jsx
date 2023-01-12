@@ -11,6 +11,7 @@ import {
 	emailChangedRegisterForm,
 	passwordChangedRegisterForm
 } from '../../../lib/actions/registerFormActions';
+import Spinner from '../../atoms/Spinner';
 import { useAuth } from '../../../lib/providers/auth-provider';
 import { useRegisterForm } from '../../../lib/hooks/useRegisterForm';
 
@@ -104,7 +105,7 @@ const RegisterPage = () => {
 						disabled={isFormInvalid || isSubmitting}
 						type='submit'
 					>
-						{isSubmitting ? 'Loading...' : registerText}
+						{isSubmitting ? <Spinner className='h-5 w-5' /> : registerText}
 					</Button>
 				</form>
 			</BaseCard>

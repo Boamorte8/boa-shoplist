@@ -55,6 +55,10 @@ module.exports = {
 				'slide-out-right': {
 					'0%': { opacity: '1', transform: 'translateX(0)' },
 					'100%': { opacity: '0', transform: 'translateX(125%)' }
+				},
+				'rotate-center': {
+					'0%': { transform: 'rotate(0)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -63,7 +67,8 @@ module.exports = {
 				'slide-in-left': 'slide-in-left .8s ease-in both',
 				'slide-out-left': 'slide-out-left 1s ease-out both',
 				'slide-in-right': 'slide-in-right 1s ease-in both',
-				'slide-out-right': 'slide-out-right 1s ease-out both'
+				'slide-out-right': 'slide-out-right 1s ease-out both',
+				'rotate-center': 'rotate-center 1s ease-in-out infinite both'
 			}
 		}
 	},

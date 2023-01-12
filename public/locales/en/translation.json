@@ -10,6 +10,12 @@
 	"auth": {
 		"checkEmail": "Check your email for confirmation message",
 		"confirmPassword": "Confirm password",
+		"confirmRegister": {
+			"messages": {
+				"error": "Error validating register. Email link is invalid or has expired",
+				"success": "Email was successfully validated"
+			}
+		},
 		"errors": {
 			"confirmPassword": "Passwords don't match",
 			"register": "Error registering user",

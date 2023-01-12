@@ -1,7 +1,6 @@
-const Spinner = ({ className, ...props }) => (
+const LoadingIcon = props => (
 	<svg
 		{...props}
-		className={`animate-rotate-center ${className}`}
 		stroke='currentColor'
 		viewBox='0 0 20 20'
 		fill='none'
@@ -15,4 +14,4 @@ const Spinner = ({ className, ...props }) => (
 	</svg>
 );
 
-export default Spinner;
+export default LoadingIcon;

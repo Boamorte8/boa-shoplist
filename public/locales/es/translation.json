@@ -10,6 +10,12 @@
 	"auth": {
 		"checkEmail": "Revisa tu correo por el mensaje de confirmación",
 		"confirmPassword": "Confirmar contraseña",
+		"confirmRegister": {
+			"messages": {
+				"error": "Error validando registro. El enlace del registro es inválido o ha expirado",
+				"success": "Email was successfully validated"
+			}
+		},
 		"errors": {
 			"confirmPassword": "Las contraseñas no son iguales",
 			"register": "Error registrando usuario",

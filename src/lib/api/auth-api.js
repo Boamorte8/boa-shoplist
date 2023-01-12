@@ -22,7 +22,7 @@ async function register({ email, password, ...metadata }) {
 			password,
 			options: {
 				data: metadata,
-				emailRedirectTo: `${window.location.origin}/confirm?source=email`
+				emailRedirectTo: `${window.location.origin}/login?source=email`
 			}
 		});
 	} catch (error) {

@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 
 import AlertBox from './components/atoms/alerts/AlertBox';
 import AppHeader from './components/molecules/AppHeader';
-import ConfirmRegisterPage from './components/pages/auth/ConfirmRegisterPage';
 import ListPage from './components/pages/ListPage';
 import ListsPage from './components/pages/ListsPage';
 import LoginPage from './components/pages/auth/LoginPage';
@@ -30,14 +29,6 @@ const App = () => {
 					element={
 						<PublicRoute isAuthenticated={false}>
 							<RegisterPage />
-						</PublicRoute>
-					}
-				/>
-				<Route
-					path='/confirm'
-					element={
-						<PublicRoute isAuthenticated={false}>
-							<ConfirmRegisterPage />
 						</PublicRoute>
 					}
 				/>
