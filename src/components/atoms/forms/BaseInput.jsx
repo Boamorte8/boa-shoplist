@@ -4,7 +4,7 @@ const BaseInput = ({ label, error, className, placeholder, ...props }) => (
 		<input
 			type='text'
 			{...props}
-			className={`h-10 w-full py-2 px-4 mt-2 mx-0 mb-0 shadow-sm border rounded-lg outline-none focus:shadow-md placeholder:text-gray-300 ${
+			className={`h-10 w-full py-2 px-4 mt-2 mx-0 mb-0 shadow-sm shadow-primary-700 border-2 rounded-lg outline-none focus:shadow-md enabled:focus:border-primary placeholder:text-gray-300 ${
 				error ? 'border-error-700' : 'border-transparent'
 			}`}
 			placeholder={placeholder}

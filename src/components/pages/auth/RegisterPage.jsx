@@ -1,15 +1,23 @@
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { alertBox } from '../../../lib/events/alertEvents';
 import BaseCard from '../../atoms/BaseCard';
 import BaseInput from '../../atoms/forms/BaseInput';
-import { useRegisterForm } from '../../../lib/hooks/useRegisterForm';
+import Button from '../../atoms/buttons/Button';
 import {
 	confirmPasswordChangedRegisterForm,
 	emailChangedRegisterForm,
 	passwordChangedRegisterForm
 } from '../../../lib/actions/registerFormActions';
+import { useAuth } from '../../../lib/providers/auth-provider';
+import { useRegisterForm } from '../../../lib/hooks/useRegisterForm';
 
 const RegisterPage = () => {
+	const { register } = useAuth();
+	const navigate = useNavigate();
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const {
 		email,
 		password,
@@ -20,13 +28,27 @@ const RegisterPage = () => {
 	const { t } = useTranslation();
 	const emailText = t('email');
 	const passwordText = t('password');
+	const registerText = t('register');
 	const confirmPasswordText = t('auth.confirmPassword');
 	return (
-		<div className='min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-6rem)] w-full bg-background p-2 md:p-4 lg:p-6'>
+		<div className='min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-6rem)] w-full bg-background p-2 md:p-6 lg:p-10'>
 			<BaseCard classes='max-w-2xl mx-auto'>
-				<form className='w-full flex flex-col gap-2 items-center p-4'>
+				<form
+					className='w-full flex flex-col gap-2 items-center p-4'
+					onSubmit={ev =>
+						handleSubmit(
+							ev,
+							email,
+							password,
+							setIsSubmitting,
+							register,
+							t,
+							navigate
+						)
+					}
+				>
 					<h1 className='dark:text-white font-bold text-xl mb-4'>
-						{t('register')}
+						{registerText}
 					</h1>
 
 					<div className='w-fit grid gap-4'>
@@ -77,11 +99,46 @@ const RegisterPage = () => {
 						/>
 					</div>
 
-					{/* <BaseButton class="mb-4" type="submit">{{ t(mode) }}</BaseButton> */}
+					<Button
+						className='mt-6'
+						disabled={isFormInvalid || isSubmitting}
+						type='submit'
+					>
+						{isSubmitting ? 'Loading...' : registerText}
+					</Button>
 				</form>
 			</BaseCard>
 		</div>
 	);
+};
+
+const handleSubmit = async (
+	ev,
+	email,
+	password,
+	setIsSubmitting,
+	register,
+	t,
+	navigate
+) => {
+	ev.preventDefault();
+
+	setIsSubmitting(true);
+
+	const user = {
+		email: email.value,
+		password: password.value
+	};
+
+	const { error } = await register(user);
+
+	if (!error) {
+		alertBox.success(t('auth.checkEmail'));
+		navigate('/login');
+	} else {
+		alertBox.error(t('auth.errors.register'));
+	}
+	setIsSubmitting(false);
 };
 
 export default RegisterPage;

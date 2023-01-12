@@ -8,9 +8,11 @@
 	"password": "Contraseña",
 	"register": "Registrar",
 	"auth": {
+		"checkEmail": "Revisa tu correo por el mensaje de confirmación",
 		"confirmPassword": "Confirmar contraseña",
 		"errors": {
 			"confirmPassword": "Las contraseñas no son iguales",
+			"register": "Error registrando usuario",
 			"email": {
 				"format": "El email tiene el formato inválido",
 				"length": "El email debe ser de al menos 5 caracteres"
@@ -20,6 +22,9 @@
 				"length": "La contraseña debe contener como mínimo 10 caracteres"
 			}
 		}
+	},
+	"errors": {
+		"server": "Error conectando con el servidor"
 	},
 	"langs": {
 		"english": "Inglés",

@@ -8,9 +8,11 @@
 	"password": "Password",
 	"register": "Register",
 	"auth": {
+		"checkEmail": "Check your email for confirmation message",
 		"confirmPassword": "Confirm password",
 		"errors": {
 			"confirmPassword": "Passwords don't match",
+			"register": "Error registering user",
 			"email": {
 				"format": "Email has invalid format",
 				"length": "Email must be at least 5 characters long"
@@ -20,6 +22,9 @@
 				"length": "Password must be at least 10 characters long"
 			}
 		}
+	},
+	"errors": {
+		"server": "Error connecting with server"
 	},
 	"langs": {
 		"english": "English",

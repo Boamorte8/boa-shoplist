@@ -23,7 +23,7 @@ const LangSelector = props => {
 					} group flex gap-2 w-full items-center rounded-md px-2 py-2 text-sm`}
 					onClick={() => i18n.changeLanguage(code)}
 				>
-					<img src={`/${lang}.png`} alt={`${lang} flag`} className='h-6 w-6' />
+					<img src={`/${lang}.webp`} alt={`${lang} flag`} className='h-6 w-6' />
 					<span className='text-white font-extralight text-lg'>
 						{t(`langs.${lang}`)}
 					</span>
@@ -36,7 +36,7 @@ const LangSelector = props => {
 			<div>
 				<Menu.Button className='inline-flex w-full gap-2 items-center rounded-md bg-opacity-20 px-2 py-1 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
 					<img
-						src={`/${selectedLang}.png`}
+						src={`/${selectedLang}.webp`}
 						alt={`${selectedLang} flag`}
 						className='h-6 w-6'
 					/>
