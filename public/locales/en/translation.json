@@ -10,6 +10,9 @@
 	"auth": {
 		"checkEmail": "Check your email for confirmation message",
 		"confirmPassword": "Confirm password",
+		"goLogin": "Login instead",
+		"goRegister": "Register instead",
+		"loginSuccess": "Login successfully",
 		"confirmRegister": {
 			"messages": {
 				"error": "Error validating register. Email link is invalid or has expired",
@@ -18,6 +21,7 @@
 		},
 		"errors": {
 			"confirmPassword": "Passwords don't match",
+			"login": "Error login user. Try again later",
 			"register": "Error registering user",
 			"email": {
 				"format": "Email has invalid format",

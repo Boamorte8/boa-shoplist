@@ -10,6 +10,9 @@
 	"auth": {
 		"checkEmail": "Revisa tu correo por el mensaje de confirmación",
 		"confirmPassword": "Confirmar contraseña",
+		"goLogin": "Autenticarse",
+		"goRegister": "Registrarse",
+		"loginSuccess": "Autenticación exitosa",
 		"confirmRegister": {
 			"messages": {
 				"error": "Error validando registro. El enlace del registro es inválido o ha expirado",
@@ -18,6 +21,7 @@
 		},
 		"errors": {
 			"confirmPassword": "Las contraseñas no son iguales",
+			"login": "Error autenticando el usuario. Intenta de nuevo",
 			"register": "Error registrando usuario",
 			"email": {
 				"format": "El email tiene el formato inválido",

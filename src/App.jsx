@@ -9,8 +9,11 @@ import NotFoundPage from './components/pages/NotFoundPage';
 import ProtectedRoute from './components/atoms/ProtectedRoute';
 import PublicRoute from './components/atoms/PublicRoute';
 import RegisterPage from './components/pages/auth/RegisterPage';
+import { useAuth } from './lib/providers/auth-provider';
 
 const App = () => {
+	const { user } = useAuth();
+	const isAuth = !!user;
 	return (
 		<>
 			<AppHeader />
@@ -19,7 +22,7 @@ const App = () => {
 				<Route
 					path='/login'
 					element={
-						<PublicRoute isAuthenticated={false}>
+						<PublicRoute isAuthenticated={isAuth}>
 							<LoginPage />
 						</PublicRoute>
 					}
@@ -27,7 +30,7 @@ const App = () => {
 				<Route
 					path='/register'
 					element={
-						<PublicRoute isAuthenticated={false}>
+						<PublicRoute isAuthenticated={isAuth}>
 							<RegisterPage />
 						</PublicRoute>
 					}
@@ -36,7 +39,7 @@ const App = () => {
 					exact
 					path='/list'
 					element={
-						<ProtectedRoute isAuthenticated={false}>
+						<ProtectedRoute isAuthenticated={isAuth}>
 							<ListsPage />
 						</ProtectedRoute>
 					}
@@ -45,7 +48,7 @@ const App = () => {
 					exact
 					path='/list/:listId'
 					element={
-						<ProtectedRoute isAuthenticated={false}>
+						<ProtectedRoute isAuthenticated={isAuth}>
 							<ListPage />
 						</ProtectedRoute>
 					}

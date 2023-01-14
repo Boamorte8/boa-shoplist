@@ -8,7 +8,11 @@ AuthContext.displayName = 'AuthContext';
 function AuthProvider(props) {
 	const [user, setUser] = useState(null);
 
-	const login = form => auth.login(form).then(user => setUser(user));
+	const login = form =>
+		auth.login(form).then(data => {
+			setUser(data.data.user);
+			return data;
+		});
 
 	const register = form => auth.register(form);
 

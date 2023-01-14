@@ -6,6 +6,7 @@ import { alertBox } from '../../../lib/events/alertEvents';
 import BaseCard from '../../atoms/BaseCard';
 import BaseInput from '../../atoms/forms/BaseInput';
 import Button from '../../atoms/buttons/Button';
+import ButtonLink from '../../atoms/buttons/ButtonLink';
 import {
 	confirmPasswordChangedRegisterForm,
 	emailChangedRegisterForm,
@@ -101,12 +102,14 @@ const RegisterPage = () => {
 					</div>
 
 					<Button
-						className='mt-6'
+						className='mt-6 mb-2'
 						disabled={isFormInvalid || isSubmitting}
 						type='submit'
 					>
 						{isSubmitting ? <Spinner className='h-5 w-5' /> : registerText}
 					</Button>
+
+					<ButtonLink to='/login'>{t('auth.goLogin')}</ButtonLink>
 				</form>
 			</BaseCard>
 		</div>

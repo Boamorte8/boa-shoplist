@@ -10,9 +10,20 @@ async function getToken() {
 	return window.localStorage.getItem(localStorageKey);
 }
 
-function login({ username, password }) {
-	// window.localStorage.setItem(localStorageKey, user.token);
-	// return client('login', { username, password }).then(handleUserResponse);
+async function login({ email, password }) {
+	try {
+		return supabase.auth.signInWithPassword({ email, password }).then(data => {
+			if (!data.error) {
+				window.localStorage.setItem(
+					localStorageKey,
+					data.data.session.access_token
+				);
+			}
+			return data;
+		});
+	} catch (error) {
+		alertBox.error(i18next.t('errors.server'));
+	}
 }
 
 async function register({ email, password, ...metadata }) {
