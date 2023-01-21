@@ -1,5 +1,7 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 
+import { alertBox } from '../events/alertEvents';
+import i18next from '../utils/i18n';
 import * as auth from '../api/auth-api';
 
 const AuthContext = createContext();
@@ -17,8 +19,14 @@ function AuthProvider(props) {
 	const register = form => auth.register(form);
 
 	const logout = () => {
-		auth.logout();
-		setUser(null);
+		auth.logout().then(({ error }) => {
+			if (!error) {
+				alertBox.success(i18next.t('auth.logoutSuccess'));
+			} else {
+				alertBox.error(i18next.t('auth.errors.logout'));
+			}
+			setUser(null);
+		});
 	};
 
 	const value = useMemo(

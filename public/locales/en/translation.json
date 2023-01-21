@@ -1,5 +1,6 @@
 {
 	"email": "Email",
+	"lists": "Lists",
 	"login": "Login",
 	"logo": "BS",
 	"logout": "Logout",
@@ -13,6 +14,7 @@
 		"goLogin": "Login instead",
 		"goRegister": "Register instead",
 		"loginSuccess": "Login successfully",
+		"logoutSuccess": "Logged out successfully",
 		"confirmRegister": {
 			"messages": {
 				"error": "Error validating register. Email link is invalid or has expired",
@@ -22,6 +24,7 @@
 		"errors": {
 			"confirmPassword": "Passwords don't match",
 			"login": "Error login user. Try again later",
+			"logout": "Error logout user. Try again",
 			"register": "Error registering user",
 			"email": {
 				"format": "Email has invalid format",

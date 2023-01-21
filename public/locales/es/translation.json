@@ -1,5 +1,6 @@
 {
 	"email": "Correo",
+	"lists": "Listas",
 	"login": "Autenticar",
 	"logo": "BS",
 	"logout": "Cerrar sesión",
@@ -13,6 +14,7 @@
 		"goLogin": "Autenticarse",
 		"goRegister": "Registrarse",
 		"loginSuccess": "Autenticación exitosa",
+		"logoutSuccess": "Sesión cerrada",
 		"confirmRegister": {
 			"messages": {
 				"error": "Error validando registro. El enlace del registro es inválido o ha expirado",
@@ -22,6 +24,7 @@
 		"errors": {
 			"confirmPassword": "Las contraseñas no son iguales",
 			"login": "Error autenticando el usuario. Intenta de nuevo",
+			"logout": "Error cerrando sesión. Intenta de nuevo",
 			"register": "Error registrando usuario",
 			"email": {
 				"format": "El email tiene el formato inválido",

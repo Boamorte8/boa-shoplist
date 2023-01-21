@@ -2,10 +2,7 @@ import { useState } from 'react';
 
 import { useAuth } from '../providers/auth-provider';
 
-const authOptions = [
-	{ code: 'lists', url: '/lists' },
-	{ code: 'list', url: '/list' }
-];
+const authOptions = [{ code: 'lists', url: '/list' }];
 
 const unauthOptions = [
 	{ code: 'login', url: '/login' },
@@ -13,10 +10,12 @@ const unauthOptions = [
 ];
 
 export const useMenu = () => {
-	const { user } = useAuth();
+	const { user, logout } = useAuth();
 	const [open, setOpen] = useState(false);
 
-	const menuOptions = user ? authOptions : unauthOptions;
+	const authActions = [{ code: 'logout', onClick: logout }];
+
+	const menuOptions = user ? [...authOptions, ...authActions] : unauthOptions;
 
 	const openMenu = () => setOpen(true);
 	const closeMenu = () => setOpen(false);

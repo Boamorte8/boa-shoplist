@@ -10,8 +10,8 @@ import HeaderLink from '../atoms/buttons/HeaderLink';
 const AppHeader = () => {
 	const { t } = useTranslation();
 	const { menuOptions, open, openMenu, closeMenu } = useMenu();
-	const links = menuOptions.map(({ code, url }) => (
-		<HeaderLink key={code} code={code} to={url} />
+	const links = menuOptions.map(({ code, url, onClick }) => (
+		<HeaderLink key={code} code={code} to={url} onClick={onClick} />
 	));
 	return (
 		<>

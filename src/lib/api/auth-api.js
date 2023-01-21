@@ -42,7 +42,16 @@ async function register({ email, password, ...metadata }) {
 }
 
 async function logout() {
-	window.localStorage.removeItem(localStorageKey);
+	try {
+		return supabase.auth.signOut().then(data => {
+			if (!data.error) {
+				window.localStorage.removeItem(localStorageKey);
+			}
+			return data;
+		});
+	} catch (error) {
+		alertBox.error(i18next.t('errors.server'));
+	}
 }
 
 export { getToken, login, register, logout, localStorageKey };

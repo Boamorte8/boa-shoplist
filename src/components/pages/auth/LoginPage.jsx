@@ -94,7 +94,11 @@ const LoginPage = () => {
 						disabled={isFormInvalid || isSubmitting}
 						type='submit'
 					>
-						{isSubmitting ? <Spinner className='h-5 w-5' /> : loginText}
+						{isSubmitting ? (
+							<Spinner className='h-5 w-5 text-white' />
+						) : (
+							loginText
+						)}
 					</Button>
 
 					<ButtonLink to='/register'>{t('auth.goRegister')}</ButtonLink>
@@ -126,7 +130,7 @@ const handleSubmit = async (
 
 	if (!error) {
 		alertBox.success(t('auth.loginSuccess'));
-		navigate('/list');
+		// navigate('/list');
 	} else {
 		alertBox.error(t('auth.errors.login'));
 	}

@@ -19,8 +19,16 @@ const AppNavigation = ({ open, closeMenu, menuOptions }) => {
 		}, 1000);
 	};
 
-	const links = menuOptions.map(({ code, url }) => (
-		<NavigationLink key={code} code={code} to={url} onClick={closeSelector} />
+	const links = menuOptions.map(({ code, url, onClick }) => (
+		<NavigationLink
+			key={code}
+			code={code}
+			to={url}
+			onClick={() => {
+				onClick();
+				closeSelector();
+			}}
+		/>
 	));
 
 	return createPortal(
