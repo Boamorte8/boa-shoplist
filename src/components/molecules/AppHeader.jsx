@@ -21,7 +21,8 @@ const AppHeader = () => {
 					icon={HamburguerIcon}
 					onClick={openMenu}
 				/>
-				<div className='text-center lg:text-left font-bold text-lg text-primary-300'>
+				<div className='flex items-center lg:text-left font-medium text-sm lg:text-lg text-primary-300 uppercase select-none'>
+					<img className='h-7 w-7 mr-2' src='/logo-icon.svg' />
 					{t('logoComplete')}
 				</div>
 				<div className='flex items-center justify-self-end lg:gap-7'>

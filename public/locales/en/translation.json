@@ -42,5 +42,8 @@
 	"langs": {
 		"english": "English",
 		"spanish": "Spanish"
+	},
+	"listsPage": {
+		"allLists": "All your lists"
 	}
 }

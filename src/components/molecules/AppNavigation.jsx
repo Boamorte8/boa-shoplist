@@ -36,7 +36,8 @@ const AppNavigation = ({ open, closeMenu, menuOptions }) => {
 			className={`fixed top-0 h-screen w-screen bg-background-300 z-30 overflow-hidden lg:hidden ${menuClass}`}
 		>
 			<header className='sticky h-14 top-0 w-full px-5 py-3 flex justify-between items-center'>
-				<div className='font-bold text-lg text-primary-300'>
+				<div className='flex items-center font-medium text-medium text-primary-300 uppercase'>
+					<img className='h-7 w-7 mr-2' src='/logo-icon.svg' />
 					{t('logoComplete')}
 				</div>
 				<IconButton icon={CrossIcon} onClick={closeSelector} />

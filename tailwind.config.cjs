@@ -39,14 +39,14 @@ module.exports = {
 					'100%': { opacity: '0' }
 				},
 				'slide-in-left': {
-					'0%': { opacity: '0', transform: 'translateX(-125%)' },
+					'0%': { opacity: '0', transform: 'translateX(-100%)' },
 					'20%': { opacity: '1' },
 					'100%': { opacity: '1', transform: 'translateX(0)' }
 				},
 				'slide-out-left': {
 					'0%': { opacity: '1', transform: 'translateX(0)' },
 					'80%': { opacity: '1' },
-					'100%': { opacity: '0', transform: 'translateX(-125%)' }
+					'100%': { opacity: '0', transform: 'translateX(-100%)' }
 				},
 				'slide-in-right': {
 					'0%': { opacity: '0', transform: 'translateX(125%)' },
