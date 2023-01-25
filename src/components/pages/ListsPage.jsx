@@ -1,14 +1,21 @@
 import { useTranslation } from 'react-i18next';
 
+import AddListModal from '../organisms/AddListModal';
+import UserLists from '../molecules/UserLists';
+
 const ListsPage = () => {
 	const { t } = useTranslation();
 
+	const lists = [];
+
 	return (
-		<div className='min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-6rem)] w-full bg-background p-2 md:p-6 lg:p-10'>
-			<h1 className='font-medium text-xl text-primary-300'>
+		<div className='min-h-[calc(100vh-8.5rem)] md:min-h-[calc(100vh-7.5rem)] lg:min-h-[calc(100vh-9.5rem)] w-full bg-background p-2 md:p-6 lg:p-10'>
+			<h1 className='font-medium text-xl text-primary-300 mb-4'>
 				{t('listsPage.allLists')}
 			</h1>
-			<div className=''></div>
+
+			<UserLists lists={lists} />
+			<AddListModal />
 		</div>
 	);
 };

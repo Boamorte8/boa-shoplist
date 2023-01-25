@@ -1,5 +1,7 @@
 {
 	"email": "Email",
+	"footer": "Made by Esteban Salazar. Some illustrations ",
+	"here": "here",
 	"lists": "Lists",
 	"login": "Login",
 	"logo": "BS",
@@ -44,6 +46,7 @@
 		"spanish": "Spanish"
 	},
 	"listsPage": {
-		"allLists": "All your lists"
+		"allLists": "All your lists",
+		"emptyLists": "There are not lists yet. You can start creating one"
 	}
 }

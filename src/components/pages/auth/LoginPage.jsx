@@ -39,7 +39,7 @@ const LoginPage = () => {
 	}, []);
 
 	return (
-		<div className='min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-6rem)] w-full bg-background p-2 md:p-6 lg:p-10'>
+		<div className='min-h-[calc(100vh-8.5rem)] md:min-h-[calc(100vh-7.5rem)] lg:min-h-[calc(100vh-9.5rem)] w-full bg-background p-2 md:p-6 lg:p-10'>
 			<BaseCard classes='max-w-2xl mx-auto'>
 				<form
 					className='w-full flex flex-col gap-2 items-center p-4'

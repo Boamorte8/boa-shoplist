@@ -2,6 +2,7 @@ import { createPortal } from 'react-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import AppFooter from './AppFooter';
 import CrossIcon from '../atoms/icons/CrossIcon';
 import IconButton from '../atoms/buttons/IconButton';
 import NavigationLink from '../atoms/buttons/NavigationLink';
@@ -43,11 +44,12 @@ const AppNavigation = ({ open, closeMenu, menuOptions }) => {
 				<IconButton icon={CrossIcon} onClick={closeSelector} />
 			</header>
 
-			<div className='container px-5'>
+			<div className='container px-5 h-[calc(100vh-7.75rem)]'>
 				<h2 className='py-8 font-semibold text-2xl text-white'>{t('menu')}</h2>
 
 				<nav className='flex flex-col gap-6'>{links}</nav>
 			</div>
+			<AppFooter />
 		</div>,
 		document.getElementById('navpanel')
 	);

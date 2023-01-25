@@ -1,36 +1,39 @@
-import { useEffect } from 'react';
-import { createPortal } from 'react-dom';
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment } from 'react';
 
-import IconButton from '../buttons/IconButton';
-import CrossIcon from '../icons/CrossIcon';
+const Modal = ({ isOpen, setIsOpen, children }) => {
+	return (
+		<Transition
+			show={isOpen}
+			appear
+			enter='transition duration-100 ease-out'
+			enterFrom='transform scale-95 opacity-0'
+			enterTo='transform scale-100 opacity-100'
+			leave='transition duration-75 ease-out'
+			leaveFrom='transform scale-100 opacity-100'
+			leaveTo='transform scale-95 opacity-0'
+			as={Fragment}
+		>
+			<Dialog className='fixed inset-0' onClose={() => setIsOpen(false)}>
+				<Transition.Child
+					as={Fragment}
+					enter='ease-out duration-300'
+					enterFrom='opacity-0'
+					enterTo='opacity-100'
+					leave='ease-in duration-200'
+					leaveFrom='opacity-100'
+					leaveTo='opacity-0'
+				>
+					<div className='fixed inset-0 h-screen w-screen bg-black bg-opacity-25' />
+				</Transition.Child>
 
-// TODO - Change to Dialog from headless ui
-const Modal = ({ closeModal, children }) => {
-	useEffect(() => {
-		if (!children) return;
-
-		document.body.classList.add('overflow-y-hidden');
-
-		return () => {
-			document.body.classList.remove('overflow-y-hidden');
-		};
-	}, [children]);
-
-	if (!children) return null;
-	return createPortal(
-		<div className='flex justify-center items-center fixed inset-0 h-screen w-screen bg-overlay'>
-			<div className='w-80 rounded-lg shadow-sm bg-background-300 p-6 relative'>
-				<IconButton
-					type='button'
-					filled
-					className='absolute -top-5 -right-5'
-					icon={CrossIcon}
-					onClick={closeModal}
-				/>
-				{children}
-			</div>
-		</div>,
-		document.getElementById('modal')
+				<div className='fixed inset-0 flex items-center justify-center p-4'>
+					<Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
+						{children}
+					</Dialog.Panel>
+				</div>
+			</Dialog>
+		</Transition>
 	);
 };
 

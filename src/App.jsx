@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import AlertBox from './components/atoms/alerts/AlertBox';
+import AppFooter from './components/molecules/AppFooter';
 import AppHeader from './components/molecules/AppHeader';
 import ListPage from './components/pages/ListPage';
 import ListsPage from './components/pages/ListsPage';
@@ -55,6 +56,7 @@ const App = () => {
 				/>
 				<Route path='*' element={<NotFoundPage />} />
 			</Routes>
+			<AppFooter />
 		</>
 	);
 };

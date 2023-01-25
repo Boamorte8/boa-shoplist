@@ -1,5 +1,7 @@
 {
 	"email": "Correo",
+	"footer": "Hecho por Esteban Salazar. Algunas ilustraciones por",
+	"here": "aquí",
 	"lists": "Listas",
 	"login": "Autenticar",
 	"logo": "BS",
@@ -44,6 +46,7 @@
 		"spanish": "Español"
 	},
 	"listsPage": {
-		"allLists": "Todas tus listas"
+		"allLists": "Todas tus listas",
+		"emptyLists": "No hay lista aún. Puedes empezar creando una"
 	}
 }
