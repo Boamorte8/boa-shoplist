@@ -1,4 +1,3 @@
-import { Dialog } from '@headlessui/react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -17,13 +16,7 @@ const AddListModal = () => {
 	return (
 		<>
 			<FloatButton onClick={onAdd} />
-			<Modal isOpen={openModal} setIsOpen={setOpenModal}>
-				<Dialog.Title
-					as='h3'
-					className='text-lg font-medium leading-6 text-gray-900'
-				>
-					Test title
-				</Dialog.Title>
+			<Modal isOpen={openModal} setIsOpen={setOpenModal} title='Add new list'>
 				Test Modal
 			</Modal>
 		</>

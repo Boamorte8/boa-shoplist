@@ -1,11 +1,13 @@
 const CLASSNAMES = {
 	normal: {
-		normal: 'style.normal',
-		filled: 'style.normalFilled'
+		normal:
+			'text-primary-300 border-transparent hover:border-primary-700 focus:border-white hover:bg-primary-700',
+		filled:
+			'text-white bg-primary border-primary hover:border-primary-700 focus:border-white hover:bg-primary-700 focus:bg-primary-700'
 	},
 	error: {
-		normal: 'style.error',
-		filled: 'style.errorFilled'
+		normal: '',
+		filled: ''
 	}
 };
 
@@ -23,11 +25,11 @@ const IconButton = ({
 	return (
 		<button
 			{...props}
-			className={`h-8 w-8 outline-none rounded-full border-none flex justify-center items-center ${kindClassName} ${
+			className={`h-8 w-8 outline-none rounded-full flex justify-center items-center border-2 transition ${kindClassName} ${
 				className || ''
 			}`}
 		>
-			<Icon className='h-5 w-5 border-none outline-none text-primary-300' />
+			<Icon className='h-5 w-5 border-none outline-none' />
 		</button>
 	);
 };

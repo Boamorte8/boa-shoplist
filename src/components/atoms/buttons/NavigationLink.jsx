@@ -6,7 +6,7 @@ import ArrowDownIcon from '../icons/ArrowDownIcon';
 const NavigationLink = ({ code, to, onClick }) => {
 	const { t } = useTranslation();
 	const defaultClasses =
-		'flex items-center justify-between font-extralight focus:text-primary hover:text-primary hover:scale-110 focus:scale-110 outline-none';
+		'flex items-center justify-between font-extralight focus:text-primary hover:text-primary hover:scale-110 focus:scale-110 hover:px-4 focus:px-4 outline-none transition-transform';
 	return to ? (
 		<NavLink
 			className={({ isActive }) =>
