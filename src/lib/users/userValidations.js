@@ -16,3 +16,7 @@ export const validatePassword = password => {
 export const validateConfirmationPassword = (confirmation, password) => {
 	if (confirmation !== password) return 'auth.errors.confirmPassword';
 };
+
+export const validatRequired = field => {
+	if (!field) return 'errors.required';
+};

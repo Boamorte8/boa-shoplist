@@ -1,4 +1,5 @@
 {
+	"description": "Descripción",
 	"email": "Correo",
 	"footer": "Hecho por Esteban Salazar. Algunas ilustraciones por",
 	"here": "aquí",
@@ -10,6 +11,10 @@
 	"menu": "Menú",
 	"password": "Contraseña",
 	"register": "Registrar",
+	"title": "Título",
+	"addList": {
+		"title": "Añadir nueva lista"
+	},
 	"auth": {
 		"checkEmail": "Revisa tu correo por el mensaje de confirmación",
 		"confirmPassword": "Confirmar contraseña",
@@ -39,7 +44,12 @@
 		}
 	},
 	"errors": {
+		"required": "Campo requerido",
 		"server": "Error conectando con el servidor"
+	},
+	"forms": {
+		"addDescription": "Añadir descripción",
+		"addTitle": "Añadir título"
 	},
 	"langs": {
 		"english": "Inglés",

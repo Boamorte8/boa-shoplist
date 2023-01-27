@@ -41,7 +41,10 @@ const Modal = ({ isOpen, setIsOpen, title, children }) => {
 							className='absolute -top-3 -right-3'
 							onClick={onClose}
 						/>
-						<Dialog.Title as='h3' className='text-lg font-medium leading-6'>
+						<Dialog.Title
+							as='h3'
+							className='text-lg font-medium leading-6 mb-2'
+						>
 							{title}
 						</Dialog.Title>
 						{children}

@@ -1,10 +1,10 @@
 const BaseInput = ({ label, error, className, placeholder, ...props }) => (
-	<label className={`block ${className || ''}`}>
-		<span className='text-sm font-bold text-white pl-2'>{label}</span>
+	<label className={`block text-white ${className || ''}`}>
+		<span className='text-sm font-bold pl-2'>{label}</span>
 		<input
 			type='text'
 			{...props}
-			className={`h-10 w-full py-2 px-4 mt-2 mx-0 mb-0 shadow-sm shadow-primary-700 border-2 rounded-lg outline-none focus:shadow-md enabled:focus:border-primary placeholder:text-gray-300 ${
+			className={`h-10 w-full py-2 px-4 mt-2 mx-0 mb-0 shadow-sm shadow-primary-700 border-2 rounded-lg outline-none bg-background focus:shadow-md enabled:focus:border-primary placeholder:text-gray-300 ${
 				error ? 'border-error-700' : 'border-transparent'
 			}`}
 			placeholder={placeholder}

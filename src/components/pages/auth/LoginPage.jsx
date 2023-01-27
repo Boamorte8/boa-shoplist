@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 import { alertBox } from '../../../lib/events/alertEvents';
 import {
@@ -13,14 +13,12 @@ import BaseCard from '../../atoms/BaseCard';
 import Button from '../../atoms/buttons/Button';
 import ButtonLink from '../../atoms/buttons/ButtonLink';
 import BaseInput from '../../atoms/forms/BaseInput';
-import Spinner from '../../atoms/Spinner';
 
 const LoginPage = () => {
 	const { t } = useTranslation();
 	const [searchParams] = useSearchParams();
 	const location = useLocation();
 	const { login } = useAuth();
-	const navigate = useNavigate();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { email, password, isFormInvalid, dispatchLoginForm } = useLoginForm();
 	const emailText = t('email');
@@ -44,15 +42,7 @@ const LoginPage = () => {
 				<form
 					className='w-full flex flex-col gap-2 items-center p-4'
 					onSubmit={ev =>
-						handleSubmit(
-							ev,
-							email,
-							password,
-							setIsSubmitting,
-							login,
-							t,
-							navigate
-						)
+						handleSubmit(ev, email, password, setIsSubmitting, login, t)
 					}
 				>
 					<h1 className='dark:text-white font-bold text-xl mb-4'>
@@ -92,13 +82,10 @@ const LoginPage = () => {
 					<Button
 						className='mt-6 mb-2'
 						disabled={isFormInvalid || isSubmitting}
+						loading={isSubmitting}
 						type='submit'
 					>
-						{isSubmitting ? (
-							<Spinner className='h-5 w-5 text-white' />
-						) : (
-							loginText
-						)}
+						{loginText}
 					</Button>
 
 					<ButtonLink to='/register'>{t('auth.goRegister')}</ButtonLink>
@@ -108,15 +95,7 @@ const LoginPage = () => {
 	);
 };
 
-const handleSubmit = async (
-	ev,
-	email,
-	password,
-	setIsSubmitting,
-	login,
-	t,
-	navigate
-) => {
+const handleSubmit = async (ev, email, password, setIsSubmitting, login, t) => {
 	ev.preventDefault();
 
 	setIsSubmitting(true);
@@ -130,7 +109,6 @@ const handleSubmit = async (
 
 	if (!error) {
 		alertBox.success(t('auth.loginSuccess'));
-		// navigate('/list');
 	} else {
 		alertBox.error(t('auth.errors.login'));
 	}
