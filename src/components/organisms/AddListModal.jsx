@@ -93,18 +93,18 @@ const handleSubmit = async (
 
 	setIsSubmitting(true);
 
-	// const user = {
-	// 	email: email.value,
-	// 	password: password.value
-	// };
+	const list = {
+		title: title.value,
+		description: description.value
+	};
 
-	// const { error } = await addList(user);
+	const { error } = await addList(list);
 
-	// if (!error) {
-	// 	alertBox.success(t('auth.loginSuccess'));
-	// } else {
-	// 	alertBox.error(t('auth.errors.login'));
-	// }
+	if (!error) {
+		alertBox.success(t('auth.loginSuccess'));
+	} else {
+		alertBox.error(t('auth.errors.login'));
+	}
 	setIsSubmitting(false);
 };
 
