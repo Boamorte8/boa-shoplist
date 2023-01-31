@@ -6,7 +6,8 @@ const UserLists = ({ lists, loading, error }) => {
 	const { t } = useTranslation();
 	if (loading) return <p className='text-white'>Loading lists...</p>;
 	if (error) return <p className='text-white'>Error loading user lists</p>;
-	if (!lists.length)
+	console.log(lists);
+	if (!lists || !lists.length)
 		return (
 			<EmptyMessage image='/empty-folder.svg'>
 				<p className='text-white font-light text-center'>

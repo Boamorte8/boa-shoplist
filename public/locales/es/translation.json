@@ -13,6 +13,8 @@
 	"register": "Registrar",
 	"title": "Título",
 	"addList": {
+		"error": "Error añadiendo la lista. Intenta de nuevo",
+		"success": "Nueva lista añadida correctamente",
 		"title": "Añadir nueva lista"
 	},
 	"auth": {

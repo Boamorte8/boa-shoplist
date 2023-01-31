@@ -54,4 +54,4 @@ async function logout() {
 	}
 }
 
-export { getToken, login, register, logout, localStorageKey };
+export { getToken, login, register, logout };

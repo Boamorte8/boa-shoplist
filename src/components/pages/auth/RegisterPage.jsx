@@ -13,7 +13,7 @@ import {
 	passwordChangedRegisterForm
 } from '../../../lib/actions/registerFormActions';
 import Spinner from '../../atoms/Spinner';
-import { useAuth } from '../../../lib/providers/auth-provider';
+import { useAuth } from '../../../lib/providers/AuthProvider';
 import { useRegisterForm } from '../../../lib/hooks/useRegisterForm';
 
 const RegisterPage = () => {

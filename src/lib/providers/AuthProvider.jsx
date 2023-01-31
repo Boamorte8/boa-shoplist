@@ -2,7 +2,7 @@ import { createContext, useContext, useMemo, useState } from 'react';
 
 import { alertBox } from '../events/alertEvents';
 import i18next from '../utils/i18n';
-import * as auth from '../api/auth-api';
+import * as auth from '../api/authApi';
 
 const AuthContext = createContext();
 AuthContext.displayName = 'AuthContext';

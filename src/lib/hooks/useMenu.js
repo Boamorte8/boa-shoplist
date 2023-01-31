@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { useAuth } from '../providers/auth-provider';
+import { useAuth } from '../providers/AuthProvider';
 
 const authOptions = [{ code: 'lists', url: '/list' }];
 

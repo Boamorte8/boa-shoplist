@@ -10,7 +10,7 @@ import NotFoundPage from './components/pages/NotFoundPage';
 import ProtectedRoute from './components/atoms/ProtectedRoute';
 import PublicRoute from './components/atoms/PublicRoute';
 import RegisterPage from './components/pages/auth/RegisterPage';
-import { useAuth } from './lib/providers/auth-provider';
+import { useAuth } from './lib/providers/AuthProvider';
 
 const App = () => {
 	const { user } = useAuth();

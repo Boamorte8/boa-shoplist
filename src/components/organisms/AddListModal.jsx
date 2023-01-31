@@ -11,28 +11,38 @@ import {
 	titleChangedAddListForm
 } from '../../lib/actions/addListFormActions';
 import { useAddListForm } from '../../lib/hooks/useAddListForm';
+import { useList } from '../../lib/providers/ListProvider';
 
 const AddListModal = () => {
 	const { t } = useTranslation();
 	const addList = t('addList.title');
 	const [openModal, setOpenModal] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const { createList, getLists } = useList();
 	const { title, description, isFormInvalid, dispatchAddListForm } =
 		useAddListForm();
 
-	const onAdd = () => {
-		setOpenModal(true);
-		console.log('Add new list');
+	const onCreateListSuccess = () => {
+		getLists();
+		setOpenModal(false);
 	};
 
 	return (
 		<>
-			<FloatButton onClick={onAdd} />
+			<FloatButton onClick={() => setOpenModal(true)} />
 			<Modal isOpen={openModal} setIsOpen={setOpenModal} title={addList}>
 				<form
 					className='w-full flex flex-col gap-2 items-center py-2'
 					onSubmit={ev =>
-						handleSubmit(ev, title, description, setIsSubmitting, () => {}, t)
+						handleSubmit(
+							ev,
+							title,
+							description,
+							setIsSubmitting,
+							createList,
+							t,
+							onCreateListSuccess
+						)
 					}
 				>
 					<div className='w-full grid gap-4'>
@@ -86,8 +96,9 @@ const handleSubmit = async (
 	title,
 	description,
 	setIsSubmitting,
-	addList,
-	t
+	createList,
+	t,
+	closeModal
 ) => {
 	ev.preventDefault();
 
@@ -98,10 +109,11 @@ const handleSubmit = async (
 		description: description.value
 	};
 
-	const { error } = await addList(list);
+	const { error } = await createList(list);
 
 	if (!error) {
 		alertBox.success(t('auth.loginSuccess'));
+		closeModal();
 	} else {
 		alertBox.error(t('auth.errors.login'));
 	}

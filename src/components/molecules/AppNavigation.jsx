@@ -26,7 +26,7 @@ const AppNavigation = ({ open, closeMenu, menuOptions }) => {
 			code={code}
 			to={url}
 			onClick={() => {
-				onClick();
+				if (onClick) onClick();
 				closeSelector();
 			}}
 		/>

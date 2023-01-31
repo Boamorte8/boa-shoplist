@@ -7,18 +7,20 @@ import {
 	emailChangedLoginForm,
 	passwordChangedLoginForm
 } from '../../../lib/actions/loginFormActions';
+import { useAuth } from '../../../lib/providers/AuthProvider';
+import { useList } from '../../../lib/providers/ListProvider';
 import { useLoginForm } from '../../../lib/hooks/useLoginForm';
-import { useAuth } from '../../../lib/providers/auth-provider';
 import BaseCard from '../../atoms/BaseCard';
+import BaseInput from '../../atoms/forms/BaseInput';
 import Button from '../../atoms/buttons/Button';
 import ButtonLink from '../../atoms/buttons/ButtonLink';
-import BaseInput from '../../atoms/forms/BaseInput';
 
 const LoginPage = () => {
 	const { t } = useTranslation();
 	const [searchParams] = useSearchParams();
 	const location = useLocation();
 	const { login } = useAuth();
+	const { getLists } = useList();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { email, password, isFormInvalid, dispatchLoginForm } = useLoginForm();
 	const emailText = t('email');
@@ -42,7 +44,15 @@ const LoginPage = () => {
 				<form
 					className='w-full flex flex-col gap-2 items-center p-4'
 					onSubmit={ev =>
-						handleSubmit(ev, email, password, setIsSubmitting, login, t)
+						handleSubmit(
+							ev,
+							email,
+							password,
+							setIsSubmitting,
+							login,
+							t,
+							getLists
+						)
 					}
 				>
 					<h1 className='dark:text-white font-bold text-xl mb-4'>
@@ -95,7 +105,15 @@ const LoginPage = () => {
 	);
 };
 
-const handleSubmit = async (ev, email, password, setIsSubmitting, login, t) => {
+const handleSubmit = async (
+	ev,
+	email,
+	password,
+	setIsSubmitting,
+	login,
+	t,
+	getLists
+) => {
 	ev.preventDefault();
 
 	setIsSubmitting(true);
@@ -109,6 +127,7 @@ const handleSubmit = async (ev, email, password, setIsSubmitting, login, t) => {
 
 	if (!error) {
 		alertBox.success(t('auth.loginSuccess'));
+		getLists();
 	} else {
 		alertBox.error(t('auth.errors.login'));
 	}
