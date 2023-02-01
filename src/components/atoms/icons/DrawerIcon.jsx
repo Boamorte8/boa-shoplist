@@ -1,4 +1,4 @@
-const CheckIcon = props => (
+const DrawerIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -7,7 +7,7 @@ const CheckIcon = props => (
 		xmlns='http://www.w3.org/2000/svg'
 	>
 		<path
-			d='M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15'
+			d='M21 14H3M3 8h18M11 17h2M11 11h2M11 5h2M21 2.6v16.8a.6.6 0 01-.6.6H3.6a.6.6 0 01-.6-.6V2.6a.6.6 0 01.6-.6h16.8a.6.6 0 01.6.6zM17.5 20v2M6.5 20v2'
 			strokeWidth='2'
 			strokeLinecap='round'
 			strokeLinejoin='round'
@@ -15,4 +15,4 @@ const CheckIcon = props => (
 	</svg>
 );
 
-export default CheckIcon;
+export default DrawerIcon;

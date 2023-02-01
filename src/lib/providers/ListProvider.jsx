@@ -8,20 +8,24 @@ ListContext.displayName = 'ListContext';
 
 function ListProvider(props) {
 	const [lists, setLists] = useState(null);
+	const [loadingLists, setLoadingLists] = useState(false);
 	const { user } = useAuth();
 
-	const getLists = () =>
-		list.getLists().then(data => {
+	const getLists = () => {
+		setLoadingLists(true);
+		return list.getLists().then(data => {
 			if (data.data) setLists(data.data);
+			setLoadingLists(false);
 			return data;
 		});
+	};
 
 	const createList = newList => {
 		return list.createList({ ...newList, user_id: user.id });
 	};
 
 	const value = useMemo(
-		() => ({ lists, getLists, createList }),
+		() => ({ lists, loadingLists, getLists, createList }),
 		[lists, getLists, createList]
 	);
 

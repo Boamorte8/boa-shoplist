@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
-import EmptyMessage from './EmptyMessage';
+import EmptyMessage from '../molecules/EmptyMessage';
+import ListCard from '../molecules/lists/ListCard';
 
 const UserLists = ({ lists, loading, error }) => {
 	const { t } = useTranslation();
 	if (loading) return <p className='text-white'>Loading lists...</p>;
 	if (error) return <p className='text-white'>Error loading user lists</p>;
-	console.log(lists);
 	if (!lists || !lists.length)
 		return (
 			<EmptyMessage image='/empty-folder.svg'>
@@ -16,7 +16,13 @@ const UserLists = ({ lists, loading, error }) => {
 			</EmptyMessage>
 		);
 
-	return <div className='flex flex-col'>Lists</div>;
+	return (
+		<main className='flex flex-col gap-5 min-h-full'>
+			{lists.map(list => (
+				<ListCard key={list.id} list={list} />
+			))}
+		</main>
+	);
 };
 
 export default UserLists;

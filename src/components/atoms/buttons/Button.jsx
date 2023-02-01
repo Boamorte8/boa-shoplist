@@ -2,7 +2,7 @@ import Spinner from '../Spinner';
 
 const KIND_CLASSNAME = {
 	primary:
-		'bg-primary text-white enabled:hover:bg-primary-700 enabled:hover:border-primary-700 enabled:focus:bg-primary-700 enabled:focus:border-primary-700',
+		'bg-primary text-white enabled:hover:bg-primary-700 enabled:hover:border-primary-700 enabled:focus:bg-primary-700 enabled:focus:border-primary-300',
 	secondary:
 		'bg-background text-primary enabled:hover:text-primary-700 enabled:hover:bg-background-700 enabled:hover:border-primary-700 enabled:focus:bg-background-700 enabled:focus:border-primary-700'
 };

@@ -22,6 +22,13 @@ export const addListFormReducer = (state, { type, payload }) => {
 			const error = validatRequired(payload);
 			return { ...state, description: { value: payload, error } };
 		}
+		case ADD_LIST_FORM_ACTIONS.RESET_FORM: {
+			return {
+				...state,
+				title: { value: '', error: undefined },
+				description: { value: '', error: undefined }
+			};
+		}
 		default:
 			throw new Error('Invalid action type');
 	}

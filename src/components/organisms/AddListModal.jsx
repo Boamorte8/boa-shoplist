@@ -8,6 +8,7 @@ import Modal from '../atoms/modal/Modal';
 import { alertBox } from '../../lib/events/alertEvents';
 import {
 	descriptionChangedAddListForm,
+	resetAddListForm,
 	titleChangedAddListForm
 } from '../../lib/actions/addListFormActions';
 import { useAddListForm } from '../../lib/hooks/useAddListForm';
@@ -24,13 +25,18 @@ const AddListModal = () => {
 
 	const onCreateListSuccess = () => {
 		getLists();
-		setOpenModal(false);
+		toggleModal(false);
+	};
+
+	const toggleModal = toggle => {
+		setOpenModal(toggle);
+		if (!toggle) dispatchAddListForm(resetAddListForm());
 	};
 
 	return (
 		<>
 			<FloatButton onClick={() => setOpenModal(true)} />
-			<Modal isOpen={openModal} setIsOpen={setOpenModal} title={addList}>
+			<Modal isOpen={openModal} setIsOpen={toggleModal} title={addList}>
 				<form
 					className='w-full flex flex-col gap-2 items-center py-2'
 					onSubmit={ev =>

@@ -9,3 +9,7 @@ export const descriptionChangedAddListForm = payload => ({
 	type: ADD_LIST_FORM_ACTIONS.DESCRIPTION_CHANGED,
 	payload
 });
+
+export const resetAddListForm = () => ({
+	type: ADD_LIST_FORM_ACTIONS.RESET_FORM
+});
