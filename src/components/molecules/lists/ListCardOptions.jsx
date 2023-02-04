@@ -8,13 +8,19 @@ import ListOption from '../../atoms/buttons/ListOption';
 import PencilIcon from '../../atoms/icons/PencilIcon';
 import TrashIcon from '../../atoms/icons/TrashIcon';
 
-const ListCardOptions = props => {
+const ListCardOptions = ({ onEdit, onDelete }) => {
 	const { t } = useTranslation();
 
-	const handleClick = event => {
+	const handleEdit = event => {
 		event.preventDefault();
-		console.log('List Option');
+		onEdit();
 	};
+
+	const handleDelete = event => {
+		event.preventDefault();
+		onDelete();
+	};
+
 	return (
 		<Menu as='div' className='relative inline-block text-left'>
 			<Menu.Button as={IconButton} icon={DotsIcon} />
@@ -32,10 +38,10 @@ const ListCardOptions = props => {
 					className='absolute right-0 w-32 origin-top-right z-50 rounded-md bg-background-700 shadow-sm shadow-primary-700 ring-1 ring-primary-300 ring-opacity-5 focus:outline-none'
 				>
 					<div className='px-1 py-1 '>
-						<ListOption label={t('edit')} onClick={handleClick}>
+						<ListOption label={t('edit')} onClick={handleEdit}>
 							<PencilIcon alt='Edit icon' className='h-6 w-6' />
 						</ListOption>
-						<ListOption label={t('delete')} onClick={handleClick}>
+						<ListOption label={t('delete')} onClick={handleDelete}>
 							<TrashIcon alt='Delete icon' className='h-6 w-6 text-error-700' />
 						</ListOption>
 					</div>

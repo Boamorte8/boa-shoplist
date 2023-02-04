@@ -8,6 +8,10 @@ import PageFlipIcon from '../../atoms/icons/PageFlipIcon';
 const ListCard = ({ list }) => {
 	const { t } = useTranslation();
 
+	const handleEdit = () => {};
+
+	const handleDelete = () => {};
+
 	return (
 		<BaseCard
 			classes='grid grid-cols-[1fr_2.5rem] gap-2 items-center w-full max-w-2xl mx-auto outline-none hover:bg-background-700 focus:bg-background-700 hover:cursor-pointer transition-transform'
@@ -23,7 +27,7 @@ const ListCard = ({ list }) => {
 				<p className='font-extralight text-sm text-white'>{list.description}</p>
 			</div>
 			<div className='flex justify-end items-center w-10'>
-				<ListCardOptions className='' />
+				<ListCardOptions onEdit={handleEdit} onDelete={handleDelete} />
 			</div>
 		</BaseCard>
 	);
