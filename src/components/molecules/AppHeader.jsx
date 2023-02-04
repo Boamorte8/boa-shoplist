@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
+import AppNavigation from './AppNavigation';
+import ConfirmLogoutModal from '../organisms/ConfirmLogoutModal';
 import HamburguerIcon from '../atoms/icons/HamburguerIcon';
+import HeaderLink from '../atoms/buttons/HeaderLink';
 import IconButton from '../atoms/buttons/IconButton';
 import LangSelector from './LangSelector';
 import { useMenu } from '../../lib/hooks/useMenu';
-import AppNavigation from './AppNavigation';
-import HeaderLink from '../atoms/buttons/HeaderLink';
 
 const AppHeader = () => {
 	const { t } = useTranslation();
@@ -35,6 +36,7 @@ const AppHeader = () => {
 				closeMenu={closeMenu}
 				menuOptions={menuOptions}
 			/>
+			<ConfirmLogoutModal />
 		</>
 	);
 };

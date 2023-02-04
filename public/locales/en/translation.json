@@ -1,5 +1,8 @@
 {
+	"cancel": "Cancel",
 	"description": "Description",
+	"delete": "Delete",
+	"edit": "Edit",
 	"email": "Email",
 	"footer": "Made by Esteban Salazar. Some illustrations ",
 	"here": "here",
@@ -60,5 +63,9 @@
 	"listsPage": {
 		"allLists": "All your lists",
 		"emptyLists": "There are not lists yet. You can start creating one"
+	},
+	"logoutModal": {
+		"description": "Are you sure you want to log out?",
+		"title": "Confirm logout"
 	}
 }

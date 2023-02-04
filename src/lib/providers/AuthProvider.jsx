@@ -9,6 +9,7 @@ AuthContext.displayName = 'AuthContext';
 
 function AuthProvider(props) {
 	const [user, setUser] = useState(null);
+	const [openConfirmLogout, setOpenConfirmLogout] = useState(false);
 
 	const login = form =>
 		auth.login(form).then(data => {
@@ -30,8 +31,15 @@ function AuthProvider(props) {
 	};
 
 	const value = useMemo(
-		() => ({ user, login, logout, register }),
-		[login, logout, register, user]
+		() => ({
+			user,
+			login,
+			logout,
+			register,
+			openConfirmLogout,
+			setOpenConfirmLogout
+		}),
+		[login, logout, register, user, openConfirmLogout, setOpenConfirmLogout]
 	);
 
 	return <AuthContext.Provider value={value} {...props} />;

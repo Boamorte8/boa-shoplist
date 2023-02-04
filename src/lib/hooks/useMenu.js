@@ -10,10 +10,18 @@ const unauthOptions = [
 ];
 
 export const useMenu = () => {
-	const { user, logout } = useAuth();
+	const { user, setOpenConfirmLogout } = useAuth();
 	const [open, setOpen] = useState(false);
 
-	const authActions = [{ code: 'logout', onClick: logout }];
+	const authActions = [
+		{
+			code: 'logout',
+			onClick: () => {
+				setOpenConfirmLogout(true);
+				console.log('logout');
+			}
+		}
+	];
 
 	const menuOptions = user ? [...authOptions, ...authActions] : unauthOptions;
 

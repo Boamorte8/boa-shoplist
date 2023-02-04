@@ -17,7 +17,7 @@ const UserLists = ({ lists, loading, error }) => {
 		);
 
 	return (
-		<main className='flex flex-col gap-5 min-h-full'>
+		<main className='flex flex-col gap-5 min-h-full lg:gap-7'>
 			{lists.map(list => (
 				<ListCard key={list.id} list={list} />
 			))}

@@ -1,5 +1,8 @@
 {
+	"cancel": "Cancelar",
 	"description": "Descripción",
+	"delete": "Eliminar",
+	"edit": "Editar",
 	"email": "Correo",
 	"footer": "Hecho por Esteban Salazar. Algunas ilustraciones por",
 	"here": "aquí",
@@ -60,5 +63,9 @@
 	"listsPage": {
 		"allLists": "Todas tus listas",
 		"emptyLists": "No hay lista aún. Puedes empezar creando una"
+	},
+	"logoutModal": {
+		"description": "Estás seguro que quieres cerrar sesión?",
+		"title": "Comfirmar cierre de sesión"
 	}
 }
