@@ -49,6 +49,7 @@
 		}
 	},
 	"errors": {
+		"notFoundPage": "Not Found Page. Try another",
 		"required": "Required field",
 		"server": "Error connecting with server"
 	},

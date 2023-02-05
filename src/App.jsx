@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import AlertBox from './components/atoms/alerts/AlertBox';
 import AppFooter from './components/molecules/AppFooter';
 import AppHeader from './components/molecules/AppHeader';
+import FirstRoute from './components/atoms/FirstRoute';
 import ListPage from './components/pages/ListPage';
 import ListsPage from './components/pages/ListsPage';
 import LoginPage from './components/pages/auth/LoginPage';
@@ -20,6 +21,7 @@ const App = () => {
 			<AppHeader />
 			<AlertBox />
 			<Routes>
+				<Route path='/' element={<FirstRoute isAuthenticated={isAuth} />} />
 				<Route
 					path='/login'
 					element={
