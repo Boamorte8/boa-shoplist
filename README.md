@@ -15,14 +15,9 @@
 </div> -->
 
 <div align="center">
-  <h1>React Template</h1>
+  <h1>Boa Shoplist</h1>
   <p>
-    Template for the projects developed in the React course of the LearnThis Academy elearning platform.
-    <br />
-    <br />
-    <a style='font-size:16px' href="https://learnthisacademy.com" target='_blank'><strong>Explore LearnThis</strong></a>
-    <br />
-    <br />
+    Boa Shoplist is an app to creating lists for things that you want or need to buy.
   </p>
 </div>
 
@@ -30,7 +25,7 @@
 
 ## About The Project
 
-The objective of the project is to provide a base project with the minimum necessary tools to develop a project based on React.JS.
+The main objective of the project is to provide a way to handling the things that you want or need to buy.
 
 <!-- BUILT WITH -->
 
@@ -47,13 +42,7 @@ A number of tools have been added to improve the development experience and prov
 
 ## Usage
 
-```
-👍 Click on USE THIS TEMPLATE button 👍
-```
-
-In this way you will create your project based on the following template
-
-After creating the repository and cloning it locally
+After cloning it locally
 
 ```bash
 npm i

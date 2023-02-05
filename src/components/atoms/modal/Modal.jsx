@@ -20,7 +20,7 @@ const Modal = ({ isOpen, setIsOpen, title, children }) => {
 			leaveTo='transform scale-95 opacity-0'
 			as={Fragment}
 		>
-			<Dialog className='fixed inset-0' onClose={onClose}>
+			<Dialog className='fixed inset-0 z-50' onClose={onClose}>
 				<Transition.Child
 					as={Fragment}
 					enter='ease-out duration-300'

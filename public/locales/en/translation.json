@@ -63,7 +63,11 @@
 	},
 	"listsPage": {
 		"allLists": "All your lists",
-		"emptyLists": "There are not lists yet. You can start creating one"
+		"emptyLists": "There are not lists yet. You can start creating one",
+		"deleteModal": {
+			"description": "Are you sure you want to delete list called {{list}}?",
+			"title": "Confirm delete list"
+		}
 	},
 	"logoutModal": {
 		"description": "Are you sure you want to log out?",
