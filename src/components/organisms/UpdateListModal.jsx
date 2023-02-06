@@ -6,20 +6,19 @@ import Button from '../atoms/buttons/Button';
 import Modal from '../atoms/modal/Modal';
 import { alertBox } from '../../lib/events/alertEvents';
 import {
-	descriptionChangedAddListForm,
-	resetAddListForm,
-	titleChangedAddListForm
-} from '../../lib/actions/addListFormActions';
-import { useAddListForm } from '../../lib/hooks/useAddListForm';
+	descriptionChangedUpdateListForm,
+	resetUpdateListForm,
+	titleChangedUpdateListForm
+} from '../../lib/actions/updateListFormActions';
 import { useList } from '../../lib/providers/ListProvider';
+import { useUpdateListForm } from '../../lib/hooks/useUpdateListForm';
 
 const UpdateListModal = ({ open, setToggleModal, list }) => {
 	const { t } = useTranslation();
-	const addList = t('addList.title');
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { updateList, getLists } = useList();
-	const { title, description, isFormInvalid, dispatchAddListForm } =
-		useAddListForm();
+	const { title, description, isFormInvalid, dispatchUpdateListForm } =
+		useUpdateListForm(list);
 
 	const onUpdateListSuccess = () => {
 		getLists();
@@ -28,11 +27,15 @@ const UpdateListModal = ({ open, setToggleModal, list }) => {
 
 	const toggleModal = toggle => {
 		setToggleModal(toggle);
-		if (!toggle) dispatchAddListForm(resetAddListForm());
+		if (!toggle) dispatchUpdateListForm(resetUpdateListForm(list));
 	};
 
 	return (
-		<Modal isOpen={open} setIsOpen={toggleModal} title={addList}>
+		<Modal
+			isOpen={open}
+			setIsOpen={toggleModal}
+			title={t('listsPage.updateModal.title')}
+		>
 			<form
 				className='w-full flex flex-col gap-2 items-center py-2'
 				onSubmit={ev =>
@@ -59,7 +62,9 @@ const UpdateListModal = ({ open, setToggleModal, list }) => {
 						error={title.error && t(title.error)}
 						value={title.value}
 						onChange={ev =>
-							dispatchAddListForm(titleChangedAddListForm(ev.target.value))
+							dispatchUpdateListForm(
+								titleChangedUpdateListForm(ev.target.value)
+							)
 						}
 					/>
 
@@ -73,21 +78,30 @@ const UpdateListModal = ({ open, setToggleModal, list }) => {
 						error={description.error && t(description.error)}
 						value={description.value}
 						onChange={ev =>
-							dispatchAddListForm(
-								descriptionChangedAddListForm(ev.target.value)
+							dispatchUpdateListForm(
+								descriptionChangedUpdateListForm(ev.target.value)
 							)
 						}
 					/>
 				</div>
 
-				<Button
-					className='mt-6 mb-2'
-					disabled={isFormInvalid || isSubmitting}
-					loading={isSubmitting}
-					type='submit'
-				>
-					{t('update')}
-				</Button>
+				<div className='flex justify-around w-full'>
+					<Button
+						kind='secondary'
+						className='mt-6 mb-2'
+						onClick={() => toggleModal(false)}
+					>
+						{t('cancel')}
+					</Button>
+					<Button
+						className='mt-6 mb-2'
+						disabled={isFormInvalid || isSubmitting}
+						loading={isSubmitting}
+						type='submit'
+					>
+						{t('update')}
+					</Button>
+				</div>
 			</form>
 		</Modal>
 	);
@@ -101,7 +115,7 @@ const handleSubmit = async (
 	setIsSubmitting,
 	updateList,
 	t,
-	closeModal
+	onSuccess
 ) => {
 	ev.preventDefault();
 
@@ -115,10 +129,10 @@ const handleSubmit = async (
 	const { error } = await updateList(id, list);
 
 	if (!error) {
-		alertBox.success(t('auth.loginSuccess'));
-		closeModal();
+		alertBox.success(t('listsPage.updateModal.success'));
+		onSuccess();
 	} else {
-		alertBox.error(t('auth.errors.login'));
+		alertBox.error(t('listsPage.updateModal.error'));
 	}
 	setIsSubmitting(false);
 };

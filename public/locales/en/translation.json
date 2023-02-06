@@ -70,6 +70,11 @@
 			"error": "Error deleting list. Try again",
 			"success": "Deleted list successfully",
 			"title": "Confirm delete list"
+		},
+		"updateModal": {
+			"error": "Error updating list. Try again",
+			"success": "Updated list successfully",
+			"title": "Update list"
 		}
 	},
 	"logoutModal": {

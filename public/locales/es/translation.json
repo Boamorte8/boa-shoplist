@@ -70,6 +70,11 @@
 			"error": "Error borrando la lista. Intenta de nuevo",
 			"success": "Lista borrada exitosamente",
 			"title": "Confirmar borrar list"
+		},
+		"updateModal": {
+			"error": "Error actualizando la lista. Intenta de nuevo",
+			"success": "Lista borrada exitosamente",
+			"title": "Actualizar lista"
 		}
 	},
 	"logoutModal": {

@@ -65,7 +65,7 @@ const handleDelete = async (
 	setIsSubmitting,
 	deleteList,
 	t,
-	closeModal
+	onSuccess
 ) => {
 	ev.preventDefault();
 
@@ -75,7 +75,7 @@ const handleDelete = async (
 
 	if (!error) {
 		alertBox.success(t('listsPage.deleteModal.success'));
-		closeModal();
+		onSuccess();
 	} else {
 		alertBox.error(t('listsPage.deleteModal.error'));
 	}
