@@ -24,13 +24,24 @@ function ListProvider(props) {
 		return list.createList({ ...newList, user_id: user.id });
 	};
 
+	const updateList = (listId, newData) => {
+		return list.updateList(listId, newData);
+	};
+
 	const deleteList = listId => {
 		return list.deleteList(listId);
 	};
 
 	const value = useMemo(
-		() => ({ lists, loadingLists, getLists, createList, deleteList }),
-		[lists, loadingLists, getLists, createList, deleteList]
+		() => ({
+			lists,
+			loadingLists,
+			getLists,
+			createList,
+			updateList,
+			deleteList
+		}),
+		[lists, loadingLists, getLists, createList, updateList, deleteList]
 	);
 
 	return <ListContext.Provider value={value} {...props} />;

@@ -15,6 +15,7 @@
 	"password": "Password",
 	"register": "Register",
 	"title": "Title",
+	"update": "Update",
 	"addList": {
 		"error": "Error adding new list. Please try again",
 		"success": "New list added successfully",

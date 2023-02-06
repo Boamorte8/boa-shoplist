@@ -15,6 +15,7 @@
 	"password": "Contraseña",
 	"register": "Registrar",
 	"title": "Título",
+	"update": "Actualizar",
 	"addList": {
 		"error": "Error añadiendo la lista. Intenta de nuevo",
 		"success": "Nueva lista añadida correctamente",

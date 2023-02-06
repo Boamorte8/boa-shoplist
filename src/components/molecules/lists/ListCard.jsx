@@ -5,11 +5,15 @@ import BaseCard from '../../atoms/BaseCard';
 import ConfirmDeleteListModal from '../../organisms/ConfirmDeleteListModal';
 import ListCardOptions from './ListCardOptions';
 import PageFlipIcon from '../../atoms/icons/PageFlipIcon';
+import UpdateListModal from '../../organisms/UpdateListModal';
 
 const ListCard = ({ list }) => {
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
+	const [openUpdateModal, setOpenUpdateModal] = useState(false);
 
-	const handleEdit = () => {};
+	const handleEdit = () => {
+		setOpenUpdateModal(true);
+	};
 
 	const handleConfirmDelete = () => {
 		setOpenDeleteModal(true);
@@ -39,6 +43,11 @@ const ListCard = ({ list }) => {
 			<ConfirmDeleteListModal
 				open={openDeleteModal}
 				setToggleModal={setOpenDeleteModal}
+				list={list}
+			/>
+			<UpdateListModal
+				open={openUpdateModal}
+				setToggleModal={setOpenUpdateModal}
 				list={list}
 			/>
 		</>
