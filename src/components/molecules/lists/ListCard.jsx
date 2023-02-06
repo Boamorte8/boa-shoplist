@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import BaseCard from '../../atoms/BaseCard';
 import ConfirmDeleteListModal from '../../organisms/ConfirmDeleteListModal';
@@ -8,17 +7,12 @@ import ListCardOptions from './ListCardOptions';
 import PageFlipIcon from '../../atoms/icons/PageFlipIcon';
 
 const ListCard = ({ list }) => {
-	const { t } = useTranslation();
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
 	const handleEdit = () => {};
 
 	const handleConfirmDelete = () => {
 		setOpenDeleteModal(true);
-	};
-
-	const handleDelete = () => {
-		console.log('Confirm delete', list.title);
 	};
 
 	return (
@@ -45,8 +39,7 @@ const ListCard = ({ list }) => {
 			<ConfirmDeleteListModal
 				open={openDeleteModal}
 				setToggleModal={setOpenDeleteModal}
-				onConfirm={handleDelete}
-				title={list.title}
+				list={list}
 			/>
 		</>
 	);

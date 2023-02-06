@@ -66,6 +66,8 @@
 		"emptyLists": "No hay lista aún. Puedes empezar creando una",
 		"deleteModal": {
 			"description": "Estás seguro que quieres borrar la lista llamada {{list}}?",
+			"error": "Error borrando la lista. Intenta de nuevo",
+			"success": "Lista borrada exitosamente",
 			"title": "Confirmar borrar list"
 		}
 	},

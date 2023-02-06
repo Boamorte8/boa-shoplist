@@ -66,6 +66,8 @@
 		"emptyLists": "There are not lists yet. You can start creating one",
 		"deleteModal": {
 			"description": "Are you sure you want to delete list called {{list}}?",
+			"error": "Error deleting list. Try again",
+			"success": "Deleted list successfully",
 			"title": "Confirm delete list"
 		}
 	},

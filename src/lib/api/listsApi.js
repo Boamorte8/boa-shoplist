@@ -20,4 +20,20 @@ async function createList(newList) {
 	}
 }
 
-export { getLists, createList };
+async function updateList(listId, newData) {
+	try {
+		return supabase.from('lists').update(newData).eq('id', listId);
+	} catch (error) {
+		alertBox.error(i18next.t('errors.server'));
+	}
+}
+
+async function deleteList(listId) {
+	try {
+		return supabase.from('lists').delete().eq('id', listId);
+	} catch (error) {
+		alertBox.error(i18next.t('errors.server'));
+	}
+}
+
+export { getLists, createList, updateList, deleteList };
