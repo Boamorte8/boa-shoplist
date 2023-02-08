@@ -15,7 +15,7 @@ const STYLES = {
 	[ALERT_KINDS.ERROR]: 'bg-red-600'
 };
 
-const AlertBox = () => {
+export const AlertBox = () => {
 	const [menuClass, setMenuClass] = useState('animate-slide-in-right');
 	const alert = useAlert({ setMenuClass });
 	if (!alert) return null;
@@ -61,5 +61,3 @@ const useAlert = ({ setMenuClass }) => {
 
 	return alert;
 };
-
-export default AlertBox;

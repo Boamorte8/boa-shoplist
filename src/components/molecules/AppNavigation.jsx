@@ -2,12 +2,12 @@ import { createPortal } from 'react-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import AppFooter from './AppFooter';
+import { AppFooter } from './AppFooter';
 import CrossIcon from '../atoms/icons/CrossIcon';
 import IconButton from '../atoms/buttons/IconButton';
-import NavigationLink from '../atoms/buttons/NavigationLink';
+import { NavigationLink } from '../atoms/buttons/NavigationLink';
 
-const AppNavigation = ({ open, closeMenu, menuOptions }) => {
+export const AppNavigation = ({ open, closeMenu, menuOptions }) => {
 	if (!open) return null;
 
 	const { t } = useTranslation();
@@ -54,5 +54,3 @@ const AppNavigation = ({ open, closeMenu, menuOptions }) => {
 		document.getElementById('navpanel')
 	);
 };
-
-export default AppNavigation;

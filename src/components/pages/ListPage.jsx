@@ -5,7 +5,7 @@ import ArrowRightComplete from '../atoms/icons/ArrowRightComplete';
 import IconButton from '../atoms/buttons/IconButton';
 import UserList from '../organisms/UserList';
 
-const ListPage = () => {
+export const ListPage = () => {
 	const { listId } = useParams();
 	const { t } = useTranslation();
 	const navigate = useNavigate();
@@ -34,5 +34,3 @@ const ListPage = () => {
 		</section>
 	);
 };
-
-export default ListPage;

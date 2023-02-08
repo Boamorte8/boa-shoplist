@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import CopyrightIcon from '../atoms/icons/CopyrightIcon';
 
-const AppFooter = () => {
+export const AppFooter = () => {
 	const { t } = useTranslation();
 	return (
 		<footer className='flex items-center gap-2 min-h-fit w-full px-5 lg:px-24 py-4 bg-background-700 text-white'>
@@ -18,5 +18,3 @@ const AppFooter = () => {
 		</footer>
 	);
 };
-
-export default AppFooter;

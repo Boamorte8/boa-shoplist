@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import PackagesIcon from '../atoms/icons/PackagesIcon';
 import UserList from '../organisms/UserList';
 
-const ProductsPage = () => {
+export const ProductsPage = () => {
 	const { listId } = useParams();
 	const { t } = useTranslation();
 	// const { lists, loadingLists } = useList();
@@ -26,5 +26,3 @@ const ProductsPage = () => {
 		</section>
 	);
 };
-
-export default ProductsPage;

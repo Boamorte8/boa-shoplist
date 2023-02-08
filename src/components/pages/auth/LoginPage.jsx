@@ -15,7 +15,7 @@ import BaseInput from '../../atoms/forms/BaseInput';
 import Button from '../../atoms/buttons/Button';
 import ButtonLink from '../../atoms/buttons/ButtonLink';
 
-const LoginPage = () => {
+export const LoginPage = () => {
 	const { t } = useTranslation();
 	const [searchParams] = useSearchParams();
 	const location = useLocation();
@@ -133,5 +133,3 @@ const handleSubmit = async (
 	}
 	setIsSubmitting(false);
 };
-
-export default LoginPage;

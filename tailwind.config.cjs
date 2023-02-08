@@ -64,8 +64,8 @@ module.exports = {
 			animation: {
 				'fade-in': 'fade-in .4s ease-in both',
 				'fade-out': 'fade-out .4s ease-out both',
-				'slide-in-left': 'slide-in-left .75s ease-in both',
-				'slide-out-left': 'slide-out-left .75s ease-out both',
+				'slide-in-left': 'slide-in-left .6s ease-in both',
+				'slide-out-left': 'slide-out-left .6s ease-out both',
 				'slide-in-right': 'slide-in-right .85s ease-in both',
 				'slide-out-right': 'slide-out-right .85s ease-out both',
 				'rotate-center': 'rotate-center 1s ease-in-out infinite both'

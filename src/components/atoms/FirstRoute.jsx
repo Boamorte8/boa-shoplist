@@ -1,10 +1,11 @@
 import { Navigate } from 'react-router-dom';
 
-const FirstRoute = ({ isAuthenticated, children }) => {
-	if (isAuthenticated) {
-		return <Navigate to='/list' />;
-	}
-	return <Navigate to='/login' />;
-};
+import { useAuth } from '../../lib/providers/AuthProvider';
 
-export default FirstRoute;
+export const FirstRoute = () => {
+	const { user } = useAuth();
+	if (user) {
+		return <Navigate to='list' />;
+	}
+	return <Navigate to='login' />;
+};

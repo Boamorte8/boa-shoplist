@@ -1,12 +1,15 @@
 import { createRoot } from 'react-dom/client';
+import { StrictMode } from 'react';
 
-import App from './App';
 import { AppProviders } from './lib/providers';
+import { RouterRoot } from './RouterRoot';
 import './styles/index.css';
 import './lib/utils/i18n';
 
 createRoot(document.getElementById('root')).render(
-	<AppProviders>
-		<App />
-	</AppProviders>
+	<StrictMode>
+		<AppProviders>
+			<RouterRoot />
+		</AppProviders>
+	</StrictMode>
 );

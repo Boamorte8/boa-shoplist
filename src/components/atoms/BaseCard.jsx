@@ -1,4 +1,4 @@
-const BaseCard = ({ classes, component: Component, ...props }) => {
+export const BaseCard = ({ classes, component: Component, ...props }) => {
 	if (Component)
 		return (
 			<Component

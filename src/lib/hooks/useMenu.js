@@ -19,6 +19,7 @@ export const useMenu = () => {
 	const authActions = [
 		{
 			code: 'logout',
+			url: '',
 			onClick: () => setOpenConfirmLogout(true)
 		}
 	];

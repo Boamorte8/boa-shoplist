@@ -11,7 +11,7 @@ function ListProvider(props) {
 	const [loadingLists, setLoadingLists] = useState(false);
 	const { user } = useAuth();
 
-	const getLists = () => {
+	const getLists = async () => {
 		setLoadingLists(true);
 		return list.getLists().then(data => {
 			if (data.data) setLists(data.data);

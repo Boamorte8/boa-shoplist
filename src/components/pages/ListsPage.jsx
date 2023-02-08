@@ -5,7 +5,7 @@ import DrawerIcon from '../atoms/icons/DrawerIcon';
 import UserLists from '../organisms/UserLists';
 import { useList } from '../../lib/providers/ListProvider';
 
-const ListsPage = () => {
+export const ListsPage = () => {
 	const { t } = useTranslation();
 	const { lists, loadingLists } = useList();
 
@@ -23,5 +23,3 @@ const ListsPage = () => {
 		</section>
 	);
 };
-
-export default ListsPage;
