@@ -2,7 +2,10 @@ import { useState } from 'react';
 
 import { useAuth } from '../providers/AuthProvider';
 
-const authOptions = [{ code: 'lists', url: '/list' }];
+const authOptions = [
+	{ code: 'lists', url: '/list' },
+	{ code: 'products', url: '/products' }
+];
 
 const unauthOptions = [
 	{ code: 'login', url: '/login' },

@@ -8,13 +8,16 @@ import ListPage from './components/pages/ListPage';
 import ListsPage from './components/pages/ListsPage';
 import LoginPage from './components/pages/auth/LoginPage';
 import NotFoundPage from './components/pages/NotFoundPage';
+import ProductsPage from './components/pages/ProductsPage';
 import ProtectedRoute from './components/atoms/ProtectedRoute';
 import PublicRoute from './components/atoms/PublicRoute';
 import RegisterPage from './components/pages/auth/RegisterPage';
 import { useAuth } from './lib/providers/AuthProvider';
+import { useList } from './lib/providers/ListProvider';
 
 const App = () => {
 	const { user } = useAuth();
+	const { getLists } = useList();
 	const isAuth = !!user;
 	return (
 		<>
@@ -46,6 +49,10 @@ const App = () => {
 							<ListsPage />
 						</ProtectedRoute>
 					}
+					loader={() => {
+						console.log('loader');
+						return getLists();
+					}}
 				/>
 				<Route
 					exact
@@ -53,6 +60,15 @@ const App = () => {
 					element={
 						<ProtectedRoute isAuthenticated={isAuth}>
 							<ListPage />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					exact
+					path='/products'
+					element={
+						<ProtectedRoute isAuthenticated={isAuth}>
+							<ProductsPage />
 						</ProtectedRoute>
 					}
 				/>
