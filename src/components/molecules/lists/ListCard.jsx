@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-import BaseCard from '../../atoms/BaseCard';
-import ConfirmDeleteListModal from '../../organisms/ConfirmDeleteListModal';
-import ListCardOptions from './ListCardOptions';
-import PageFlipIcon from '../../atoms/icons/PageFlipIcon';
-import UpdateListModal from '../../organisms/UpdateListModal';
+import { BaseCard } from '../../atoms/BaseCard';
+import { PageFlipIcon } from '../../atoms/icons/PageFlipIcon';
+import { ConfirmDeleteListModal } from '../../organisms/ConfirmDeleteListModal';
+import { ListCardOptions } from './ListCardOptions';
+import { UpdateListModal } from '../../organisms/UpdateListModal';
 
-const ListCard = ({ list }) => {
+export const ListCard = ({ list }) => {
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
 	const [openUpdateModal, setOpenUpdateModal] = useState(false);
 
@@ -53,5 +53,3 @@ const ListCard = ({ list }) => {
 		</>
 	);
 };
-
-export default ListCard;

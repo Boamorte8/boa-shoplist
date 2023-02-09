@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Menu } from '@headlessui/react';
 
-const ListOption = ({ label, children, onClick, ...props }) => {
+export const ListOption = ({ label, children, onClick, ...props }) => {
 	return (
 		<Menu.Item as={Fragment}>
 			{({ active, close }) => (
@@ -22,5 +22,3 @@ const ListOption = ({ label, children, onClick, ...props }) => {
 		</Menu.Item>
 	);
 };
-
-export default ListOption;

@@ -2,9 +2,9 @@ import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu, Transition } from '@headlessui/react';
 
-import ArrowDownIcon from '../atoms/icons/ArrowDownIcon';
+import { ArrowDownIcon } from '../atoms/icons/ArrowDownIcon';
 
-const LangSelector = props => {
+export const LangSelector = () => {
 	const { t, i18n } = useTranslation();
 	const langs = {
 		en: 'english',
@@ -72,5 +72,3 @@ const LangSelector = props => {
 		</Menu>
 	);
 };
-
-export default LangSelector;

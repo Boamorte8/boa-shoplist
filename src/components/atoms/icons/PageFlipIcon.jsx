@@ -1,4 +1,4 @@
-const PageFlipIcon = props => (
+export const PageFlipIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -20,5 +20,3 @@ const PageFlipIcon = props => (
 		/>
 	</svg>
 );
-
-export default PageFlipIcon;

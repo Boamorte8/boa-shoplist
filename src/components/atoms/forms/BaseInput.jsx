@@ -1,4 +1,10 @@
-const BaseInput = ({ label, error, className, placeholder, ...props }) => (
+export const BaseInput = ({
+	label,
+	error,
+	className,
+	placeholder,
+	...props
+}) => (
 	<label className={`block text-white ${className || ''}`}>
 		<span className='text-sm font-bold pl-2'>{label}</span>
 		<input
@@ -14,5 +20,3 @@ const BaseInput = ({ label, error, className, placeholder, ...props }) => (
 		)}
 	</label>
 );
-
-export default BaseInput;

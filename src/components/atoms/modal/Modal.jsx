@@ -1,8 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 
-import CrossIcon from '../icons/CrossIcon';
-import IconButton from '../buttons/IconButton';
+import { CrossIcon } from '../icons/CrossIcon';
+import { IconButton } from '../buttons/IconButton';
 
 const Modal = ({ isOpen, setIsOpen, title, children }) => {
 	const onClose = () => {

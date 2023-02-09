@@ -1,4 +1,4 @@
-const TrashIcon = props => (
+export const TrashIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -14,5 +14,3 @@ const TrashIcon = props => (
 		/>
 	</svg>
 );
-
-export default TrashIcon;

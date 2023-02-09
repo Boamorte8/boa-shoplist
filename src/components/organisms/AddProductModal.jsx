@@ -14,7 +14,7 @@ import {
 import { useAddListForm } from '../../lib/hooks/useAddListForm';
 import { useList } from '../../lib/providers/ListProvider';
 
-export const AddListModal = () => {
+export const AddProductModal = () => {
 	const { t } = useTranslation();
 	const addList = t('addList.title');
 	const [openModal, setOpenModal] = useState(false);

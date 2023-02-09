@@ -1,4 +1,4 @@
-const Spinner = ({ className, ...props }) => (
+export const Spinner = ({ className, ...props }) => (
 	<div className='p-4'>
 		<svg
 			{...props}
@@ -16,5 +16,3 @@ const Spinner = ({ className, ...props }) => (
 		</svg>
 	</div>
 );
-
-export default Spinner;

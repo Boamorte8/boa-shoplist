@@ -3,6 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
 import { alertBox } from '../../../lib/events/alertEvents';
+import { BaseCard } from '../../atoms/BaseCard';
+import { BaseInput } from '../../atoms/forms/BaseInput';
+import Button from '../../atoms/buttons/Button';
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 import {
 	emailChangedLoginForm,
 	passwordChangedLoginForm
@@ -10,10 +14,6 @@ import {
 import { useAuth } from '../../../lib/providers/AuthProvider';
 import { useList } from '../../../lib/providers/ListProvider';
 import { useLoginForm } from '../../../lib/hooks/useLoginForm';
-import BaseCard from '../../atoms/BaseCard';
-import BaseInput from '../../atoms/forms/BaseInput';
-import Button from '../../atoms/buttons/Button';
-import ButtonLink from '../../atoms/buttons/ButtonLink';
 
 export const LoginPage = () => {
 	const { t } = useTranslation();

@@ -6,7 +6,7 @@ import { useList } from '../../lib/providers/ListProvider';
 import Button from '../atoms/buttons/Button';
 import Modal from '../atoms/modal/Modal';
 
-const ConfirmDeleteListModal = ({ open, setToggleModal, list }) => {
+export const ConfirmDeleteListModal = ({ open, setToggleModal, list }) => {
 	const { t } = useTranslation();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { deleteList, getLists } = useList();
@@ -81,5 +81,3 @@ const handleDelete = async (
 	}
 	setIsSubmitting(false);
 };
-
-export default ConfirmDeleteListModal;

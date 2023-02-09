@@ -1,4 +1,4 @@
-const ArrowRightComplete = props => (
+export const ArrowRightComplete = props => (
 	<svg
 		{...props}
 		xmlns='http://www.w3.org/2000/svg'
@@ -14,5 +14,3 @@ const ArrowRightComplete = props => (
 		/>
 	</svg>
 );
-
-export default ArrowRightComplete;

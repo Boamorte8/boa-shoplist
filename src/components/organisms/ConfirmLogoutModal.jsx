@@ -4,7 +4,7 @@ import Button from '../atoms/buttons/Button';
 import Modal from '../atoms/modal/Modal';
 import { useAuth } from '../../lib/providers/AuthProvider';
 
-const ConfirmLogoutModal = () => {
+export const ConfirmLogoutModal = () => {
 	const { t } = useTranslation();
 	const { logout, openConfirmLogout, setOpenConfirmLogout } = useAuth();
 
@@ -41,5 +41,3 @@ const ConfirmLogoutModal = () => {
 		</Modal>
 	);
 };
-
-export default ConfirmLogoutModal;

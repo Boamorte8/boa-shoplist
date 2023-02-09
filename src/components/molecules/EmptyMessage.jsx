@@ -1,4 +1,4 @@
-const EmptyMessage = ({ children, image }) => {
+export const EmptyMessage = ({ children, image }) => {
 	return (
 		<div className='flex flex-col items-center gap-4 px-2 py-6'>
 			<div>{children}</div>
@@ -6,5 +6,3 @@ const EmptyMessage = ({ children, image }) => {
 		</div>
 	);
 };
-
-export default EmptyMessage;

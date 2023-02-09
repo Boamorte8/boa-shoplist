@@ -1,4 +1,4 @@
-const CrossIcon = props => (
+export const CrossIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -14,5 +14,3 @@ const CrossIcon = props => (
 		/>
 	</svg>
 );
-
-export default CrossIcon;

@@ -1,4 +1,4 @@
-const PencilIcon = props => (
+export const PencilIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -14,5 +14,3 @@ const PencilIcon = props => (
 		/>
 	</svg>
 );
-
-export default PencilIcon;

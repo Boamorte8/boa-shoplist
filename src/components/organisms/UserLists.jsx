@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import EmptyMessage from '../molecules/EmptyMessage';
-import ListCard from '../molecules/lists/ListCard';
+import { EmptyMessage } from '../molecules/EmptyMessage';
+import { ListCard } from '../molecules/lists/ListCard';
 
-const UserLists = ({ lists, loading, error }) => {
+export const UserLists = ({ lists, loading, error }) => {
 	const { t } = useTranslation();
 	if (loading) return <p className='text-white'>Loading lists...</p>;
 	if (error) return <p className='text-white'>Error loading user lists</p>;
@@ -24,5 +24,3 @@ const UserLists = ({ lists, loading, error }) => {
 		</main>
 	);
 };
-
-export default UserLists;

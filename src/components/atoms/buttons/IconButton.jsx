@@ -13,7 +13,7 @@ const CLASSNAMES = {
 	}
 };
 
-const IconButton = forwardRef(
+export const IconButton = forwardRef(
 	({ kind = 'normal', filled, icon: Icon, className, ...props }, ref) => {
 		const classNames = CLASSNAMES[kind];
 		const classNameKey = filled ? 'filled' : 'normal';
@@ -33,5 +33,3 @@ const IconButton = forwardRef(
 	}
 );
 IconButton.displayName = 'IconButton';
-
-export default IconButton;

@@ -1,16 +1,18 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import ArrowRightComplete from '../atoms/icons/ArrowRightComplete';
-import IconButton from '../atoms/buttons/IconButton';
-import UserList from '../organisms/UserList';
+import { AddProductModal } from '../organisms/AddProductModal';
+import { ArrowRightComplete } from '../atoms/icons/ArrowRightComplete';
+import { IconButton } from '../atoms/buttons/IconButton';
+import { UserList } from '../organisms/UserList';
+import { useList } from '../../lib/providers/ListProvider';
 
 export const ListPage = () => {
 	const { listId } = useParams();
 	const { t } = useTranslation();
 	const navigate = useNavigate();
-	// const { lists, loadingLists } = useList();
-	const list = null;
+	const { getList } = useList();
+	const list = getList(listId);
 	const loading = false;
 
 	const handleBack = () => {
@@ -25,12 +27,13 @@ export const ListPage = () => {
 					icon={ArrowRightComplete}
 					onClick={handleBack}
 				/>
-				<h1 className='font-medium text-xl text-primary-300'>List</h1>
+				<h1 className='font-medium text-xl text-primary-300'>
+					{t('listPage.products', { name: list.title })}
+				</h1>
 			</div>
 
-			<p>{listId}</p>
 			<UserList lists={list} loading={loading} />
-			{/* <AddListModal /> */}
+			<AddProductModal />
 		</section>
 	);
 };

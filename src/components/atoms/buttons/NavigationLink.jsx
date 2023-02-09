@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
-import ArrowDownIcon from '../icons/ArrowDownIcon';
+import { ArrowDownIcon } from '../icons/ArrowDownIcon';
 
 export const NavigationLink = ({ code, to, onClick }) => {
 	const { t } = useTranslation();

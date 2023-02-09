@@ -13,5 +13,3 @@ export const BaseCard = ({ classes, component: Component, ...props }) => {
 		/>
 	);
 };
-
-export default BaseCard;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import BaseInput from '../atoms/forms/BaseInput';
+import { BaseInput } from '../atoms/forms/BaseInput';
 import Button from '../atoms/buttons/Button';
 import Modal from '../atoms/modal/Modal';
 import { alertBox } from '../../lib/events/alertEvents';
@@ -13,7 +13,7 @@ import {
 import { useList } from '../../lib/providers/ListProvider';
 import { useUpdateListForm } from '../../lib/hooks/useUpdateListForm';
 
-const UpdateListModal = ({ open, setToggleModal, list }) => {
+export const UpdateListModal = ({ open, setToggleModal, list }) => {
 	const { t } = useTranslation();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { updateList, getLists } = useList();
@@ -136,5 +136,3 @@ const handleSubmit = async (
 	}
 	setIsSubmitting(false);
 };
-
-export default UpdateListModal;

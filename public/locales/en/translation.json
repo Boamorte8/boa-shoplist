@@ -63,6 +63,21 @@
 		"english": "English",
 		"spanish": "Spanish"
 	},
+	"listPage": {
+		"products": "List: '{{name}}'",
+		"emptyList": "There are not products added to this list yet. You can start adding one",
+		"deleteModal": {
+			"description": "Are you sure you want to delete list called {{list}}?",
+			"error": "Error deleting list. Try again",
+			"success": "Deleted list successfully",
+			"title": "Confirm delete list"
+		},
+		"updateModal": {
+			"error": "Error updating list. Try again",
+			"success": "Updated list successfully",
+			"title": "Update list"
+		}
+	},
 	"listsPage": {
 		"allLists": "All your lists",
 		"emptyLists": "There are not lists yet. You can start creating one",

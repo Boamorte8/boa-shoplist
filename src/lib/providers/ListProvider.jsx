@@ -20,6 +20,10 @@ function ListProvider(props) {
 		});
 	};
 
+	const getList = id => {
+		return lists.find(list => list.id === id);
+	};
+
 	const createList = newList => {
 		return list.createList({ ...newList, user_id: user.id });
 	};
@@ -37,11 +41,12 @@ function ListProvider(props) {
 			lists,
 			loadingLists,
 			getLists,
+			getList,
 			createList,
 			updateList,
 			deleteList
 		}),
-		[lists, loadingLists, getLists, createList, updateList, deleteList]
+		[lists, loadingLists, getLists, getList, createList, updateList, deleteList]
 	);
 
 	return <ListContext.Provider value={value} {...props} />;

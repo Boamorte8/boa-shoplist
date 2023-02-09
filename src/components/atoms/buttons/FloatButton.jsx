@@ -1,4 +1,4 @@
-import CrossIcon from '../icons/CrossIcon';
+import { CrossIcon } from '../icons/CrossIcon';
 
 const FloatButton = props => {
 	return (

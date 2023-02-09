@@ -1,4 +1,4 @@
-const ArrowDownIcon = props => (
+export const ArrowDownIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -14,5 +14,3 @@ const ArrowDownIcon = props => (
 		/>
 	</svg>
 );
-
-export default ArrowDownIcon;

@@ -3,16 +3,16 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { alertBox } from '../../../lib/events/alertEvents';
-import BaseCard from '../../atoms/BaseCard';
-import BaseInput from '../../atoms/forms/BaseInput';
+import { BaseCard } from '../../atoms/BaseCard';
+import { BaseInput } from '../../atoms/forms/BaseInput';
 import Button from '../../atoms/buttons/Button';
-import ButtonLink from '../../atoms/buttons/ButtonLink';
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 import {
 	confirmPasswordChangedRegisterForm,
 	emailChangedRegisterForm,
 	passwordChangedRegisterForm
 } from '../../../lib/actions/registerFormActions';
-import Spinner from '../../atoms/Spinner';
+import { Spinner } from '../../atoms/Spinner';
 import { useAuth } from '../../../lib/providers/AuthProvider';
 import { useRegisterForm } from '../../../lib/hooks/useRegisterForm';
 

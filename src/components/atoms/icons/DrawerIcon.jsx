@@ -1,4 +1,4 @@
-const DrawerIcon = props => (
+export const DrawerIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -14,5 +14,3 @@ const DrawerIcon = props => (
 		/>
 	</svg>
 );
-
-export default DrawerIcon;

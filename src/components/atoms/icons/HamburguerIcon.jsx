@@ -1,4 +1,4 @@
-const HamburguerIcon = props => (
+export const HamburguerIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -14,5 +14,3 @@ const HamburguerIcon = props => (
 		/>
 	</svg>
 );
-
-export default HamburguerIcon;

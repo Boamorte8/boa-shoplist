@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import PackagesIcon from '../atoms/icons/PackagesIcon';
-import UserList from '../organisms/UserList';
+import { PackagesIcon } from '../atoms/icons/PackagesIcon';
+import { UserList } from '../organisms/UserList';
 
 export const ProductsPage = () => {
 	const { listId } = useParams();

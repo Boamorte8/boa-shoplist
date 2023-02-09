@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { AppFooter } from './AppFooter';
-import CrossIcon from '../atoms/icons/CrossIcon';
-import IconButton from '../atoms/buttons/IconButton';
+import { CrossIcon } from '../atoms/icons/CrossIcon';
+import { IconButton } from '../atoms/buttons/IconButton';
 import { NavigationLink } from '../atoms/buttons/NavigationLink';
 
 export const AppNavigation = ({ open, closeMenu, menuOptions }) => {

@@ -1,4 +1,4 @@
-const PackagesIcon = props => (
+export const PackagesIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -30,5 +30,3 @@ const PackagesIcon = props => (
 		</svg> */}
 	</svg>
 );
-
-export default PackagesIcon;

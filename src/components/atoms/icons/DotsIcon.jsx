@@ -1,4 +1,4 @@
-const DotsIcon = props => (
+export const DotsIcon = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -14,5 +14,3 @@ const DotsIcon = props => (
 		/>
 	</svg>
 );
-
-export default DotsIcon;
