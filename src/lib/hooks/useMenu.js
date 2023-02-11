@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useAuth } from '../providers/AuthProvider';
 
 const authOptions = [
-	{ code: 'lists', url: '/list' },
-	{ code: 'products', url: '/products' }
+	{ code: 'lists_two', url: '/list' },
+	{ code: 'products_two', url: '/products' }
 ];
 
 const unauthOptions = [

@@ -1,4 +1,4 @@
-const CopyrightIcon = props => (
+export const CopyrightIcon = props => (
 	<svg
 		{...props}
 		id='Ico_copyright'
@@ -32,5 +32,3 @@ const CopyrightIcon = props => (
 		/>
 	</svg>
 );
-
-export default CopyrightIcon;

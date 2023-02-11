@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { alertBox } from '../../../lib/events/alertEvents';
 import { BaseCard } from '../../atoms/BaseCard';
 import { BaseInput } from '../../atoms/forms/BaseInput';
-import Button from '../../atoms/buttons/Button';
+import { Button } from '../../atoms/buttons/Button';
 import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 import {
 	confirmPasswordChangedRegisterForm,

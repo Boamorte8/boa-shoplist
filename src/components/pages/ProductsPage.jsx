@@ -16,7 +16,7 @@ export const ProductsPage = () => {
 			<div className='flex items-center gap-3 text-primary-300 mx-2 mt-4 mb-5'>
 				<PackagesIcon className='h-6' />
 				<h1 className='font-medium text-xl text-primary-300'>
-					{t('products')}
+					{t('products_two')}
 				</h1>
 			</div>
 

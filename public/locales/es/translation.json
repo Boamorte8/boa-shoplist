@@ -6,14 +6,16 @@
 	"email": "Correo",
 	"footer": "Hecho por Esteban Salazar. Algunas ilustraciones por",
 	"here": "aquí",
-	"lists": "Listas",
+	"lists_one": "Lista",
+	"lists_two": "Listas",
 	"login": "Autenticar",
 	"logo": "BS",
 	"logout": "Cerrar sesión",
 	"logoComplete": "Boa Shoplist",
 	"menu": "Menú",
 	"password": "Contraseña",
-	"products": "Productos",
+	"products_one": "Producto",
+	"products_two": "Productos",
 	"register": "Registrar",
 	"title": "Título",
 	"update": "Actualizar",
@@ -21,6 +23,11 @@
 		"error": "Error añadiendo la lista. Intenta de nuevo",
 		"success": "Nueva lista añadida correctamente",
 		"title": "Añadir nueva lista"
+	},
+	"addProductList": {
+		"error": "Error añadiendo la lista. Intenta de nuevo",
+		"success": "Nueva lista añadida correctamente",
+		"title": "Añadir producto"
 	},
 	"auth": {
 		"checkEmail": "Revisa tu correo por el mensaje de confirmación",

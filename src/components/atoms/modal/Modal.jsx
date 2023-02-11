@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 import { CrossIcon } from '../icons/CrossIcon';
 import { IconButton } from '../buttons/IconButton';
 
-const Modal = ({ isOpen, setIsOpen, title, children }) => {
+export const Modal = ({ isOpen, setIsOpen, title, children }) => {
 	const onClose = () => {
 		setIsOpen(false);
 	};
@@ -54,5 +54,3 @@ const Modal = ({ isOpen, setIsOpen, title, children }) => {
 		</Transition>
 	);
 };
-
-export default Modal;

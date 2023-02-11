@@ -1,6 +1,6 @@
 import { CrossIcon } from '../icons/CrossIcon';
 
-const FloatButton = props => {
+export const FloatButton = props => {
 	return (
 		<button
 			{...props}
@@ -10,5 +10,3 @@ const FloatButton = props => {
 		</button>
 	);
 };
-
-export default FloatButton;

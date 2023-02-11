@@ -1,22 +1,23 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { BaseInput } from '../atoms/forms/BaseInput';
-import Button from '../atoms/buttons/Button';
-import FloatButton from '../atoms/buttons/FloatButton';
-import Modal from '../atoms/modal/Modal';
 import { alertBox } from '../../lib/events/alertEvents';
+import { BaseInput } from '../atoms/forms/BaseInput';
+import { Button } from '../atoms/buttons/Button';
 import {
 	descriptionChangedAddListForm,
 	resetAddListForm,
 	titleChangedAddListForm
 } from '../../lib/actions/addListFormActions';
+import { FloatButton } from '../atoms/buttons/FloatButton';
+import { Modal } from '../atoms/modal/Modal';
 import { useAddListForm } from '../../lib/hooks/useAddListForm';
 import { useList } from '../../lib/providers/ListProvider';
+import { ButtonLink } from '../atoms/buttons/ButtonLink';
 
 export const AddProductModal = () => {
 	const { t } = useTranslation();
-	const addList = t('addList.title');
+	const addProduct = t('addProductList.title');
 	const [openModal, setOpenModal] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { createList, getLists } = useList();
@@ -36,7 +37,7 @@ export const AddProductModal = () => {
 	return (
 		<>
 			<FloatButton onClick={() => setOpenModal(true)} />
-			<Modal isOpen={openModal} setIsOpen={toggleModal} title={addList}>
+			<Modal isOpen={openModal} setIsOpen={toggleModal} title={addProduct}>
 				<form
 					className='w-full flex flex-col gap-2 items-center py-2'
 					onSubmit={ev =>
@@ -53,11 +54,11 @@ export const AddProductModal = () => {
 				>
 					<div className='w-full grid gap-4'>
 						<BaseInput
-							id='title'
-							type='title'
-							name='title'
+							id='product'
+							type='product'
+							name='product'
 							className='max-w-sm'
-							label={t('title')}
+							label={t('products_one')}
 							placeholder={t('forms.addTitle')}
 							error={title.error && t(title.error)}
 							value={title.value}
@@ -65,6 +66,7 @@ export const AddProductModal = () => {
 								dispatchAddListForm(titleChangedAddListForm(ev.target.value))
 							}
 						/>
+						<ButtonLink className='mb-2'>Create new product</ButtonLink>
 
 						<BaseInput
 							id='description'
@@ -89,7 +91,7 @@ export const AddProductModal = () => {
 						loading={isSubmitting}
 						type='submit'
 					>
-						{addList}
+						{addProduct}
 					</Button>
 				</form>
 			</Modal>

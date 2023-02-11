@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 
 import { ALERT_KINDS } from '../../../lib/constants/alertKinds';
 import { alertBox } from '../../../lib/events/alertEvents';
-import CheckCircle from '../icons/CheckCircleIcon';
-import CrossCircle from '../icons/CrossCircleIcon';
+import { CheckCircle } from '../icons/CheckCircleIcon';
+import { CrossCircle } from '../icons/CrossCircleIcon';
 
 const ICONS = {
 	[ALERT_KINDS.SUCCESS]: CheckCircle,

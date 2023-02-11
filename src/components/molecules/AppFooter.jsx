@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import CopyrightIcon from '../atoms/icons/CopyrightIcon';
+import { CopyrightIcon } from '../atoms/icons/CopyrightIcon';
 
 export const AppFooter = () => {
 	const { t } = useTranslation();

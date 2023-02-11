@@ -1,4 +1,4 @@
-const CheckCircle = props => (
+export const CheckCircle = props => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -14,5 +14,3 @@ const CheckCircle = props => (
 		/>
 	</svg>
 );
-
-export default CheckCircle;

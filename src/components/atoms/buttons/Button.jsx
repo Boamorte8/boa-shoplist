@@ -7,7 +7,7 @@ const KIND_CLASSNAME = {
 		'bg-background text-primary enabled:hover:text-primary-700 enabled:hover:bg-background-700 enabled:hover:border-primary-700 enabled:focus:bg-background-700 enabled:focus:border-primary-700 enabled:focus:text-primary-700'
 };
 
-const Button = ({
+export const Button = ({
 	kind = 'primary',
 	className,
 	loading,
@@ -25,5 +25,3 @@ const Button = ({
 		</button>
 	);
 };
-
-export default Button;

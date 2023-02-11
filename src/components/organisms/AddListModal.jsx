@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { BaseInput } from '../atoms/forms/BaseInput';
-import Button from '../atoms/buttons/Button';
-import FloatButton from '../atoms/buttons/FloatButton';
-import Modal from '../atoms/modal/Modal';
 import { alertBox } from '../../lib/events/alertEvents';
+import { BaseInput } from '../atoms/forms/BaseInput';
+import { Button } from '../atoms/buttons/Button';
 import {
 	descriptionChangedAddListForm,
 	resetAddListForm,
 	titleChangedAddListForm
 } from '../../lib/actions/addListFormActions';
+import { FloatButton } from '../atoms/buttons/FloatButton';
+import { Modal } from '../atoms/modal/Modal';
 import { useAddListForm } from '../../lib/hooks/useAddListForm';
 import { useList } from '../../lib/providers/ListProvider';
 
