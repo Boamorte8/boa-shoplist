@@ -1,9 +1,12 @@
 {
+	"addEntity": "Add {{entity}}",
 	"cancel": "Cancel",
+	"createNew": "Create new {{item}}",
 	"description": "Description",
 	"delete": "Delete",
 	"edit": "Edit",
 	"email": "Email",
+	"emptySelect": "There are not items",
 	"footer": "Made by Esteban Salazar. Some illustrations ",
 	"here": "here",
 	"lists_one": "List",
@@ -17,6 +20,7 @@
 	"products_one": "Product",
 	"products_two": "Products",
 	"register": "Register",
+	"quantity_one": "Quantity",
 	"title": "Title",
 	"update": "Update",
 	"addList": {

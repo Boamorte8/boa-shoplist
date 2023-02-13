@@ -14,15 +14,19 @@ import { Modal } from '../atoms/modal/Modal';
 import { useAddListForm } from '../../lib/hooks/useAddListForm';
 import { useList } from '../../lib/providers/ListProvider';
 import { ButtonLink } from '../atoms/buttons/ButtonLink';
+import { BaseSelect } from '../atoms/forms/BaseSelect';
 
 export const AddProductModal = () => {
 	const { t } = useTranslation();
 	const addProduct = t('addProductList.title');
+	const productText = t('products_one');
 	const [openModal, setOpenModal] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { createList, getLists } = useList();
 	const { title, description, isFormInvalid, dispatchAddListForm } =
 		useAddListForm();
+
+	const products = [];
 
 	const onCreateListSuccess = () => {
 		getLists();
@@ -53,27 +57,29 @@ export const AddProductModal = () => {
 					}
 				>
 					<div className='w-full grid gap-4'>
-						<BaseInput
+						<BaseSelect
 							id='product'
 							type='product'
 							name='product'
 							className='max-w-sm'
-							label={t('products_one')}
-							placeholder={t('forms.addTitle')}
+							label={productText}
+							placeholder={t('addEntity', { entity: productText })}
 							error={title.error && t(title.error)}
 							value={title.value}
 							onChange={ev =>
 								dispatchAddListForm(titleChangedAddListForm(ev.target.value))
 							}
 						/>
-						<ButtonLink className='mb-2'>Create new product</ButtonLink>
+						<ButtonLink to='/products' className='mb-2'>
+							{t('createNew', { item: productText })}
+						</ButtonLink>
 
 						<BaseInput
-							id='description'
-							type='description'
-							name='description'
+							id='quantity'
+							type='quantity'
+							name='quantity'
 							className='max-w-sm'
-							label={t('description')}
+							label={t('quantity_one')}
 							placeholder={t('forms.addDescription')}
 							error={description.error && t(description.error)}
 							value={description.value}
