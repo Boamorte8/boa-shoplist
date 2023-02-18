@@ -14,9 +14,9 @@
 		"postinstall": "npm run prepare"
 	},
 	"dependencies": {
-		"@headlessui/react": "1.7.10",
-		"@supabase/supabase-js": "2.7.1",
-		"i18next": "22.4.9",
+		"@headlessui/react": "1.7.11",
+		"@supabase/supabase-js": "2.8.0",
+		"i18next": "22.4.10",
 		"i18next-browser-languagedetector": "7.0.1",
 		"i18next-http-backend": "2.1.1",
 		"react": "^18.2.0",
@@ -25,11 +25,11 @@
 		"react-router-dom": "6.8.1"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "17.4.2",
-		"@commitlint/config-conventional": "17.4.2",
-		"@commitlint/prompt-cli": "17.4.2",
+		"@commitlint/cli": "17.4.3",
+		"@commitlint/config-conventional": "17.4.3",
+		"@commitlint/prompt-cli": "17.4.3",
 		"@types/react": "18.0.28",
-		"@types/react-dom": "18.0.10",
+		"@types/react-dom": "18.0.11",
 		"@vitejs/plugin-react": "3.1.0",
 		"autoprefixer": "10.4.13",
 		"eslint": "8.34.0",
@@ -40,11 +40,11 @@
 		"eslint-plugin-promise": "6.1.1",
 		"eslint-plugin-react": "7.32.2",
 		"husky": "8.0.3",
-		"lint-staged": "13.1.1",
+		"lint-staged": "13.1.2",
 		"postcss": "8.4.21",
 		"prettier": "2.8.4",
-		"tailwindcss": "3.2.6",
-		"vite": "4.1.1"
+		"tailwindcss": "3.2.7",
+		"vite": "4.1.2"
 	},
 	"lint-staged": {
 		"*.js": "eslint --fix",

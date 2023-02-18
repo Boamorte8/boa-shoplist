@@ -1,14 +1,15 @@
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { CreateProductModal } from '../organisms/CreateProductModal';
 import { PackagesIcon } from '../atoms/icons/PackagesIcon';
-import { UserList } from '../organisms/UserList';
+import { UserProducts } from '../organisms/UserProducts';
 
 export const ProductsPage = () => {
 	const { listId } = useParams();
 	const { t } = useTranslation();
 	// const { lists, loadingLists } = useList();
-	const list = null;
+	const products = null;
 	const loading = false;
 
 	return (
@@ -21,8 +22,8 @@ export const ProductsPage = () => {
 			</div>
 
 			<p>{listId}</p>
-			<UserList lists={list} loading={loading} />
-			{/* <AddListModal /> */}
+			<UserProducts products={products} loading={loading} />
+			<CreateProductModal />
 		</section>
 	);
 };

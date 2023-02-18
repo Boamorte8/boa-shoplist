@@ -1,10 +1,13 @@
 import { AuthProvider } from './AuthProvider';
 import { ListProvider } from './ListProvider';
+import { ProductProvider } from './ProductProvider';
 
 function AppProviders({ children }) {
 	return (
 		<AuthProvider>
-			<ListProvider>{children}</ListProvider>
+			<ListProvider>
+				<ProductProvider>{children}</ProductProvider>
+			</ListProvider>
 		</AuthProvider>
 	);
 }

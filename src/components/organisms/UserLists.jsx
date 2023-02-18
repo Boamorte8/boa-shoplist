@@ -1,12 +1,30 @@
 import { useTranslation } from 'react-i18next';
 
-import { EmptyMessage } from '../molecules/EmptyMessage';
+import { EmptyMessage } from '../atoms/EmptyMessage';
+import { ErrorMessage } from '../atoms/ErrorMessage';
+import { LoadingMessage } from '../atoms/LoadingMessage';
 import { ListCard } from '../molecules/lists/ListCard';
 
 export const UserLists = ({ lists, loading, error }) => {
 	const { t } = useTranslation();
-	if (loading) return <p className='text-white'>Loading lists...</p>;
-	if (error) return <p className='text-white'>Error loading user lists</p>;
+	if (loading)
+		return (
+			<LoadingMessage>
+				<p className='text-white font-light text-center'>
+					{t('listsPage.loading')}
+				</p>
+			</LoadingMessage>
+		);
+
+	if (error)
+		return (
+			<ErrorMessage>
+				<p className='text-error font-light text-center'>
+					{t('listsPage.error')}
+				</p>
+			</ErrorMessage>
+		);
+
 	if (!lists || !lists.length)
 		return (
 			<EmptyMessage image='/empty-folder.svg'>

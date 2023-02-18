@@ -47,7 +47,8 @@ export const BaseSelect = ({
 						<Listbox.Options className='absolute mt-1 min-h-[2.25rem] max-h-60 w-full overflow-auto rounded-md bg-background-700 py-1 text-base shadow-sm shadow-primary-700 ring-1 ring-primary-300 ring-opacity-5 outline-none'>
 							{!items || !items.length ? (
 								<span className='py-2 px-4'>
-									{emptyMessage || t('emptySelect')}
+									{emptyMessage ||
+										t('emptyEntities', { entities: t('items').toLowerCase() })}
 								</span>
 							) : (
 								items.map((item, itemIdx) => (

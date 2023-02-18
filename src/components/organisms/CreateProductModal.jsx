@@ -3,9 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { alertBox } from '../../lib/events/alertEvents';
 import { BaseInput } from '../atoms/forms/BaseInput';
-import { BaseSelect } from '../atoms/forms/BaseSelect';
 import { Button } from '../atoms/buttons/Button';
-import { ButtonLink } from '../atoms/buttons/ButtonLink';
 import {
 	descriptionChangedAddListForm,
 	resetAddListForm,
@@ -16,17 +14,18 @@ import { Modal } from '../atoms/modal/Modal';
 import { useAddListForm } from '../../lib/hooks/useAddListForm';
 import { useProduct } from '../../lib/providers/ProductProvider';
 
-export const AddProductModal = () => {
+export const CreateProductModal = () => {
 	const { t } = useTranslation();
-	const addProduct = t('addProductList.title');
+	const addProduct = t('createNew', { item: t('products_one').toLowerCase() });
 	const productText = t('products_one');
 	const [openModal, setOpenModal] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const { products, createProduct, getProducts } = useProduct();
+	const { createProduct, getProducts } = useProduct();
 	const { title, description, isFormInvalid, dispatchAddListForm } =
 		useAddListForm();
 
 	const onCreateListSuccess = () => {
+		getProducts();
 		toggleModal(false);
 	};
 
@@ -35,14 +34,9 @@ export const AddProductModal = () => {
 		if (!toggle) dispatchAddListForm(resetAddListForm());
 	};
 
-	const onOpenModal = () => {
-		getProducts();
-		setOpenModal(true);
-	};
-
 	return (
 		<>
-			<FloatButton onClick={onOpenModal} />
+			<FloatButton onClick={() => setOpenModal(true)} />
 			<Modal isOpen={openModal} setIsOpen={toggleModal} title={addProduct}>
 				<form
 					className='w-full flex flex-col gap-2 items-center py-2'
@@ -59,7 +53,7 @@ export const AddProductModal = () => {
 					}
 				>
 					<div className='w-full grid gap-4'>
-						<BaseSelect
+						<BaseInput
 							id='product'
 							type='product'
 							name='product'
@@ -68,19 +62,12 @@ export const AddProductModal = () => {
 							placeholder={t('addEntity', {
 								entity: productText.toLowerCase()
 							})}
-							emptyMessage={t('emptyEntities', {
-								entities: t('products_two').toLowerCase()
-							})}
-							items={products}
 							error={title.error && t(title.error)}
 							value={title.value}
 							onChange={ev =>
 								dispatchAddListForm(titleChangedAddListForm(ev.target.value))
 							}
 						/>
-						<ButtonLink to='/products' className='mb-2'>
-							{t('createNew', { item: productText.toLowerCase() })}
-						</ButtonLink>
 
 						<BaseInput
 							id='quantity'

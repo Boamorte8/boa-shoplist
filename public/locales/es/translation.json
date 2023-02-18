@@ -6,9 +6,10 @@
 	"delete": "Eliminar",
 	"edit": "Editar",
 	"email": "Correo",
-	"emptySelect": "No hay opciones",
+	"emptyEntities": "No hay {{entities}}",
 	"footer": "Hecho por Esteban Salazar. Algunas ilustraciones por",
 	"here": "aquí",
+	"items_two": "Items",
 	"lists_one": "Lista",
 	"lists_two": "Listas",
 	"login": "Autenticar",
@@ -31,7 +32,7 @@
 	"addProductList": {
 		"error": "Error añadiendo la lista. Intenta de nuevo",
 		"success": "Nueva lista añadida correctamente",
-		"title": "Añadir producto"
+		"title": "Añadir producto a lal lista"
 	},
 	"auth": {
 		"checkEmail": "Revisa tu correo por el mensaje de confirmación",
@@ -76,7 +77,9 @@
 	},
 	"listPage": {
 		"products": "Lista: '{{name}}'",
-		"emptyList": "No hay productos añadidos aún. Puedes empezar añadiendo uno",
+		"emptyList": "No hay productos añadidos a la lista aún. Puedes empezar añadiendo uno",
+		"error": "Error cargando tu lista",
+		"loading": "Cargando tu lista...",
 		"deleteModal": {
 			"description": "Estás seguro que quieres borrar la lista llamada {{list}}?",
 			"error": "Error borrando la lista. Intenta de nuevo",
@@ -92,6 +95,25 @@
 	"listsPage": {
 		"allLists": "Todas tus listas",
 		"emptyLists": "No hay listas aún. Puedes empezar creando una",
+		"error": "Error cargando tus listas",
+		"loading": "Cargando tus listas...",
+		"deleteModal": {
+			"description": "Estás seguro que quieres borrar la lista llamada {{list}}?",
+			"error": "Error borrando la lista. Intenta de nuevo",
+			"success": "Lista borrada exitosamente",
+			"title": "Confirmar borrar list"
+		},
+		"updateModal": {
+			"error": "Error actualizando la lista. Intenta de nuevo",
+			"success": "Lista borrada exitosamente",
+			"title": "Actualizar lista"
+		}
+	},
+	"productsPage": {
+		"products": "Lista: '{{name}}'",
+		"emptyList": "No hay productos creados aún. Puedes empezar creando uno",
+		"error": "Error cargando tus productos",
+		"loading": "Cargando tus productos...",
 		"deleteModal": {
 			"description": "Estás seguro que quieres borrar la lista llamada {{list}}?",
 			"error": "Error borrando la lista. Intenta de nuevo",

@@ -4,13 +4,13 @@ import { EmptyMessage } from '../atoms/EmptyMessage';
 import { ErrorMessage } from '../atoms/ErrorMessage';
 import { LoadingMessage } from '../atoms/LoadingMessage';
 
-export const UserList = ({ list, loading, error }) => {
+export const UserProducts = ({ products, loading, error }) => {
 	const { t } = useTranslation();
 	if (loading)
 		return (
 			<LoadingMessage>
 				<p className='text-white font-light text-center'>
-					{t('listPage.loading')}
+					{t('productsPage.loading')}
 				</p>
 			</LoadingMessage>
 		);
@@ -19,16 +19,16 @@ export const UserList = ({ list, loading, error }) => {
 		return (
 			<ErrorMessage>
 				<p className='text-error font-light text-center'>
-					{t('listPage.error')}
+					{t('productsPage.error')}
 				</p>
 			</ErrorMessage>
 		);
 
-	if (!list)
+	if (!products || !products.length)
 		return (
-			<EmptyMessage image='/empty-canvas.svg'>
+			<EmptyMessage image='/empty-products.svg'>
 				<p className='text-white font-light text-center'>
-					{t('listPage.emptyList')}
+					{t('productsPage.emptyList')}
 				</p>
 			</EmptyMessage>
 		);
