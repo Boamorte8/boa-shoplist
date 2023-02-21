@@ -20,10 +20,6 @@ function ProductProvider(props) {
 		});
 	};
 
-	const getProduct = id => {
-		return products.find(product => product.id === id);
-	};
-
 	const createProduct = newProduct => {
 		return product.createProduct({ ...newProduct, user_id: user.id });
 	};
@@ -41,7 +37,6 @@ function ProductProvider(props) {
 			products,
 			loadingProducts,
 			getProducts,
-			getProduct,
 			createProduct,
 			updateProduct,
 			deleteProduct
@@ -50,7 +45,6 @@ function ProductProvider(props) {
 			products,
 			loadingProducts,
 			getProducts,
-			getProduct,
 			createProduct,
 			updateProduct,
 			deleteProduct

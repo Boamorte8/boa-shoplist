@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { EmptyMessage } from '../atoms/EmptyMessage';
-import { ErrorMessage } from '../atoms/ErrorMessage';
-import { LoadingMessage } from '../atoms/LoadingMessage';
-import { ListCard } from '../molecules/lists/ListCard';
+import { EmptyMessage } from '../../atoms/EmptyMessage';
+import { ErrorMessage } from '../../atoms/ErrorMessage';
+import { LoadingMessage } from '../../atoms/LoadingMessage';
+import { ListCard } from '../../molecules/lists/ListCard';
 
 export const UserLists = ({ lists, loading, error }) => {
 	const { t } = useTranslation();

@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { alertBox } from '../../lib/events/alertEvents';
-import { BaseInput } from '../atoms/forms/BaseInput';
-import { Button } from '../atoms/buttons/Button';
+import { alertBox } from '../../../lib/events/alertEvents';
+import { BaseInput } from '../../atoms/forms/BaseInput';
+import { Button } from '../../atoms/buttons/Button';
 import {
 	descriptionChangedUpdateListForm,
 	resetUpdateListForm,
 	titleChangedUpdateListForm
-} from '../../lib/actions/updateListFormActions';
-import { Modal } from '../atoms/modal/Modal';
-import { useList } from '../../lib/providers/ListProvider';
-import { useUpdateListForm } from '../../lib/hooks/useUpdateListForm';
+} from '../../../lib/actions/updateListFormActions';
+import { Modal } from '../../atoms/modal/Modal';
+import { useList } from '../../../lib/providers/ListProvider';
+import { useUpdateListForm } from '../../../lib/hooks/useUpdateListForm';
 
 export const UpdateListModal = ({ open, setToggleModal, list }) => {
 	const { t } = useTranslation();

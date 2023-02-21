@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import { EmptyMessage } from '../atoms/EmptyMessage';
-import { ErrorMessage } from '../atoms/ErrorMessage';
-import { LoadingMessage } from '../atoms/LoadingMessage';
+import { EmptyMessage } from '../../atoms/EmptyMessage';
+import { ErrorMessage } from '../../atoms/ErrorMessage';
+import { LoadingMessage } from '../../atoms/LoadingMessage';
 
 export const UserList = ({ list, loading, error }) => {
 	const { t } = useTranslation();

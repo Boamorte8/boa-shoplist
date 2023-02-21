@@ -11,7 +11,12 @@ export const AppFooter = () => {
 			</div>
 			<span className='m-0 font-extra text-sm'>
 				{t('footer')}{' '}
-				<a className='text-primary-300' href='https://storyset.com/data'>
+				<a
+					className='text-primary-300'
+					href='https://storyset.com/data'
+					target='_blank'
+					rel='noreferrer'
+				>
 					Storyset
 				</a>
 			</span>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { alertBox } from '../../../lib/events/alertEvents';
 import { BaseCard } from '../../atoms/BaseCard';
@@ -14,6 +14,8 @@ import {
 import { useAuth } from '../../../lib/providers/AuthProvider';
 import { useList } from '../../../lib/providers/ListProvider';
 import { useLoginForm } from '../../../lib/hooks/useLoginForm';
+import { useProduct } from '../../../lib/providers/ProductProvider';
+import { useUnit } from '../../../lib/providers/UnitProvider';
 
 export const LoginPage = () => {
 	const { t } = useTranslation();
@@ -21,6 +23,8 @@ export const LoginPage = () => {
 	const location = useLocation();
 	const { login } = useAuth();
 	const { getLists } = useList();
+	const { getProducts } = useProduct();
+	const { getUnits } = useUnit();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { email, password, isFormInvalid, dispatchLoginForm } = useLoginForm();
 	const emailText = t('email');
@@ -38,6 +42,12 @@ export const LoginPage = () => {
 		}
 	}, []);
 
+	const loadData = () => {
+		getLists();
+		getProducts();
+		getUnits();
+	};
+
 	return (
 		<div className='min-h-[calc(100vh-8.5rem)] md:min-h-[calc(100vh-7.5rem)] lg:min-h-[calc(100vh-9.5rem)] w-full bg-background p-2 md:p-6 lg:p-10'>
 			<BaseCard classes='max-w-2xl mx-auto'>
@@ -51,7 +61,7 @@ export const LoginPage = () => {
 							setIsSubmitting,
 							login,
 							t,
-							getLists
+							loadData
 						)
 					}
 				>
@@ -112,7 +122,7 @@ const handleSubmit = async (
 	setIsSubmitting,
 	login,
 	t,
-	getLists
+	loadData
 ) => {
 	ev.preventDefault();
 
@@ -127,7 +137,7 @@ const handleSubmit = async (
 
 	if (!error) {
 		alertBox.success(t('auth.loginSuccess'));
-		getLists();
+		loadData();
 	} else {
 		alertBox.error(t('auth.errors.login'));
 	}

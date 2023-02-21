@@ -1,16 +1,16 @@
 import { useTranslation } from 'react-i18next';
 
-import { EmptyMessage } from '../atoms/EmptyMessage';
-import { ErrorMessage } from '../atoms/ErrorMessage';
-import { LoadingMessage } from '../atoms/LoadingMessage';
+import { EmptyMessage } from '../../atoms/EmptyMessage';
+import { ErrorMessage } from '../../atoms/ErrorMessage';
+import { LoadingMessage } from '../../atoms/LoadingMessage';
 
-export const UserProducts = ({ products, loading, error }) => {
+export const UserUnits = ({ units, loading, error }) => {
 	const { t } = useTranslation();
 	if (loading)
 		return (
 			<LoadingMessage>
 				<p className='text-white font-light text-center'>
-					{t('productsPage.loading')}
+					{t('unitsPage.loading')}
 				</p>
 			</LoadingMessage>
 		);
@@ -19,23 +19,23 @@ export const UserProducts = ({ products, loading, error }) => {
 		return (
 			<ErrorMessage>
 				<p className='text-error font-light text-center'>
-					{t('productsPage.error')}
+					{t('unitsPage.error')}
 				</p>
 			</ErrorMessage>
 		);
 
-	if (!products || !products.length)
+	if (!units || !units.length)
 		return (
-			<EmptyMessage image='/empty-products.svg'>
+			<EmptyMessage image='/empty-unit.svg'>
 				<p className='text-white font-light text-center'>
-					{t('productsPage.emptyProducts')}
+					{t('unitsPage.emptyUnits')}
 				</p>
 			</EmptyMessage>
 		);
 
 	return (
 		<main className='flex flex-col gap-5 min-h-full'>
-			Products
+			Units
 			{/* {lists.map(list => (
 				<ListCard key={list.id} list={list} />
 			))} */}

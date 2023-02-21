@@ -1,21 +1,21 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { alertBox } from '../../lib/events/alertEvents';
-import { BaseInput } from '../atoms/forms/BaseInput';
-import { Button } from '../atoms/buttons/Button';
+import { alertBox } from '../../../lib/events/alertEvents';
+import { BaseInput } from '../../atoms/forms/BaseInput';
+import { Button } from '../../atoms/buttons/Button';
 import {
 	descriptionChangedCreateProductForm,
 	resetCreateProductForm,
 	titleChangedCreateProductForm,
 	unitChangedCreateProductForm
-} from '../../lib/actions/createProductFormActions';
-import { FloatButton } from '../atoms/buttons/FloatButton';
-import { Modal } from '../atoms/modal/Modal';
-import { useCreateProductForm } from '../../lib/hooks/useCreateProductForm';
-import { useProduct } from '../../lib/providers/ProductProvider';
-import { BaseSelect } from '../atoms/forms/BaseSelect';
-import { ButtonLink } from '../atoms/buttons/ButtonLink';
+} from '../../../lib/actions/createProductFormActions';
+import { FloatButton } from '../../atoms/buttons/FloatButton';
+import { Modal } from '../../atoms/modal/Modal';
+import { useCreateProductForm } from '../../../lib/hooks/useCreateProductForm';
+import { useProduct } from '../../../lib/providers/ProductProvider';
+import { BaseSelect } from '../../atoms/forms/BaseSelect';
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 
 export const CreateProductModal = () => {
 	const { t } = useTranslation();
@@ -113,7 +113,7 @@ export const CreateProductModal = () => {
 							}
 						/>
 						<ButtonLink to='/units' className='mb-2'>
-							{t('createNew', { item: unitText.toLowerCase() })}
+							{t('createNewFem', { item: unitText.toLowerCase() })}
 						</ButtonLink>
 					</div>
 

@@ -3,9 +3,9 @@ import { useState } from 'react';
 
 import { BaseCard } from '../../atoms/BaseCard';
 import { PageFlipIcon } from '../../atoms/icons/PageFlipIcon';
-import { ConfirmDeleteListModal } from '../../organisms/ConfirmDeleteListModal';
+import { ConfirmDeleteListModal } from '../../organisms/lists/ConfirmDeleteListModal';
 import { ListCardOptions } from './ListCardOptions';
-import { UpdateListModal } from '../../organisms/UpdateListModal';
+import { UpdateListModal } from '../../organisms/lists/UpdateListModal';
 
 export const ListCard = ({ list }) => {
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);

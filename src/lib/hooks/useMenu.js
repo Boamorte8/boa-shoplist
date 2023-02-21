@@ -4,7 +4,8 @@ import { useAuth } from '../providers/AuthProvider';
 
 const authOptions = [
 	{ code: 'lists_two', url: '/list' },
-	{ code: 'products_two', url: '/products' }
+	{ code: 'products_two', url: '/products' },
+	{ code: 'unit_two', url: '/units' }
 ];
 
 const unauthOptions = [

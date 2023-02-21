@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import { AddListModal } from '../organisms/AddListModal';
+import { AddListModal } from '../organisms/lists/AddListModal';
 import { DrawerIcon } from '../atoms/icons/DrawerIcon';
-import { UserLists } from '../organisms/UserLists';
+import { UserLists } from '../organisms/lists/UserLists';
 import { useList } from '../../lib/providers/ListProvider';
 
 export const ListsPage = () => {

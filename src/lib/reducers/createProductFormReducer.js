@@ -34,7 +34,8 @@ export const createProductFormReducer = (state, { type, payload }) => {
 			return {
 				...state,
 				title: { value: '', error: undefined },
-				description: { value: '', error: undefined }
+				description: { value: '', error: undefined },
+				unit: { value: '', error: undefined }
 			};
 		}
 		default:

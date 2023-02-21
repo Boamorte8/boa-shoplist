@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import { CreateProductModal } from '../organisms/CreateProductModal';
+import { CreateProductModal } from '../organisms/products/CreateProductModal';
 import { PackagesIcon } from '../atoms/icons/PackagesIcon';
-import { UserProducts } from '../organisms/UserProducts';
+import { UserProducts } from '../organisms/products/UserProducts';
 import { useProduct } from '../../lib/providers/ProductProvider';
 
 export const ProductsPage = () => {

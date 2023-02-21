@@ -2,6 +2,7 @@
 	"addEntity": "Añadir {{entity}}",
 	"cancel": "Cancelar",
 	"createNew": "Crear nuevo {{item}}",
+	"createNewFem": "Crear nueva {{item}}",
 	"description": "Descripción",
 	"delete": "Eliminar",
 	"edit": "Editar",
@@ -17,6 +18,7 @@
 	"logout": "Cerrar sesión",
 	"logoComplete": "Boa Shoplist",
 	"menu": "Menú",
+	"name": "Nombre",
 	"password": "Contraseña",
 	"products_one": "Producto",
 	"products_two": "Productos",
@@ -71,7 +73,8 @@
 	},
 	"forms": {
 		"addDescription": "Añadir descripción",
-		"addTitle": "Añadir título"
+		"addTitle": "Añadir título",
+		"display": "Como mostrar?"
 	},
 	"langs": {
 		"english": "Inglés",
@@ -111,6 +114,10 @@
 			"title": "Actualizar lista"
 		}
 	},
+	"logoutModal": {
+		"description": "Estás seguro que quieres cerrar sesión?",
+		"title": "Comfirmar cierre de sesión"
+	},
 	"productsPage": {
 		"allProducts": "Todos tus productos",
 		"emptyProducts": "No hay productos creados aún. Puedes empezar creando uno",
@@ -128,8 +135,25 @@
 			"title": "Actualizar lista"
 		}
 	},
-	"logoutModal": {
-		"description": "Estás seguro que quieres cerrar sesión?",
-		"title": "Comfirmar cierre de sesión"
+	"unitsPage": {
+		"allUnits": "Todas tus unidades",
+		"emptyUnits": "No hay unidades creados aún. Puedes empezar creando uno",
+		"error": "Error cargando tus unidades",
+		"loading": "Cargando tus unidades...",
+		"createModal": {
+			"error": "Error borrando la unidad. Intenta de nuevo",
+			"success": "Unidad borrada exitosamente"
+		},
+		"deleteModal": {
+			"description": "Estás seguro que quieres borrar la lista llamada {{list}}?",
+			"error": "Error borrando la lista. Intenta de nuevo",
+			"success": "Lista borrada exitosamente",
+			"title": "Confirmar borrar list"
+		},
+		"updateModal": {
+			"error": "Error actualizando la lista. Intenta de nuevo",
+			"success": "Lista borrada exitosamente",
+			"title": "Actualizar lista"
+		}
 	}
 }

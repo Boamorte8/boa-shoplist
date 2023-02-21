@@ -2,6 +2,7 @@
 	"addEntity": "Add {{entity}}",
 	"cancel": "Cancel",
 	"createNew": "Create new {{item}}",
+	"createNewFem": "Create new {{item}}",
 	"description": "Description",
 	"delete": "Delete",
 	"edit": "Edit",
@@ -17,6 +18,7 @@
 	"logout": "Logout",
 	"logoComplete": "Boa Shoplist",
 	"menu": "Menu",
+	"name": "Name",
 	"password": "Password",
 	"products_one": "Product",
 	"products_two": "Products",
@@ -71,7 +73,8 @@
 	},
 	"forms": {
 		"addDescription": "Add description",
-		"addTitle": "Add title"
+		"addTitle": "Add title",
+		"display": "How display?"
 	},
 	"langs": {
 		"english": "English",
@@ -111,6 +114,10 @@
 			"title": "Update list"
 		}
 	},
+	"logoutModal": {
+		"description": "Are you sure you want to log out?",
+		"title": "Confirm logout"
+	},
 	"productsPage": {
 		"allProducts": "All your products",
 		"emptyProducts": "There are not products created yet. You can start creating one",
@@ -128,8 +135,25 @@
 			"title": "Update list"
 		}
 	},
-	"logoutModal": {
-		"description": "Are you sure you want to log out?",
-		"title": "Confirm logout"
+	"unitsPage": {
+		"allUnits": "All your units",
+		"emptyUnits": "There are not units created yet. You can start creating one",
+		"error": "Error loading your units",
+		"loading": "Loading your units...",
+		"createModal": {
+			"error": "Error creating unit. Try again",
+			"success": "Created unit successfully"
+		},
+		"deleteModal": {
+			"description": "Are you sure you want to delete list called {{list}}?",
+			"error": "Error deleting list. Try again",
+			"success": "Deleted list successfully",
+			"title": "Confirm delete list"
+		},
+		"updateModal": {
+			"error": "Error updating list. Try again",
+			"success": "Updated list successfully",
+			"title": "Update list"
+		}
 	}
 }

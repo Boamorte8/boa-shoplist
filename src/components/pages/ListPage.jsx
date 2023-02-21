@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { AddProductModal } from '../organisms/AddProductModal';
+import { AddProductModal } from '../organisms/products/AddProductModal';
 import { ArrowRightComplete } from '../atoms/icons/ArrowRightComplete';
 import { IconButton } from '../atoms/buttons/IconButton';
-import { UserList } from '../organisms/UserList';
+import { UserList } from '../organisms/lists/UserList';
 import { useList } from '../../lib/providers/ListProvider';
 
 export const ListPage = () => {
