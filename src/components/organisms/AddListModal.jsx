@@ -54,7 +54,7 @@ export const AddListModal = () => {
 					<div className='w-full grid gap-4'>
 						<BaseInput
 							id='title'
-							type='title'
+							type='text'
 							name='title'
 							className='max-w-sm'
 							label={t('title')}

@@ -23,6 +23,8 @@
 	"register": "Register",
 	"quantity_one": "Quantity",
 	"title": "Title",
+	"unit_one": "Unit",
+	"unit_two": "Units",
 	"update": "Update",
 	"addList": {
 		"error": "Error adding new list. Please try again",
@@ -110,8 +112,8 @@
 		}
 	},
 	"productsPage": {
-		"allLists": "All your lists",
-		"emptyLists": "There are not products created yet. You can start creating one",
+		"allProducts": "All your products",
+		"emptyProducts": "There are not products created yet. You can start creating one",
 		"error": "Error loading your products",
 		"loading": "Loading your products...",
 		"deleteModal": {

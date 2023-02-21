@@ -61,7 +61,6 @@ export const AddProductModal = () => {
 					<div className='w-full grid gap-4'>
 						<BaseSelect
 							id='product'
-							type='product'
 							name='product'
 							className='max-w-sm'
 							label={productText}

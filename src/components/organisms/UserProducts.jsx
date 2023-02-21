@@ -28,7 +28,7 @@ export const UserProducts = ({ products, loading, error }) => {
 		return (
 			<EmptyMessage image='/empty-products.svg'>
 				<p className='text-white font-light text-center'>
-					{t('productsPage.emptyList')}
+					{t('productsPage.emptyProducts')}
 				</p>
 			</EmptyMessage>
 		);

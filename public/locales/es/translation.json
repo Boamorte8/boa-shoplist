@@ -23,6 +23,8 @@
 	"register": "Registrar",
 	"quantity_one": "Cantidad",
 	"title": "Título",
+	"unit_one": "Unidad",
+	"unit_two": "Unidades",
 	"update": "Actualizar",
 	"addList": {
 		"error": "Error añadiendo la lista. Intenta de nuevo",
@@ -110,8 +112,8 @@
 		}
 	},
 	"productsPage": {
-		"products": "Lista: '{{name}}'",
-		"emptyList": "No hay productos creados aún. Puedes empezar creando uno",
+		"allProducts": "Todos tus productos",
+		"emptyProducts": "No hay productos creados aún. Puedes empezar creando uno",
 		"error": "Error cargando tus productos",
 		"loading": "Cargando tus productos...",
 		"deleteModal": {

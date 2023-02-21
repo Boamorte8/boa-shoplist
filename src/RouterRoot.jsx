@@ -15,6 +15,7 @@ import { ProductsPage } from './components/pages/ProductsPage';
 import { ProtectedRoute } from './components/atoms/ProtectedRoute';
 import { PublicRoute } from './components/atoms/PublicRoute';
 import { RegisterPage } from './components/pages/auth/RegisterPage';
+import { UnitsPage } from './components/pages/UnitsPage';
 import { useAuth } from './lib/providers/AuthProvider';
 
 export const RouterRoot = () => {
@@ -66,6 +67,15 @@ export const RouterRoot = () => {
 						element={
 							<ProtectedRoute isAuthenticated={isAuth}>
 								<ProductsPage />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						exact
+						path='units'
+						element={
+							<ProtectedRoute isAuthenticated={isAuth}>
+								<UnitsPage />
 							</ProtectedRoute>
 						}
 					/>
