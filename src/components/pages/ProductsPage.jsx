@@ -5,7 +5,7 @@ import { PackagesIcon } from '../atoms/icons/PackagesIcon';
 import { UserProducts } from '../organisms/products/UserProducts';
 import { useProduct } from '../../lib/providers/ProductProvider';
 
-export const ProductsPage = () => {
+const ProductsPage = () => {
 	const { t } = useTranslation();
 	const { products, loadingProducts } = useProduct();
 
@@ -23,3 +23,5 @@ export const ProductsPage = () => {
 		</section>
 	);
 };
+
+export default ProductsPage;

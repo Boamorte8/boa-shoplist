@@ -4,19 +4,23 @@ import {
 	Route,
 	RouterProvider
 } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 import { App } from './App';
 import { FirstRoute } from './components/atoms/FirstRoute';
-import { ListPage } from './components/pages/ListPage';
-import { ListsPage } from './components/pages/ListsPage';
+import { LoadingPage } from './components/pages/LoadingPage';
 import { LoginPage } from './components/pages/auth/LoginPage';
 import { NotFoundPage } from './components/pages/NotFoundPage';
-import { ProductsPage } from './components/pages/ProductsPage';
 import { ProtectedRoute } from './components/atoms/ProtectedRoute';
 import { PublicRoute } from './components/atoms/PublicRoute';
-import { RegisterPage } from './components/pages/auth/RegisterPage';
-import { UnitsPage } from './components/pages/UnitsPage';
 import { useAuth } from './lib/providers/AuthProvider';
+const LazyListPage = lazy(() => import('./components/pages/ListPage'));
+const LazyListsPage = lazy(() => import('./components/pages/ListsPage'));
+const LazyProductsPage = lazy(() => import('./components/pages/ProductsPage'));
+const LazyRegisterPage = lazy(() =>
+	import('./components/pages/auth/RegisterPage')
+);
+const LazyUnitsPage = lazy(() => import('./components/pages/UnitsPage'));
 
 export const RouterRoot = () => {
 	const { user } = useAuth();
@@ -39,7 +43,9 @@ export const RouterRoot = () => {
 						path='register'
 						element={
 							<PublicRoute isAuthenticated={isAuth}>
-								<RegisterPage />
+								<Suspense fallback={<LoadingPage />}>
+									<LazyRegisterPage />
+								</Suspense>
 							</PublicRoute>
 						}
 					/>
@@ -48,7 +54,7 @@ export const RouterRoot = () => {
 						path='list'
 						element={
 							<ProtectedRoute isAuthenticated={isAuth}>
-								<ListsPage />
+								<LazyListsPage />
 							</ProtectedRoute>
 						}
 					/>
@@ -57,7 +63,7 @@ export const RouterRoot = () => {
 						path='list/:listId'
 						element={
 							<ProtectedRoute isAuthenticated={isAuth}>
-								<ListPage />
+								<LazyListPage />
 							</ProtectedRoute>
 						}
 					/>
@@ -66,7 +72,7 @@ export const RouterRoot = () => {
 						path='products'
 						element={
 							<ProtectedRoute isAuthenticated={isAuth}>
-								<ProductsPage />
+								<LazyProductsPage />
 							</ProtectedRoute>
 						}
 					/>
@@ -75,7 +81,7 @@ export const RouterRoot = () => {
 						path='units'
 						element={
 							<ProtectedRoute isAuthenticated={isAuth}>
-								<UnitsPage />
+								<LazyUnitsPage />
 							</ProtectedRoute>
 						}
 					/>

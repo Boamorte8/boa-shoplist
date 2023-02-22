@@ -5,7 +5,7 @@ import { UnitsIcon } from '../atoms/icons/UnitsIcon';
 import { UserUnits } from '../organisms/units/UserUnits';
 import { useUnit } from '../../lib/providers/UnitProvider';
 
-export const UnitsPage = () => {
+const UnitsPage = () => {
 	const { t } = useTranslation();
 	const { units, loadingUnits } = useUnit();
 
@@ -23,3 +23,5 @@ export const UnitsPage = () => {
 		</section>
 	);
 };
+
+export default UnitsPage;

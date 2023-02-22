@@ -114,6 +114,10 @@
 			"title": "Actualizar lista"
 		}
 	},
+
+	"loadingPage": {
+		"title": "Cargando..."
+	},
 	"logoutModal": {
 		"description": "Estás seguro que quieres cerrar sesión?",
 		"title": "Comfirmar cierre de sesión"

@@ -114,6 +114,9 @@
 			"title": "Update list"
 		}
 	},
+	"loadingPage": {
+		"title": "Loading..."
+	},
 	"logoutModal": {
 		"description": "Are you sure you want to log out?",
 		"title": "Confirm logout"

@@ -7,7 +7,7 @@ import { IconButton } from '../atoms/buttons/IconButton';
 import { UserList } from '../organisms/lists/UserList';
 import { useList } from '../../lib/providers/ListProvider';
 
-export const ListPage = () => {
+const ListPage = () => {
 	const { listId } = useParams();
 	const { t } = useTranslation();
 	const navigate = useNavigate();
@@ -37,3 +37,5 @@ export const ListPage = () => {
 		</section>
 	);
 };
+
+export default ListPage;

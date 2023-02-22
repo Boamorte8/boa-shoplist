@@ -24,10 +24,10 @@ export const UnitCard = ({ unit }) => {
 				<div className=''>
 					<div className='flex items-center gap-2 text-primary-300 mb-0'>
 						<UnitIcon className='h-5' />
-						<h4 className='text-lg font-semibold'>{unit.display}</h4>
+						<h4 className='text-lg font-semibold'>{unit.name}</h4>
 					</div>
 					<p className='mb-2 text-gray-300 text-sm font-extralight'>
-						({unit.name})
+						({unit.display})
 					</p>
 					<p className='text-white'>{unit.description}</p>
 				</div>

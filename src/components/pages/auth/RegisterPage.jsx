@@ -16,7 +16,7 @@ import { Spinner } from '../../atoms/Spinner';
 import { useAuth } from '../../../lib/providers/AuthProvider';
 import { useRegisterForm } from '../../../lib/hooks/useRegisterForm';
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
 	const { register } = useAuth();
 	const navigate = useNavigate();
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,7 +33,7 @@ export const RegisterPage = () => {
 	const registerText = t('register');
 	const confirmPasswordText = t('auth.confirmPassword');
 	return (
-		<div className='min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-6rem)] w-full bg-background p-2 md:p-6 lg:p-10'>
+		<div className='min-h-[calc(100vh-8.5rem)] md:min-h-[calc(100vh-7.5rem)] lg:min-h-[calc(100vh-9.5rem)] w-full bg-background p-2 md:p-6 lg:p-10'>
 			<BaseCard classes='max-w-2xl mx-auto'>
 				<form
 					className='w-full flex flex-col gap-2 items-center p-4'
@@ -144,3 +144,5 @@ const handleSubmit = async (
 	}
 	setIsSubmitting(false);
 };
+
+export default RegisterPage;
