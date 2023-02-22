@@ -27,7 +27,7 @@ export const AlertBox = () => {
 
 	return (
 		<div
-			className={`fixed right-4 top-28 flex items-center gap-3 px-10 py-5 mb-10 text-white rounded-2xl z-50 ${menuClass} ${className}`}
+			className={`fixed right-4 top-28 flex items-center gap-3 px-10 py-5 mb-10 text-white rounded-2xl z-[100] ${menuClass} ${className}`}
 		>
 			<Icon className='h-6 w-6' />
 			<p className='leading-6 m-0'>{alert.message}</p>
