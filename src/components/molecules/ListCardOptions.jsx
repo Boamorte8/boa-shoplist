@@ -1,12 +1,12 @@
 import { Fragment } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Menu, Transition } from '@headlessui/react';
+import { useTranslation } from 'react-i18next';
 
-import { DotsIcon } from '../../atoms/icons/DotsIcon';
-import { IconButton } from '../../atoms/buttons/IconButton';
-import { ListOption } from '../../atoms/buttons/ListOption';
-import { PencilIcon } from '../../atoms/icons/PencilIcon';
-import { TrashIcon } from '../../atoms/icons/TrashIcon';
+import { DotsIcon } from '../atoms/icons/DotsIcon';
+import { IconButton } from '../atoms/buttons/IconButton';
+import { ListOption } from '../atoms/buttons/ListOption';
+import { PencilIcon } from '../atoms/icons/PencilIcon';
+import { TrashIcon } from '../atoms/icons/TrashIcon';
 
 export const ListCardOptions = ({ onEdit, onDelete }) => {
 	const { t } = useTranslation();

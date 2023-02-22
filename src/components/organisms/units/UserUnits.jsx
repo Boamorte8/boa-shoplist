@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { EmptyMessage } from '../../atoms/EmptyMessage';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
 import { LoadingMessage } from '../../atoms/LoadingMessage';
+import { UnitCard } from '../../molecules/units/UnitCard';
 
 export const UserUnits = ({ units, loading, error }) => {
 	const { t } = useTranslation();
@@ -35,10 +36,9 @@ export const UserUnits = ({ units, loading, error }) => {
 
 	return (
 		<main className='flex flex-col gap-5 min-h-full'>
-			Units
-			{/* {lists.map(list => (
-				<ListCard key={list.id} list={list} />
-			))} */}
+			{units.map(unit => (
+				<UnitCard key={unit.id} unit={unit} />
+			))}
 		</main>
 	);
 };

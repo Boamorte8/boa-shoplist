@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { BaseCard } from '../../atoms/BaseCard';
 import { PageFlipIcon } from '../../atoms/icons/PageFlipIcon';
 import { ConfirmDeleteListModal } from '../../organisms/lists/ConfirmDeleteListModal';
-import { ListCardOptions } from './ListCardOptions';
+import { ListCardOptions } from '../ListCardOptions';
 import { UpdateListModal } from '../../organisms/lists/UpdateListModal';
 
 export const ListCard = ({ list }) => {
