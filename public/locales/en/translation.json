@@ -145,15 +145,15 @@
 			"success": "Created unit successfully"
 		},
 		"deleteModal": {
-			"description": "Are you sure you want to delete list called {{list}}?",
-			"error": "Error deleting list. Try again",
-			"success": "Deleted list successfully",
-			"title": "Confirm delete list"
+			"description": "Are you sure you want to delete unit called {{unit}}?",
+			"error": "Error deleting unit. Try again",
+			"success": "Deleted unit successfully",
+			"title": "Confirm delete unit"
 		},
 		"updateModal": {
-			"error": "Error updating list. Try again",
-			"success": "Updated list successfully",
-			"title": "Update list"
+			"error": "Error updating unit. Try again",
+			"success": "Updated unit successfully",
+			"title": "Update unit"
 		}
 	}
 }

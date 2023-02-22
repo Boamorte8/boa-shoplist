@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { BaseCard } from '../../atoms/BaseCard';
+import { ConfirmDeleteUnitModal } from '../../organisms/units/ConfirmDeleteUnitModal';
 import { ListCardOptions } from '../ListCardOptions';
 import { UnitIcon } from '../../atoms/icons/UnitIcon';
 
@@ -33,12 +34,12 @@ export const UnitCard = ({ unit }) => {
 					<ListCardOptions onEdit={handleEdit} onDelete={handleConfirmDelete} />
 				</div>
 			</BaseCard>
-			{/* <ConfirmDeleteListModal
+			<ConfirmDeleteUnitModal
 				open={openDeleteModal}
 				setToggleModal={setOpenDeleteModal}
-				list={list}
+				unit={unit}
 			/>
-			<UpdateListModal
+			{/* <UpdateListModal
 				open={openUpdateModal}
 				setToggleModal={setOpenUpdateModal}
 				list={list}
