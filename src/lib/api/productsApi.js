@@ -6,7 +6,7 @@ const { supabase } = useSupabase();
 
 async function getProducts() {
 	try {
-		return supabase.from('products').select('*');
+		return supabase.from('products').select('*, units (name, display)');
 	} catch (error) {
 		alertBox.error(i18next.t('errors.server'));
 	}

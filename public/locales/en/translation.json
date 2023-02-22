@@ -126,6 +126,10 @@
 		"emptyProducts": "There are not products created yet. You can start creating one",
 		"error": "Error loading your products",
 		"loading": "Loading your products...",
+		"createModal": {
+			"error": "Error creating product. Try again",
+			"success": "Created product successfully"
+		},
 		"deleteModal": {
 			"description": "Are you sure you want to delete list called {{list}}?",
 			"error": "Error deleting list. Try again",

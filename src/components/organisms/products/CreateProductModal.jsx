@@ -16,6 +16,7 @@ import { useCreateProductForm } from '../../../lib/hooks/useCreateProductForm';
 import { useProduct } from '../../../lib/providers/ProductProvider';
 import { BaseSelect } from '../../atoms/forms/BaseSelect';
 import { ButtonLink } from '../../atoms/buttons/ButtonLink';
+import { useUnit } from '../../../lib/providers/UnitProvider';
 
 export const CreateProductModal = () => {
 	const { t } = useTranslation();
@@ -25,9 +26,9 @@ export const CreateProductModal = () => {
 	const [openModal, setOpenModal] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { createProduct, getProducts } = useProduct();
+	const { units } = useUnit();
 	const { title, description, unit, isFormInvalid, dispatchCreateProductForm } =
 		useCreateProductForm();
-	const units = [];
 
 	const onCreateListSuccess = () => {
 		getProducts();
@@ -48,8 +49,7 @@ export const CreateProductModal = () => {
 					onSubmit={ev =>
 						handleSubmit(
 							ev,
-							title,
-							description,
+							{ title, description, unit },
 							setIsSubmitting,
 							createProduct,
 							t,
@@ -104,11 +104,12 @@ export const CreateProductModal = () => {
 								entities: t('unit_two').toLowerCase()
 							})}
 							items={units}
+							keyProp='display'
 							error={unit.error && t(unit.error)}
-							value={unit.value}
-							onChange={ev =>
+							selected={unit.value}
+							setSelected={selectedUnit =>
 								dispatchCreateProductForm(
-									unitChangedCreateProductForm(ev.target.value)
+									unitChangedCreateProductForm(selectedUnit)
 								)
 							}
 						/>
@@ -133,8 +134,7 @@ export const CreateProductModal = () => {
 
 const handleSubmit = async (
 	ev,
-	title,
-	description,
+	{ title, description, unit },
 	setIsSubmitting,
 	createProduct,
 	t,
@@ -144,18 +144,19 @@ const handleSubmit = async (
 
 	setIsSubmitting(true);
 
-	const list = {
+	const product = {
 		title: title.value,
-		description: description.value
+		description: description.value,
+		unit: unit.value.id
 	};
 
-	const { error } = await createProduct(list);
+	const { error } = await createProduct(product);
 
 	if (!error) {
-		alertBox.success(t('auth.loginSuccess'));
+		alertBox.success(t('productsPage.createModal.success'));
 		closeModal();
 	} else {
-		alertBox.error(t('auth.errors.login'));
+		alertBox.error(t('productsPage.createModal.error'));
 	}
 	setIsSubmitting(false);
 };

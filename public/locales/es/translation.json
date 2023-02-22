@@ -127,6 +127,10 @@
 		"emptyProducts": "No hay productos creados aún. Puedes empezar creando uno",
 		"error": "Error cargando tus productos",
 		"loading": "Cargando tus productos...",
+		"createModal": {
+			"error": "Error creando el producto. Intenta de nuevo",
+			"success": "Producto creado exitosamente"
+		},
 		"deleteModal": {
 			"description": "Estás seguro que quieres borrar la lista llamada {{list}}?",
 			"error": "Error borrando la lista. Intenta de nuevo",
@@ -145,8 +149,8 @@
 		"error": "Error cargando tus unidades",
 		"loading": "Cargando tus unidades...",
 		"createModal": {
-			"error": "Error borrando la unidad. Intenta de nuevo",
-			"success": "Unidad borrada exitosamente"
+			"error": "Error creando la unidad. Intenta de nuevo",
+			"success": "Unidad creada exitosamente"
 		},
 		"deleteModal": {
 			"description": "Estás seguro que quieres borrar la unidad llamada {{unit}}?",
