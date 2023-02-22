@@ -4,6 +4,7 @@ import { BaseCard } from '../../atoms/BaseCard';
 import { ConfirmDeleteUnitModal } from '../../organisms/units/ConfirmDeleteUnitModal';
 import { ListCardOptions } from '../ListCardOptions';
 import { UnitIcon } from '../../atoms/icons/UnitIcon';
+import { UpdateUnitModal } from '../../organisms/units/UpdateUnitModal';
 
 export const UnitCard = ({ unit }) => {
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -39,11 +40,11 @@ export const UnitCard = ({ unit }) => {
 				setToggleModal={setOpenDeleteModal}
 				unit={unit}
 			/>
-			{/* <UpdateListModal
+			<UpdateUnitModal
 				open={openUpdateModal}
 				setToggleModal={setOpenUpdateModal}
-				list={list}
-			/> */}
+				unit={unit}
+			/>
 		</>
 	);
 };

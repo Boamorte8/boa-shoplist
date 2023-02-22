@@ -63,7 +63,7 @@ export const ConfirmDeleteUnitModal = ({ open, setToggleModal, unit }) => {
 
 const handleDelete = async (
 	ev,
-	listId,
+	unitId,
 	setIsSubmitting,
 	deleteUnit,
 	t,
@@ -73,13 +73,13 @@ const handleDelete = async (
 
 	setIsSubmitting(true);
 
-	const { error } = await deleteUnit(listId);
+	const { error } = await deleteUnit(unitId);
 
 	if (!error) {
-		alertBox.success(t('listsPage.deleteModal.success'));
+		alertBox.success(t('unitsPage.deleteModal.success'));
 		onSuccess();
 	} else {
-		alertBox.error(t('listsPage.deleteModal.error'));
+		alertBox.error(t('unitsPage.deleteModal.error'));
 	}
 	setIsSubmitting(false);
 };
