@@ -9,15 +9,23 @@ UnitContext.displayName = 'UnitContext';
 function UnitProvider(props) {
 	const [units, setUnits] = useState(null);
 	const [loadingUnits, setLoadingUnits] = useState(false);
+	const [error, setError] = useState(false);
 	const { user } = useAuth();
 
 	const getUnits = async () => {
+		setError(false);
 		setLoadingUnits(true);
-		return unit.getUnits().then(data => {
-			if (data.data) setUnits(data.data);
-			setLoadingUnits(false);
-			return data;
-		});
+		return unit
+			.getUnits()
+			.then(data => {
+				if (data.data) setUnits(data.data);
+				setLoadingUnits(false);
+				return data;
+			})
+			.catch(err => {
+				setError(true);
+				throw err;
+			});
 	};
 
 	const createUnit = newUnit => {
@@ -36,12 +44,23 @@ function UnitProvider(props) {
 		() => ({
 			units,
 			loadingUnits,
+			error,
+			setError,
 			getUnits,
 			createUnit,
 			updateUnit,
 			deleteUnit
 		}),
-		[units, loadingUnits, getUnits, createUnit, updateUnit, deleteUnit]
+		[
+			units,
+			loadingUnits,
+			error,
+			setError,
+			getUnits,
+			createUnit,
+			updateUnit,
+			deleteUnit
+		]
 	);
 
 	return <UnitContext.Provider value={value} {...props} />;

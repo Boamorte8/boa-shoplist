@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 
 import { EmptyMessage } from '../../atoms/EmptyMessage';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
@@ -6,6 +7,7 @@ import { LoadingMessage } from '../../atoms/LoadingMessage';
 
 export const UserList = ({ list, loading, error }) => {
 	const { t } = useTranslation();
+	const getProducts = () => {};
 	if (loading)
 		return (
 			<LoadingMessage>
@@ -18,9 +20,14 @@ export const UserList = ({ list, loading, error }) => {
 	if (error)
 		return (
 			<ErrorMessage>
-				<p className='text-error font-light text-center'>
-					{t('listPage.error')}
-				</p>
+				<div className='flex justify-center'>
+					<p className='text-error font-light text-center mr-2'>
+						{t('listPage.error')}
+					</p>
+					<ButtonLink className='mb-2' onClick={getProducts}>
+						{t('tryLoadAgain')}
+					</ButtonLink>
+				</div>
 			</ErrorMessage>
 		);
 

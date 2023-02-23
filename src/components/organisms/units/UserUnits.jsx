@@ -4,10 +4,13 @@ import { EmptyMessage } from '../../atoms/EmptyMessage';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
 import { LoadingMessage } from '../../atoms/LoadingMessage';
 import { UnitCard } from '../../molecules/units/UnitCard';
+import { useUnit } from '../../../lib/providers/UnitProvider';
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 
-export const UserUnits = ({ units, loading, error }) => {
+export const UserUnits = () => {
 	const { t } = useTranslation();
-	if (loading)
+	const { units, loadingUnits, error, getUnits } = useUnit();
+	if (loadingUnits)
 		return (
 			<LoadingMessage>
 				<p className='text-white font-light text-center'>
@@ -19,9 +22,14 @@ export const UserUnits = ({ units, loading, error }) => {
 	if (error)
 		return (
 			<ErrorMessage>
-				<p className='text-error font-light text-center'>
-					{t('unitsPage.error')}
-				</p>
+				<div className='flex justify-center'>
+					<p className='text-error font-light text-center mr-2'>
+						{t('unitsPage.error')}
+					</p>
+					<ButtonLink className='mb-2' onClick={getUnits}>
+						{t('tryLoadAgain')}
+					</ButtonLink>
+				</div>
 			</ErrorMessage>
 		);
 

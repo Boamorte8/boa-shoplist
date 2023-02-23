@@ -27,7 +27,7 @@ export const ListCard = ({ list }) => {
 				component={Link}
 				to={`/list/${list.id}`}
 			>
-				<div className=''>
+				<article>
 					<div className='flex items-center gap-2 text-primary-300 mb-1'>
 						<PageFlipIcon className='h-5' />
 						<h4 className='text-lg'>{list.title}</h4>
@@ -35,7 +35,7 @@ export const ListCard = ({ list }) => {
 					<p className='font-extralight text-sm text-white'>
 						{list.description}
 					</p>
-				</div>
+				</article>
 				<div className='flex justify-end items-center w-10'>
 					<ListCardOptions onEdit={handleEdit} onDelete={handleConfirmDelete} />
 				</div>

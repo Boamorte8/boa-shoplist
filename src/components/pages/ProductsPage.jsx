@@ -3,11 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { CreateProductModal } from '../organisms/products/CreateProductModal';
 import { PackagesIcon } from '../atoms/icons/PackagesIcon';
 import { UserProducts } from '../organisms/products/UserProducts';
-import { useProduct } from '../../lib/providers/ProductProvider';
 
 const ProductsPage = () => {
 	const { t } = useTranslation();
-	const { products, loadingProducts } = useProduct();
 
 	return (
 		<section className='min-h-[calc(100vh-8.5rem)] md:min-h-[calc(100vh-7.5rem)] lg:min-h-[calc(100vh-9.5rem)] w-full bg-background p-2 md:p-6 lg:px-24 lg:py-10'>
@@ -18,7 +16,7 @@ const ProductsPage = () => {
 				</h1>
 			</div>
 
-			<UserProducts products={products} loading={loadingProducts} />
+			<UserProducts />
 			<CreateProductModal />
 		</section>
 	);

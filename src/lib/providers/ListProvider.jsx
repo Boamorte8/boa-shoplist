@@ -8,16 +8,26 @@ ListContext.displayName = 'ListContext';
 
 function ListProvider(props) {
 	const [lists, setLists] = useState(null);
+	const [errorLists, setErrorLists] = useState(false);
 	const [loadingLists, setLoadingLists] = useState(false);
 	const { user } = useAuth();
 
 	const getLists = async () => {
+		setErrorLists(false);
 		setLoadingLists(true);
-		return list.getLists().then(data => {
-			if (data.data) setLists(data.data);
-			setLoadingLists(false);
-			return data;
-		});
+		return list
+			.getLists()
+			.then(data => {
+				console.log(data);
+				if (data.data) setLists(data.data);
+				if (data.error) setErrorLists(true);
+				setLoadingLists(false);
+				return data;
+			})
+			.catch(err => {
+				setErrorLists(true);
+				throw err;
+			});
 	};
 
 	const getList = id => {
@@ -40,13 +50,25 @@ function ListProvider(props) {
 		() => ({
 			lists,
 			loadingLists,
+			errorLists,
+			setErrorLists,
 			getLists,
 			getList,
 			createList,
 			updateList,
 			deleteList
 		}),
-		[lists, loadingLists, getLists, getList, createList, updateList, deleteList]
+		[
+			lists,
+			loadingLists,
+			errorLists,
+			getLists,
+			setErrorLists,
+			getList,
+			createList,
+			updateList,
+			deleteList
+		]
 	);
 
 	return <ListContext.Provider value={value} {...props} />;

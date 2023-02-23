@@ -2,12 +2,15 @@ import { useTranslation } from 'react-i18next';
 
 import { EmptyMessage } from '../../atoms/EmptyMessage';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
-import { LoadingMessage } from '../../atoms/LoadingMessage';
 import { ListCard } from '../../molecules/lists/ListCard';
+import { LoadingMessage } from '../../atoms/LoadingMessage';
+import { useList } from '../../../lib/providers/ListProvider';
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 
-export const UserLists = ({ lists, loading, error }) => {
+export const UserLists = () => {
 	const { t } = useTranslation();
-	if (loading)
+	const { lists, loadingLists, errorLists, getLists } = useList();
+	if (loadingLists)
 		return (
 			<LoadingMessage>
 				<p className='text-white font-light text-center'>
@@ -16,12 +19,17 @@ export const UserLists = ({ lists, loading, error }) => {
 			</LoadingMessage>
 		);
 
-	if (error)
+	if (errorLists)
 		return (
 			<ErrorMessage>
-				<p className='text-error font-light text-center'>
-					{t('listsPage.error')}
-				</p>
+				<div className='flex justify-center'>
+					<p className='text-error font-light text-center mr-2'>
+						{t('listsPage.error')}
+					</p>
+					<ButtonLink className='mb-2' onClick={getLists}>
+						{t('tryLoadAgain')}
+					</ButtonLink>
+				</div>
 			</ErrorMessage>
 		);
 

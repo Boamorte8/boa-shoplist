@@ -3,11 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { AddListModal } from '../organisms/lists/AddListModal';
 import { DrawerIcon } from '../atoms/icons/DrawerIcon';
 import { UserLists } from '../organisms/lists/UserLists';
-import { useList } from '../../lib/providers/ListProvider';
 
 const ListsPage = () => {
 	const { t } = useTranslation();
-	const { lists, loadingLists } = useList();
 
 	return (
 		<section className='min-h-[calc(100vh-8.5rem)] md:min-h-[calc(100vh-7.5rem)] lg:min-h-[calc(100vh-9.5rem)] w-full bg-background p-2 md:p-6 lg:px-24 lg:py-10'>
@@ -18,7 +16,7 @@ const ListsPage = () => {
 				</h1>
 			</div>
 
-			<UserLists lists={lists} loading={loadingLists} />
+			<UserLists />
 			<AddListModal />
 		</section>
 	);

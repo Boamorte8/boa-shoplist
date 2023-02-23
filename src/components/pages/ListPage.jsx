@@ -32,7 +32,7 @@ const ListPage = () => {
 				</h1>
 			</div>
 
-			<UserList lists={list} loading={loading} />
+			<UserList list={list} loading={loading} />
 			<AddProductModal />
 		</section>
 	);

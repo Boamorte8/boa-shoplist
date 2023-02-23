@@ -9,15 +9,23 @@ ProductContext.displayName = 'ProductContext';
 function ProductProvider(props) {
 	const [products, setProducts] = useState(null);
 	const [loadingProducts, setLoadingProducts] = useState(false);
+	const [error, setError] = useState(false);
 	const { user } = useAuth();
 
 	const getProducts = async () => {
+		setError(false);
 		setLoadingProducts(true);
-		return product.getProducts().then(data => {
-			if (data.data) setProducts(data.data);
-			setLoadingProducts(false);
-			return data;
-		});
+		return product
+			.getProducts()
+			.then(data => {
+				if (data.data) setProducts(data.data);
+				setLoadingProducts(false);
+				return data;
+			})
+			.catch(err => {
+				setError(true);
+				throw err;
+			});
 	};
 
 	const createProduct = newProduct => {
@@ -36,6 +44,8 @@ function ProductProvider(props) {
 		() => ({
 			products,
 			loadingProducts,
+			error,
+			setError,
 			getProducts,
 			createProduct,
 			updateProduct,
@@ -44,6 +54,8 @@ function ProductProvider(props) {
 		[
 			products,
 			loadingProducts,
+			error,
+			setError,
 			getProducts,
 			createProduct,
 			updateProduct,
