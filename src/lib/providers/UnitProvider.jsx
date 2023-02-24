@@ -19,6 +19,7 @@ function UnitProvider(props) {
 			.getUnits()
 			.then(data => {
 				if (data.data) setUnits(data.data);
+				if (data.error) setError(true);
 				setLoadingUnits(false);
 				return data;
 			})

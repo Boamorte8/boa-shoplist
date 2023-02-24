@@ -133,15 +133,15 @@
 			"success": "Producto creado exitosamente"
 		},
 		"deleteModal": {
-			"description": "Estás seguro que quieres borrar la lista llamada {{list}}?",
-			"error": "Error borrando la lista. Intenta de nuevo",
-			"success": "Lista borrada exitosamente",
-			"title": "Confirmar borrar list"
+			"description": "Estás seguro que quieres borrar el producto llamado {{product}}?",
+			"error": "Error borrando el producto. Intenta de nuevo",
+			"success": "Producto borrado exitosamente",
+			"title": "Confirmar borrar producto"
 		},
 		"updateModal": {
-			"error": "Error actualizando la lista. Intenta de nuevo",
-			"success": "Lista borrada exitosamente",
-			"title": "Actualizar lista"
+			"error": "Error actualizando el producto. Intenta de nuevo",
+			"success": "Producto actualizado exitosamente",
+			"title": "Actualizar producto"
 		}
 	},
 	"unitsPage": {
@@ -156,12 +156,12 @@
 		"deleteModal": {
 			"description": "Estás seguro que quieres borrar la unidad llamada {{unit}}?",
 			"error": "Error borrando la unidad. Intenta de nuevo",
-			"success": "Lista borrada exitosamente",
+			"success": "Unidad borrada exitosamente",
 			"title": "Confirmar borrar list"
 		},
 		"updateModal": {
 			"error": "Error actualizando la unidad. Intenta de nuevo",
-			"success": "Lista borrada exitosamente",
+			"success": "Unidad actualizada exitosamente",
 			"title": "Actualizar unidad"
 		}
 	}

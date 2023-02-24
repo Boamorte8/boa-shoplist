@@ -19,6 +19,7 @@ function ProductProvider(props) {
 			.getProducts()
 			.then(data => {
 				if (data.data) setProducts(data.data);
+				if (data.error) setError(true);
 				setLoadingProducts(false);
 				return data;
 			})

@@ -2,11 +2,14 @@ import { useState } from 'react';
 
 import { BaseCard } from '../../atoms/BaseCard';
 import { CubeIcon } from '../../atoms/icons/CubeIcon';
+import { ConfirmDeleteProductModal } from '../../organisms/products/ConfirmDeleteProductModal';
 import { ListCardOptions } from '../ListCardOptions';
 
 export const ProductCard = ({ product }) => {
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
 	const [openUpdateModal, setOpenUpdateModal] = useState(false);
+
+	const { title, description, units } = product;
 
 	const handleEdit = () => {
 		setOpenUpdateModal(true);
@@ -22,22 +25,25 @@ export const ProductCard = ({ product }) => {
 				<article>
 					<div className='flex items-center gap-2 text-primary-300 mb-1'>
 						<CubeIcon className='h-5' />
-						<h4 className='text-lg'>{product.title}</h4>
+						<h4 className='text-lg'>
+							{title}
+							<span className='mb-2 ml-2 text-gray-300 text-sm font-extralight'>
+								({units.display})
+							</span>
+						</h4>
 					</div>
-					<p className='font-extralight text-sm text-white'>
-						{product.description}
-					</p>
+					<p className='font-extralight text-sm text-white'>{description}</p>
 				</article>
 				<div className='flex justify-end items-center w-10'>
 					<ListCardOptions onEdit={handleEdit} onDelete={handleConfirmDelete} />
 				</div>
 			</BaseCard>
-			{/* <ConfirmDeleteListModal
+			<ConfirmDeleteProductModal
 				open={openDeleteModal}
 				setToggleModal={setOpenDeleteModal}
-				list={list}
+				product={product}
 			/>
-			<UpdateListModal
+			{/* <UpdateListModal
 				open={openUpdateModal}
 				setToggleModal={setOpenUpdateModal}
 				list={list}

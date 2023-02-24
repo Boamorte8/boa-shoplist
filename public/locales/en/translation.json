@@ -132,15 +132,15 @@
 			"success": "Created product successfully"
 		},
 		"deleteModal": {
-			"description": "Are you sure you want to delete list called {{list}}?",
-			"error": "Error deleting list. Try again",
-			"success": "Deleted list successfully",
-			"title": "Confirm delete list"
+			"description": "Are you sure you want to delete product called {{product}}?",
+			"error": "Error deleting product. Try again",
+			"success": "Deleted product successfully",
+			"title": "Confirm delete product"
 		},
 		"updateModal": {
-			"error": "Error updating list. Try again",
-			"success": "Updated list successfully",
-			"title": "Update list"
+			"error": "Error updating product. Try again",
+			"success": "Updated product successfully",
+			"title": "Update product"
 		}
 	},
 	"unitsPage": {

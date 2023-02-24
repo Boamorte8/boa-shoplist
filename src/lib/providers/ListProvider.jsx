@@ -18,7 +18,6 @@ function ListProvider(props) {
 		return list
 			.getLists()
 			.then(data => {
-				console.log(data);
 				if (data.data) setLists(data.data);
 				if (data.error) setErrorLists(true);
 				setLoadingLists(false);
