@@ -29,6 +29,7 @@
 	"unit_one": "Unit",
 	"unit_two": "Units",
 	"update": "Update",
+	"updateEntity": "Update {{entity}}",
 	"addList": {
 		"error": "Error adding new list. Please try again",
 		"success": "New list added successfully",

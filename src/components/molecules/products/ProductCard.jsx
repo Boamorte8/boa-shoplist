@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { BaseCard } from '../../atoms/BaseCard';
 import { CubeIcon } from '../../atoms/icons/CubeIcon';
 import { ConfirmDeleteProductModal } from '../../organisms/products/ConfirmDeleteProductModal';
+import { UpdateProductModal } from '../../organisms/products/UpdateProductModal';
 import { ListCardOptions } from '../ListCardOptions';
 
 export const ProductCard = ({ product }) => {
@@ -43,11 +44,11 @@ export const ProductCard = ({ product }) => {
 				setToggleModal={setOpenDeleteModal}
 				product={product}
 			/>
-			{/* <UpdateListModal
+			<UpdateProductModal
 				open={openUpdateModal}
 				setToggleModal={setOpenUpdateModal}
-				list={list}
-			/> */}
+				product={product}
+			/>
 		</>
 	);
 };

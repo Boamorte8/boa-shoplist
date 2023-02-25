@@ -30,7 +30,7 @@ export const CreateProductModal = () => {
 	const { title, description, unit, isFormInvalid, dispatchCreateProductForm } =
 		useCreateProductForm();
 
-	const onCreateListSuccess = () => {
+	const onCreateProductSuccess = () => {
 		getProducts();
 		toggleModal(false);
 	};
@@ -53,7 +53,7 @@ export const CreateProductModal = () => {
 							setIsSubmitting,
 							createProduct,
 							t,
-							onCreateListSuccess
+							onCreateProductSuccess
 						)
 					}
 				>
