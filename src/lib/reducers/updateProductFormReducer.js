@@ -35,12 +35,7 @@ export const updateProductFormReducer = (state, { type, payload }) => {
 			return { ...state, unit: { value: payload, error } };
 		}
 		case UPDATE_PRODUCT_FORM_ACTIONS.RESET_FORM: {
-			return {
-				...state,
-				title: { value: '', error: undefined },
-				description: { value: '', error: undefined },
-				unit: { value: '', error: undefined }
-			};
+			return getUpdateProductFormInitialState(payload);
 		}
 		default:
 			throw new Error('Invalid action type');

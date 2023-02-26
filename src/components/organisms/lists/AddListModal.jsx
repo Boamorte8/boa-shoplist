@@ -118,10 +118,10 @@ const handleSubmit = async (
 	const { error } = await createList(list);
 
 	if (!error) {
-		alertBox.success(t('auth.loginSuccess'));
+		alertBox.success(t('listsPage.createModal.success'));
 		closeModal();
 	} else {
-		alertBox.error(t('auth.errors.login'));
+		alertBox.error(t('listsPage.createModal.error'));
 	}
 	setIsSubmitting(false);
 };

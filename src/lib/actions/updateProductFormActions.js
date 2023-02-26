@@ -15,6 +15,7 @@ export const unitChangedUpdateProductForm = payload => ({
 	payload
 });
 
-export const resetUpdateProductForm = () => ({
-	type: UPDATE_PRODUCT_FORM_ACTIONS.RESET_FORM
+export const resetUpdateProductForm = payload => ({
+	type: UPDATE_PRODUCT_FORM_ACTIONS.RESET_FORM,
+	payload
 });

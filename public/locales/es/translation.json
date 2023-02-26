@@ -104,6 +104,10 @@
 		"emptyLists": "No hay listas aún. Puedes empezar creando una",
 		"error": "Error cargando tus listas",
 		"loading": "Cargando tus listas...",
+		"createModal": {
+			"error": "Error creando la lista. Intenta de nuevo",
+			"success": "Lista creada exitosamente"
+		},
 		"deleteModal": {
 			"description": "Estás seguro que quieres borrar la lista llamada {{list}}?",
 			"error": "Error borrando la lista. Intenta de nuevo",

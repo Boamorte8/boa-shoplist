@@ -34,7 +34,7 @@ export const UpdateProductModal = ({ open, setToggleModal, product }) => {
 
 	const toggleModal = toggle => {
 		setToggleModal(toggle);
-		if (!toggle) dispatchUpdateProductForm(resetUpdateProductForm());
+		if (!toggle) dispatchUpdateProductForm(resetUpdateProductForm(product));
 	};
 
 	return (

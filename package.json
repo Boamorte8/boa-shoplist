@@ -14,7 +14,7 @@
 		"postinstall": "npm run prepare"
 	},
 	"dependencies": {
-		"@headlessui/react": "1.7.11",
+		"@headlessui/react": "1.7.12",
 		"@supabase/supabase-js": "2.8.0",
 		"i18next": "22.4.10",
 		"i18next-browser-languagedetector": "7.0.1",

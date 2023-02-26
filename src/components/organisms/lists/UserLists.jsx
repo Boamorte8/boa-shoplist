@@ -1,15 +1,32 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
+import { ConfirmDeleteListModal } from './ConfirmDeleteListModal';
 import { EmptyMessage } from '../../atoms/EmptyMessage';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
 import { ListCard } from '../../molecules/lists/ListCard';
 import { LoadingMessage } from '../../atoms/LoadingMessage';
+import { UpdateListModal } from './UpdateListModal';
 import { useList } from '../../../lib/providers/ListProvider';
-import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 
 export const UserLists = () => {
 	const { t } = useTranslation();
+	const [openUpdateModal, setOpenUpdateModal] = useState(false);
+	const [openDeleteModal, setOpenDeleteModal] = useState(false);
+	const [list, setList] = useState(null);
 	const { lists, loadingLists, errorLists, getLists } = useList();
+
+	const onDelete = list => {
+		setList(list);
+		setOpenDeleteModal(true);
+	};
+
+	const onEdit = list => {
+		setList(list);
+		setOpenUpdateModal(true);
+	};
+
 	if (loadingLists)
 		return (
 			<LoadingMessage>
@@ -45,8 +62,27 @@ export const UserLists = () => {
 	return (
 		<main className='flex flex-col gap-5 min-h-full lg:gap-7'>
 			{lists.map(list => (
-				<ListCard key={list.id} list={list} />
+				<ListCard
+					key={list.id}
+					list={list}
+					onDelete={onDelete}
+					onEdit={onEdit}
+				/>
 			))}
+			{list && (
+				<ConfirmDeleteListModal
+					open={openDeleteModal}
+					setToggleModal={setOpenDeleteModal}
+					list={list}
+				/>
+			)}
+			{list && (
+				<UpdateListModal
+					open={openUpdateModal}
+					setToggleModal={setOpenUpdateModal}
+					list={list}
+				/>
+			)}
 		</main>
 	);
 };
