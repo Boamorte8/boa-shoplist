@@ -1,15 +1,41 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
+import { ConfirmDeleteProductModal } from './ConfirmDeleteProductModal';
 import { EmptyMessage } from '../../atoms/EmptyMessage';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
 import { LoadingMessage } from '../../atoms/LoadingMessage';
 import { ProductCard } from '../../molecules/products/ProductCard';
+import { UpdateProductModal } from './UpdateProductModal';
 import { useProduct } from '../../../lib/providers/ProductProvider';
-import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 
 export const UserProducts = () => {
 	const { t } = useTranslation();
+	const [openDeleteModal, setOpenDeleteModal] = useState(false);
+	const [openUpdateModal, setOpenUpdateModal] = useState(false);
+	const [product, setProduct] = useState(null);
 	const { products, loadingProducts, error, getProducts } = useProduct();
+
+	const onDelete = product => {
+		setProduct(product);
+		setOpenDeleteModal(true);
+	};
+
+	const onEdit = product => {
+		setProduct(product);
+		setOpenUpdateModal(true);
+	};
+
+	const toggleDeleteModal = toggle => {
+		setOpenDeleteModal(toggle);
+		if (!toggle) setProduct(null);
+	};
+
+	const toggleUpdateModal = toggle => {
+		setOpenUpdateModal(toggle);
+		if (!toggle) setProduct(null);
+	};
 
 	if (loadingProducts)
 		return (
@@ -46,8 +72,27 @@ export const UserProducts = () => {
 	return (
 		<main className='flex flex-col gap-5 min-h-full'>
 			{products.map(product => (
-				<ProductCard key={product.id} product={product} />
+				<ProductCard
+					key={product.id}
+					product={product}
+					onEdit={onEdit}
+					onDelete={onDelete}
+				/>
 			))}
+			{product && (
+				<ConfirmDeleteProductModal
+					open={openDeleteModal}
+					setToggleModal={toggleDeleteModal}
+					product={product}
+				/>
+			)}
+			{product && (
+				<UpdateProductModal
+					open={openUpdateModal}
+					setToggleModal={toggleUpdateModal}
+					product={product}
+				/>
+			)}
 		</main>
 	);
 };

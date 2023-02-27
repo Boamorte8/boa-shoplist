@@ -1,15 +1,42 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
+import { ConfirmDeleteUnitModal } from './ConfirmDeleteUnitModal';
 import { EmptyMessage } from '../../atoms/EmptyMessage';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
 import { LoadingMessage } from '../../atoms/LoadingMessage';
 import { UnitCard } from '../../molecules/units/UnitCard';
 import { useUnit } from '../../../lib/providers/UnitProvider';
-import { ButtonLink } from '../../atoms/buttons/ButtonLink';
+import { UpdateUnitModal } from './UpdateUnitModal';
 
 export const UserUnits = () => {
 	const { t } = useTranslation();
+	const [openDeleteModal, setOpenDeleteModal] = useState(false);
+	const [openUpdateModal, setOpenUpdateModal] = useState(false);
+	const [unit, setUnit] = useState(null);
 	const { units, loadingUnits, error, getUnits } = useUnit();
+
+	const onDelete = unit => {
+		setUnit(unit);
+		setOpenDeleteModal(true);
+	};
+
+	const onEdit = unit => {
+		setUnit(unit);
+		setOpenUpdateModal(true);
+	};
+
+	const toggleDeleteModal = toggle => {
+		setOpenDeleteModal(toggle);
+		if (!toggle) setUnit(null);
+	};
+
+	const toggleUpdateModal = toggle => {
+		setOpenUpdateModal(toggle);
+		if (!toggle) setUnit(null);
+	};
+
 	if (loadingUnits)
 		return (
 			<LoadingMessage>
@@ -45,8 +72,27 @@ export const UserUnits = () => {
 	return (
 		<main className='flex flex-col gap-5 min-h-full'>
 			{units.map(unit => (
-				<UnitCard key={unit.id} unit={unit} />
+				<UnitCard
+					key={unit.id}
+					unit={unit}
+					onEdit={onEdit}
+					onDelete={onDelete}
+				/>
 			))}
+			{unit && (
+				<ConfirmDeleteUnitModal
+					open={openDeleteModal}
+					setToggleModal={toggleDeleteModal}
+					unit={unit}
+				/>
+			)}
+			{unit && (
+				<UpdateUnitModal
+					open={openUpdateModal}
+					setToggleModal={toggleUpdateModal}
+					unit={unit}
+				/>
+			)}
 		</main>
 	);
 };

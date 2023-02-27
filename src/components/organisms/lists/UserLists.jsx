@@ -27,6 +27,16 @@ export const UserLists = () => {
 		setOpenUpdateModal(true);
 	};
 
+	const toggleDeleteModal = toggle => {
+		setOpenDeleteModal(toggle);
+		if (!toggle) setList(null);
+	};
+
+	const toggleUpdateModal = toggle => {
+		setOpenUpdateModal(toggle);
+		if (!toggle) setList(null);
+	};
+
 	if (loadingLists)
 		return (
 			<LoadingMessage>
@@ -72,14 +82,14 @@ export const UserLists = () => {
 			{list && (
 				<ConfirmDeleteListModal
 					open={openDeleteModal}
-					setToggleModal={setOpenDeleteModal}
+					setToggleModal={toggleDeleteModal}
 					list={list}
 				/>
 			)}
 			{list && (
 				<UpdateListModal
 					open={openUpdateModal}
-					setToggleModal={setOpenUpdateModal}
+					setToggleModal={toggleUpdateModal}
 					list={list}
 				/>
 			)}
