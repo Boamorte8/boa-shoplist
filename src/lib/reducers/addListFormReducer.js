@@ -2,31 +2,31 @@ import { ADD_LIST_FORM_ACTIONS } from '../constants/addListFormActions';
 import { validateRequired } from '../users/userValidations';
 
 export const ADD_LIST_FORM_INITIAL_STATE = {
-	title: {
-		value: '',
+	product: {
+		value: null,
 		error: undefined
 	},
-	description: {
-		value: '',
+	quantity: {
+		value: 1,
 		error: undefined
 	}
 };
 
 export const addListFormReducer = (state, { type, payload }) => {
 	switch (type) {
-		case ADD_LIST_FORM_ACTIONS.TITLE_CHANGED: {
+		case ADD_LIST_FORM_ACTIONS.PRODUCT_CHANGED: {
 			const error = validateRequired(payload);
-			return { ...state, title: { value: payload, error } };
+			return { ...state, product: { value: payload, error } };
 		}
-		case ADD_LIST_FORM_ACTIONS.DESCRIPTION_CHANGED: {
+		case ADD_LIST_FORM_ACTIONS.QUANTITY_CHANGED: {
 			const error = validateRequired(payload);
-			return { ...state, description: { value: payload, error } };
+			return { ...state, quantity: { value: payload, error } };
 		}
 		case ADD_LIST_FORM_ACTIONS.RESET_FORM: {
 			return {
 				...state,
-				title: { value: '', error: undefined },
-				description: { value: '', error: undefined }
+				product: { value: null, error: undefined },
+				quantity: { value: 1, error: undefined }
 			};
 		}
 		default:

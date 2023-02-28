@@ -6,7 +6,10 @@ import { ErrorMessage } from '../../atoms/ErrorMessage';
 import { LoadingMessage } from '../../atoms/LoadingMessage';
 
 export const UserList = ({ list, loading, error }) => {
+	console.log(list);
 	const { t } = useTranslation();
+	const { to_buy: toBuy, basket, purchases } = list;
+	console.log(list);
 	const getProducts = () => {};
 	if (loading)
 		return (
@@ -31,7 +34,7 @@ export const UserList = ({ list, loading, error }) => {
 			</ErrorMessage>
 		);
 
-	if (!list)
+	if (!toBuy && !basket && !purchases)
 		return (
 			<EmptyMessage image='/empty-canvas.svg'>
 				<p className='text-white font-light text-center'>

@@ -7,9 +7,9 @@ import { BaseSelect } from '../../atoms/forms/BaseSelect';
 import { Button } from '../../atoms/buttons/Button';
 import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 import {
-	descriptionChangedAddListForm,
-	resetAddListForm,
-	titleChangedAddListForm
+	productChangedAddListForm,
+	quantityChangedAddListForm,
+	resetAddListForm
 } from '../../../lib/actions/addListFormActions';
 import { FloatButton } from '../../atoms/buttons/FloatButton';
 import { Modal } from '../../atoms/modal/Modal';
@@ -23,7 +23,7 @@ export const AddProductModal = () => {
 	const [openModal, setOpenModal] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { products, createProduct, getProducts } = useProduct();
-	const { title, description, isFormInvalid, dispatchAddListForm } =
+	const { product, quantity, isFormInvalid, dispatchAddListForm } =
 		useAddListForm();
 
 	const onCreateListSuccess = () => {
@@ -49,8 +49,7 @@ export const AddProductModal = () => {
 					onSubmit={ev =>
 						handleSubmit(
 							ev,
-							title,
-							description,
+							{ product, quantity },
 							setIsSubmitting,
 							createProduct,
 							t,
@@ -71,10 +70,11 @@ export const AddProductModal = () => {
 								entities: t('products_two').toLowerCase()
 							})}
 							items={products}
-							error={title.error && t(title.error)}
-							value={title.value}
-							onChange={ev =>
-								dispatchAddListForm(titleChangedAddListForm(ev.target.value))
+							keyProp='title'
+							error={product.error && t(product.error)}
+							selected={product.value}
+							setSelected={selectedProduct =>
+								dispatchAddListForm(productChangedAddListForm(selectedProduct))
 							}
 						/>
 						<ButtonLink to='/products' className='mb-2'>
@@ -83,17 +83,15 @@ export const AddProductModal = () => {
 
 						<BaseInput
 							id='quantity'
-							type='quantity'
+							type='number'
 							name='quantity'
 							className='max-w-sm'
 							label={t('quantity_one')}
-							placeholder={t('forms.addDescription')}
-							error={description.error && t(description.error)}
-							value={description.value}
+							placeholder={t('forms.addEntity', { entity: t('quantity_one') })}
+							error={quantity.error && t(quantity.error)}
+							value={quantity.value}
 							onChange={ev =>
-								dispatchAddListForm(
-									descriptionChangedAddListForm(ev.target.value)
-								)
+								dispatchAddListForm(quantityChangedAddListForm(ev.target.value))
 							}
 						/>
 					</div>
@@ -114,8 +112,7 @@ export const AddProductModal = () => {
 
 const handleSubmit = async (
 	ev,
-	title,
-	description,
+	{ product, quantity },
 	setIsSubmitting,
 	createProduct,
 	t,
@@ -126,8 +123,8 @@ const handleSubmit = async (
 	setIsSubmitting(true);
 
 	const list = {
-		title: title.value,
-		description: description.value
+		product: product.value,
+		quantity: quantity.value
 	};
 
 	const { error } = await createProduct(list);

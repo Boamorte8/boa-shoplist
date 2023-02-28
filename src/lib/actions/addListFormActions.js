@@ -1,12 +1,12 @@
 import { ADD_LIST_FORM_ACTIONS } from '../constants/addListFormActions';
 
-export const titleChangedAddListForm = payload => ({
-	type: ADD_LIST_FORM_ACTIONS.TITLE_CHANGED,
+export const productChangedAddListForm = payload => ({
+	type: ADD_LIST_FORM_ACTIONS.PRODUCT_CHANGED,
 	payload
 });
 
-export const descriptionChangedAddListForm = payload => ({
-	type: ADD_LIST_FORM_ACTIONS.DESCRIPTION_CHANGED,
+export const quantityChangedAddListForm = payload => ({
+	type: ADD_LIST_FORM_ACTIONS.QUANTITY_CHANGED,
 	payload
 });
 

@@ -5,23 +5,23 @@ import { alertBox } from '../../../lib/events/alertEvents';
 import { BaseInput } from '../../atoms/forms/BaseInput';
 import { Button } from '../../atoms/buttons/Button';
 import {
-	descriptionChangedAddListForm,
-	resetAddListForm,
-	titleChangedAddListForm
-} from '../../../lib/actions/addListFormActions';
+	descriptionChangedCreateListForm,
+	resetCreateListForm,
+	titleChangedCreateListForm
+} from '../../../lib/actions/createListFormActions';
 import { FloatButton } from '../../atoms/buttons/FloatButton';
 import { Modal } from '../../atoms/modal/Modal';
-import { useAddListForm } from '../../../lib/hooks/useAddListForm';
+import { useCreateListForm } from '../../../lib/hooks/useCreateListForm';
 import { useList } from '../../../lib/providers/ListProvider';
 
-export const AddListModal = () => {
+export const CreateListModal = () => {
 	const { t } = useTranslation();
 	const addList = t('addList.title');
 	const [openModal, setOpenModal] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { createList, getLists } = useList();
-	const { title, description, isFormInvalid, dispatchAddListForm } =
-		useAddListForm();
+	const { title, description, isFormInvalid, dispatchCreateListForm } =
+		useCreateListForm();
 
 	const onCreateListSuccess = () => {
 		getLists();
@@ -30,7 +30,7 @@ export const AddListModal = () => {
 
 	const toggleModal = toggle => {
 		setOpenModal(toggle);
-		if (!toggle) dispatchAddListForm(resetAddListForm());
+		if (!toggle) dispatchCreateListForm(resetCreateListForm());
 	};
 
 	return (
@@ -62,7 +62,9 @@ export const AddListModal = () => {
 							error={title.error && t(title.error)}
 							value={title.value}
 							onChange={ev =>
-								dispatchAddListForm(titleChangedAddListForm(ev.target.value))
+								dispatchCreateListForm(
+									titleChangedCreateListForm(ev.target.value)
+								)
 							}
 						/>
 
@@ -76,8 +78,8 @@ export const AddListModal = () => {
 							error={description.error && t(description.error)}
 							value={description.value}
 							onChange={ev =>
-								dispatchAddListForm(
-									descriptionChangedAddListForm(ev.target.value)
+								dispatchCreateListForm(
+									descriptionChangedCreateListForm(ev.target.value)
 								)
 							}
 						/>

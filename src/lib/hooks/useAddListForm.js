@@ -11,10 +11,10 @@ export const useAddListForm = () => {
 		ADD_LIST_FORM_INITIAL_STATE
 	);
 
-	const { title, description } = formValues;
+	const { product, quantity } = formValues;
 
 	const isFormInvalid =
-		!title.value || !!title.error || !description.value || !!description.error;
+		!product.value || !!product.error || !quantity.value || !!quantity.error;
 
 	return {
 		...formValues,

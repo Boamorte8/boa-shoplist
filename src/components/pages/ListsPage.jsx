@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { AddListModal } from '../organisms/lists/AddListModal';
+import { CreateListModal } from '../organisms/lists/CreateListModal';
 import { DrawerIcon } from '../atoms/icons/DrawerIcon';
 import { UserLists } from '../organisms/lists/UserLists';
 
@@ -17,7 +17,7 @@ const ListsPage = () => {
 			</div>
 
 			<UserLists />
-			<AddListModal />
+			<CreateListModal />
 		</section>
 	);
 };
