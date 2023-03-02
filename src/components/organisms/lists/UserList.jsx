@@ -1,15 +1,15 @@
+import { Tab } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
-import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 
+import { BaseTab } from '../../atoms/BaseTab';
+import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 import { EmptyMessage } from '../../atoms/EmptyMessage';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
 import { LoadingMessage } from '../../atoms/LoadingMessage';
 
-export const UserList = ({ list, loading, error }) => {
-	console.log(list);
+export const UserList = ({ list, listProducts, loading, error }) => {
+	console.log(listProducts);
 	const { t } = useTranslation();
-	const { to_buy: toBuy, basket, purchases } = list;
-	console.log(list);
 	const getProducts = () => {};
 	if (loading)
 		return (
@@ -34,7 +34,7 @@ export const UserList = ({ list, loading, error }) => {
 			</ErrorMessage>
 		);
 
-	if (!toBuy && !basket && !purchases)
+	if (!list || !listProducts || !listProducts.length)
 		return (
 			<EmptyMessage image='/empty-canvas.svg'>
 				<p className='text-white font-light text-center'>
@@ -45,10 +45,20 @@ export const UserList = ({ list, loading, error }) => {
 
 	return (
 		<main className='flex flex-col gap-5 min-h-full'>
-			Products
-			{/* {lists.map(list => (
-				<ListCard key={list.id} list={list} />
-			))} */}
+			<Tab.Group>
+				<Tab.List className='flex space-x-1 rounded-xl bg-background-700 p-1'>
+					<BaseTab key='buy'>Buy</BaseTab>
+					<BaseTab key='basket'>Basket</BaseTab>
+				</Tab.List>
+				<Tab.Panels className=''>
+					<Tab.Panel key='buy'>
+						<p>Buy</p>
+					</Tab.Panel>
+					<Tab.Panel key='basket'>
+						<p>Basket</p>
+					</Tab.Panel>
+				</Tab.Panels>
+			</Tab.Group>
 		</main>
 	);
 };

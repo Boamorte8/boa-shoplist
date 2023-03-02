@@ -1,4 +1,5 @@
 import { AuthProvider } from './AuthProvider';
+import { ListProductProvider } from './ListProductProvider';
 import { ListProvider } from './ListProvider';
 import { ProductProvider } from './ProductProvider';
 import { UnitProvider } from './UnitProvider';
@@ -8,7 +9,9 @@ function AppProviders({ children }) {
 		<AuthProvider>
 			<ListProvider>
 				<ProductProvider>
-					<UnitProvider>{children}</UnitProvider>
+					<ListProductProvider>
+						<UnitProvider>{children}</UnitProvider>
+					</ListProductProvider>
 				</ProductProvider>
 			</ListProvider>
 		</AuthProvider>

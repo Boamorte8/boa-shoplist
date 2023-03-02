@@ -14,19 +14,24 @@ import {
 import { FloatButton } from '../../atoms/buttons/FloatButton';
 import { Modal } from '../../atoms/modal/Modal';
 import { useAddListForm } from '../../../lib/hooks/useAddListForm';
+import { useList } from '../../../lib/providers/ListProvider';
+import { useListProduct } from '../../../lib/providers/ListProductProvider';
 import { useProduct } from '../../../lib/providers/ProductProvider';
 
-export const AddProductModal = () => {
+export const AddProductModal = ({ list }) => {
 	const { t } = useTranslation();
 	const addProduct = t('addProductList.title');
 	const productText = t('products_one');
 	const [openModal, setOpenModal] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const { products, createProduct, getProducts } = useProduct();
+	const { products, getProducts } = useProduct();
+	const { getLists } = useList();
+	const { createListProduct } = useListProduct();
 	const { product, quantity, isFormInvalid, dispatchAddListForm } =
 		useAddListForm();
 
 	const onCreateListSuccess = () => {
+		getLists();
 		toggleModal(false);
 	};
 
@@ -49,9 +54,9 @@ export const AddProductModal = () => {
 					onSubmit={ev =>
 						handleSubmit(
 							ev,
-							{ product, quantity },
+							{ product, quantity, listId: list.id },
 							setIsSubmitting,
-							createProduct,
+							createListProduct,
 							t,
 							onCreateListSuccess
 						)
@@ -112,9 +117,9 @@ export const AddProductModal = () => {
 
 const handleSubmit = async (
 	ev,
-	{ product, quantity },
+	{ product, quantity, listId },
 	setIsSubmitting,
-	createProduct,
+	createListProduct,
 	t,
 	closeModal
 ) => {
@@ -122,18 +127,20 @@ const handleSubmit = async (
 
 	setIsSubmitting(true);
 
-	const list = {
-		product: product.value,
-		quantity: quantity.value
+	const listProduct = {
+		product_id: product.value.id,
+		quantity: quantity.value,
+		list_id: listId
 	};
 
-	const { error } = await createProduct(list);
+	const { error, ...result } = await createListProduct(listProduct);
+	console.log(result);
 
 	if (!error) {
-		alertBox.success(t('auth.loginSuccess'));
+		alertBox.success(t('listPage.addModal.success'));
 		closeModal();
 	} else {
-		alertBox.error(t('auth.errors.login'));
+		alertBox.error(t('listPage.addModal.error'));
 	}
 	setIsSubmitting(false);
 };

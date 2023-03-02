@@ -1,19 +1,30 @@
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { AddProductModal } from '../organisms/products/AddProductModal';
 import { ArrowRightComplete } from '../atoms/icons/ArrowRightComplete';
 import { IconButton } from '../atoms/buttons/IconButton';
-import { UserList } from '../organisms/lists/UserList';
 import { useList } from '../../lib/providers/ListProvider';
+import { useListProduct } from '../../lib/providers/ListProductProvider';
+import { UserList } from '../organisms/lists/UserList';
 
 const ListPage = () => {
 	const { listId } = useParams();
 	const { t } = useTranslation();
 	const navigate = useNavigate();
-	const { getList } = useList();
-	const list = getList(listId);
-	const loading = false;
+	const { selectedList, getList, loadingList, errorList } = useList();
+	const {
+		listProducts,
+		loadingListProducts,
+		errorListProducts,
+		getListProducts
+	} = useListProduct();
+
+	useEffect(() => {
+		getList(listId);
+		getListProducts(listId);
+	}, []);
 
 	const handleBack = () => {
 		navigate('/list');
@@ -28,12 +39,19 @@ const ListPage = () => {
 					onClick={handleBack}
 				/>
 				<h1 className='font-medium text-xl text-primary-300'>
-					{t('listPage.products', { name: list.title })}
+					{t('listPage.products', {
+						name: selectedList ? selectedList.title : ''
+					})}
 				</h1>
 			</div>
 
-			<UserList list={list} loading={loading} />
-			<AddProductModal />
+			<UserList
+				list={selectedList}
+				listProducts={listProducts}
+				loading={loadingList || loadingListProducts}
+				error={errorList || errorListProducts}
+			/>
+			<AddProductModal list={selectedList} />
 		</section>
 	);
 };

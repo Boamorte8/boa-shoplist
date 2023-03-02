@@ -87,11 +87,15 @@
 		"emptyList": "No hay productos añadidos a la lista aún. Puedes empezar añadiendo uno",
 		"error": "Error cargando tu lista",
 		"loading": "Cargando tu lista...",
+		"addModal": {
+			"error": "Error borrando la lista. Intenta de nuevo",
+			"success": "Producto añadido a la lista exitosamente"
+		},
 		"deleteModal": {
 			"description": "Estás seguro que quieres borrar la lista llamada {{list}}?",
 			"error": "Error borrando la lista. Intenta de nuevo",
 			"success": "Lista borrada exitosamente",
-			"title": "Confirmar borrar list"
+			"title": "Confirmar borrar lista"
 		},
 		"updateModal": {
 			"error": "Error actualizando la lista. Intenta de nuevo",

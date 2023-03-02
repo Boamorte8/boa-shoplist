@@ -8,8 +8,11 @@ ListContext.displayName = 'ListContext';
 
 function ListProvider(props) {
 	const [lists, setLists] = useState(null);
+	const [selectedList, setSelectedList] = useState(null);
 	const [errorLists, setErrorLists] = useState(false);
 	const [loadingLists, setLoadingLists] = useState(false);
+	const [errorList, setErrorList] = useState(false);
+	const [loadingList, setLoadingList] = useState(false);
 	const { user } = useAuth();
 
 	const getLists = async () => {
@@ -29,8 +32,22 @@ function ListProvider(props) {
 			});
 	};
 
-	const getList = id => {
-		return lists.find(list => list.id === id);
+	const getList = async id => {
+		setSelectedList(null);
+		setErrorList(false);
+		setLoadingList(true);
+		return list
+			.getList(id)
+			.then(data => {
+				if (data.data) setSelectedList(data.data[0]);
+				if (data.error) setErrorList(true);
+				setLoadingList(false);
+				return data;
+			})
+			.catch(err => {
+				setErrorList(true);
+				throw err;
+			});
 	};
 
 	const createList = newList => {
@@ -50,6 +67,9 @@ function ListProvider(props) {
 			lists,
 			loadingLists,
 			errorLists,
+			selectedList,
+			loadingList,
+			errorList,
 			setErrorLists,
 			getLists,
 			getList,
@@ -61,6 +81,9 @@ function ListProvider(props) {
 			lists,
 			loadingLists,
 			errorLists,
+			selectedList,
+			loadingList,
+			errorList,
 			getLists,
 			setErrorLists,
 			getList,

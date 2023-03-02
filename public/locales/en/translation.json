@@ -87,6 +87,10 @@
 		"emptyList": "There are not products added to this list yet. You can start adding one",
 		"error": "Error loading your list",
 		"loading": "Loading your list...",
+		"addModal": {
+			"error": "Error adding product to list. Try again",
+			"success": "Added product to list successfully"
+		},
 		"deleteModal": {
 			"description": "Are you sure you want to delete list called {{list}}?",
 			"error": "Error deleting list. Try again",

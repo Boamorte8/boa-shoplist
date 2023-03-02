@@ -12,6 +12,14 @@ async function getLists() {
 	}
 }
 
+async function getList(listId) {
+	try {
+		return supabase.from('lists').select('*').eq('id', listId);
+	} catch (error) {
+		alertBox.error(i18next.t('errors.server'));
+	}
+}
+
 async function createList(newList) {
 	try {
 		return supabase.from('lists').insert([newList]);
@@ -36,4 +44,4 @@ async function deleteList(listId) {
 	}
 }
 
-export { getLists, createList, updateList, deleteList };
+export { getLists, getList, createList, updateList, deleteList };
