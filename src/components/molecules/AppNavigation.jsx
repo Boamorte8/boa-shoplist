@@ -8,10 +8,10 @@ import { IconButton } from '../atoms/buttons/IconButton';
 import { NavigationLink } from '../atoms/buttons/NavigationLink';
 
 export const AppNavigation = ({ open, closeMenu, menuOptions }) => {
-	if (!open) return null;
-
 	const { t } = useTranslation();
 	const [menuClass, setMenuClass] = useState('animate-slide-in-left');
+
+	if (!open) return null;
 
 	const closeSelector = () => {
 		setMenuClass('animate-slide-out-left');
@@ -38,7 +38,11 @@ export const AppNavigation = ({ open, closeMenu, menuOptions }) => {
 		>
 			<header className='sticky h-14 top-0 w-full px-5 py-3 flex justify-between items-center'>
 				<div className='flex items-center font-medium text-medium text-primary-300 uppercase'>
-					<img className='h-7 w-7 mr-2' src='/logo-icon.svg' />
+					<img
+						className='h-7 w-7 mr-2'
+						src='/logo-icon.svg'
+						alt='Boa Shoplist logo'
+					/>
 					{t('logoComplete')}
 				</div>
 				<IconButton icon={CrossIcon} onClick={closeSelector} />

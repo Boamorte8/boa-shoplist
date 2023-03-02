@@ -1,4 +1,10 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import {
+	createContext,
+	useCallback,
+	useContext,
+	useMemo,
+	useState
+} from 'react';
 
 import * as product from '../api/productsApi';
 import { useAuth } from './AuthProvider';
@@ -12,7 +18,7 @@ function ProductProvider(props) {
 	const [error, setError] = useState(false);
 	const { user } = useAuth();
 
-	const getProducts = async () => {
+	const getProducts = useCallback(async () => {
 		setError(false);
 		setLoadingProducts(true);
 		return product
@@ -27,19 +33,22 @@ function ProductProvider(props) {
 				setError(true);
 				throw err;
 			});
-	};
+	}, []);
 
-	const createProduct = newProduct => {
-		return product.createProduct({ ...newProduct, user_id: user.id });
-	};
+	const createProduct = useCallback(
+		newProduct => {
+			return product.createProduct({ ...newProduct, user_id: user.id });
+		},
+		[user]
+	);
 
-	const updateProduct = (productId, newData) => {
+	const updateProduct = useCallback((productId, newData) => {
 		return product.updateProduct(productId, newData);
-	};
+	}, []);
 
-	const deleteProduct = productId => {
+	const deleteProduct = useCallback(productId => {
 		return product.deleteProduct(productId);
-	};
+	}, []);
 
 	const value = useMemo(
 		() => ({

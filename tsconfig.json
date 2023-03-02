@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./src",
+		"esModuleInterop": false,
+		"forceConsistentCasingInFileNames": true,
+		"incremental": true,
+		"isolatedModules": true,
+		"jsx": "react-jsx",
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"noEmit": true,
+		"paths": {
+			"@atoms/*": ["components/atoms/*"],
+			"@molecules/*": ["components/molecules/*"],
+			"@organisms/*": ["components/organisms/*"],
+			"@pages/*": ["components/pages/*"],
+			"@lib/*": ["lib/*"]
+		},
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ESNext"
+	},
+	"references": [{ "path": "./tsconfig.node.json" }]
+}

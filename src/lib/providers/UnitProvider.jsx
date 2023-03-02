@@ -1,4 +1,10 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import {
+	createContext,
+	useCallback,
+	useContext,
+	useMemo,
+	useState
+} from 'react';
 
 import * as unit from '../api/unitsApi';
 import { useAuth } from './AuthProvider';
@@ -12,7 +18,7 @@ function UnitProvider(props) {
 	const [error, setError] = useState(false);
 	const { user } = useAuth();
 
-	const getUnits = async () => {
+	const getUnits = useCallback(async () => {
 		setError(false);
 		setLoadingUnits(true);
 		return unit
@@ -27,19 +33,22 @@ function UnitProvider(props) {
 				setError(true);
 				throw err;
 			});
-	};
+	}, []);
 
-	const createUnit = newUnit => {
-		return unit.createUnit({ ...newUnit, user_id: user.id });
-	};
+	const createUnit = useCallback(
+		newUnit => {
+			return unit.createUnit({ ...newUnit, user_id: user.id });
+		},
+		[user]
+	);
 
-	const updateUnit = (unitId, newData) => {
+	const updateUnit = useCallback((unitId, newData) => {
 		return unit.updateUnit(unitId, newData);
-	};
+	}, []);
 
-	const deleteUnit = unitId => {
+	const deleteUnit = useCallback(unitId => {
 		return unit.deleteUnit(unitId);
-	};
+	}, []);
 
 	const value = useMemo(
 		() => ({

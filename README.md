@@ -21,6 +21,9 @@
   </p>
 </div>
 
+![Package License](https://img.shields.io/github/license/boamorte8/boa-shoplist)
+![Package Version](https://img.shields.io/github/package-json/v/boamorte8/boa-shoplist)
+
 <!-- BUILT WITH -->
 
 ## About The Project

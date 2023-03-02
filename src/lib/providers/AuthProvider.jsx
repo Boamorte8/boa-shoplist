@@ -1,25 +1,34 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import {
+	createContext,
+	useCallback,
+	useContext,
+	useMemo,
+	useState
+} from 'react';
 
 import { alertBox } from '../events/alertEvents';
 import i18next from '../utils/i18n';
 import * as auth from '../api/authApi';
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 AuthContext.displayName = 'AuthContext';
 
 function AuthProvider(props) {
 	const [user, setUser] = useState(null);
 	const [openConfirmLogout, setOpenConfirmLogout] = useState(false);
 
-	const login = form =>
-		auth.login(form).then(data => {
-			setUser(data.data.user);
-			return data;
-		});
+	const login = useCallback(
+		form =>
+			auth.login(form).then(data => {
+				setUser(data.data.user);
+				return data;
+			}),
+		[]
+	);
 
-	const register = form => auth.register(form);
+	const register = useCallback(form => auth.register(form), []);
 
-	const logout = () => {
+	const logout = useCallback(() => {
 		auth.logout().then(({ error }) => {
 			if (!error) {
 				alertBox.success(i18next.t('auth.logoutSuccess'));
@@ -28,7 +37,7 @@ function AuthProvider(props) {
 			}
 			setUser(null);
 		});
-	};
+	}, []);
 
 	const value = useMemo(
 		() => ({
@@ -45,12 +54,12 @@ function AuthProvider(props) {
 	return <AuthContext.Provider value={value} {...props} />;
 }
 
-const useAuth = () => {
+function useAuth() {
 	const context = useContext(AuthContext);
 	if (context === undefined) {
 		throw new Error(`useAuth must be used within a AuthProvider`);
 	}
 	return context;
-};
+}
 
 export { AuthProvider, useAuth };

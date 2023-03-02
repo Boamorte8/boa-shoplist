@@ -49,7 +49,7 @@ const useAlert = ({ setMenuClass }) => {
 			clearTimeout(timeoutIdClass);
 			setMenuClass('animate-slide-in-right');
 		};
-	}, [alert]);
+	}, [alert, setMenuClass]);
 
 	useEffect(() => {
 		const callback = alertData => setAlert(alertData);

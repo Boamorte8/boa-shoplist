@@ -1,8 +1,6 @@
 import { alertBox } from '../events/alertEvents';
-import useSupabase from '../hooks/useSupabase';
+import { supabase } from './client';
 import i18next from '../utils/i18n';
-
-const { supabase } = useSupabase();
 
 const localStorageKey = '__auth_provider_token__';
 

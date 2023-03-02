@@ -1,4 +1,10 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import {
+	createContext,
+	useCallback,
+	useContext,
+	useMemo,
+	useState
+} from 'react';
 
 import * as list from '../api/listsApi';
 import { useAuth } from './AuthProvider';
@@ -15,7 +21,7 @@ function ListProvider(props) {
 	const [loadingList, setLoadingList] = useState(false);
 	const { user } = useAuth();
 
-	const getLists = async () => {
+	const getLists = useCallback(async () => {
 		setErrorLists(false);
 		setLoadingLists(true);
 		return list
@@ -30,9 +36,9 @@ function ListProvider(props) {
 				setErrorLists(true);
 				throw err;
 			});
-	};
+	}, []);
 
-	const getList = async id => {
+	const getList = useCallback(async id => {
 		setSelectedList(null);
 		setErrorList(false);
 		setLoadingList(true);
@@ -48,19 +54,22 @@ function ListProvider(props) {
 				setErrorList(true);
 				throw err;
 			});
-	};
+	}, []);
 
-	const createList = newList => {
-		return list.createList({ ...newList, user_id: user.id });
-	};
+	const createList = useCallback(
+		newList => {
+			return list.createList({ ...newList, user_id: user.id });
+		},
+		[user]
+	);
 
-	const updateList = (listId, newData) => {
+	const updateList = useCallback((listId, newData) => {
 		return list.updateList(listId, newData);
-	};
+	}, []);
 
-	const deleteList = listId => {
+	const deleteList = useCallback(listId => {
 		return list.deleteList(listId);
-	};
+	}, []);
 
 	const value = useMemo(
 		() => ({

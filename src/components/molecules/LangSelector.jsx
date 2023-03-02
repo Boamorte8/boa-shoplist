@@ -12,7 +12,7 @@ export const LangSelector = () => {
 	};
 	const selectedLang = langs[i18n.resolvedLanguage];
 	const unselectedLangs = Object.entries(langs).filter(
-		([_, value]) => value !== selectedLang
+		([, value]) => value !== selectedLang
 	);
 	const items = unselectedLangs.map(([code, lang]) => (
 		<Menu.Item key={lang}>

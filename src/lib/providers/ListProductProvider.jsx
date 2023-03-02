@@ -1,4 +1,10 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import {
+	createContext,
+	useCallback,
+	useContext,
+	useMemo,
+	useState
+} from 'react';
 
 import * as listProduct from '../api/listProductsApi';
 import { useAuth } from './AuthProvider';
@@ -12,7 +18,7 @@ function ListProductProvider(props) {
 	const [loadingListProducts, setLoadingListProducts] = useState(false);
 	const { user } = useAuth();
 
-	const getListProducts = async listId => {
+	const getListProducts = useCallback(async listId => {
 		setListProducts(null);
 		setErrorListProducts(false);
 		setLoadingListProducts(true);
@@ -28,19 +34,22 @@ function ListProductProvider(props) {
 				setErrorListProducts(true);
 				throw err;
 			});
-	};
+	}, []);
 
-	const createListProduct = newList => {
-		return listProduct.createListProduct({ ...newList, user_id: user.id });
-	};
+	const createListProduct = useCallback(
+		newList => {
+			return listProduct.createListProduct({ ...newList, user_id: user.id });
+		},
+		[user]
+	);
 
-	const updateListProduct = (listId, newData) => {
+	const updateListProduct = useCallback((listId, newData) => {
 		return listProduct.updateListProduct(listId, newData);
-	};
+	}, []);
 
-	const deleteListProduct = listId => {
+	const deleteListProduct = useCallback(listId => {
 		return listProduct.deleteListProduct(listId);
-	};
+	}, []);
 
 	const value = useMemo(
 		() => ({

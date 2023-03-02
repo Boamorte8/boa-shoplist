@@ -17,8 +17,8 @@ import { useAuth } from './lib/providers/AuthProvider';
 const LazyListPage = lazy(() => import('./components/pages/ListPage'));
 const LazyListsPage = lazy(() => import('./components/pages/ListsPage'));
 const LazyProductsPage = lazy(() => import('./components/pages/ProductsPage'));
-const LazyRegisterPage = lazy(() =>
-	import('./components/pages/auth/RegisterPage')
+const LazyRegisterPage = lazy(
+	() => import('./components/pages/auth/RegisterPage')
 );
 const LazyUnitsPage = lazy(() => import('./components/pages/UnitsPage'));
 
@@ -30,7 +30,7 @@ export const RouterRoot = () => {
 		createRoutesFromElements(
 			<>
 				<Route path='/' element={<App />}>
-					<Route path='' element={<FirstRoute isAuthenticated={isAuth} />} />
+					<Route path='' element={<FirstRoute />} />
 					<Route
 						path='login'
 						element={
@@ -50,7 +50,6 @@ export const RouterRoot = () => {
 						}
 					/>
 					<Route
-						exact
 						path='list'
 						element={
 							<ProtectedRoute isAuthenticated={isAuth}>
@@ -59,7 +58,6 @@ export const RouterRoot = () => {
 						}
 					/>
 					<Route
-						exact
 						path='list/:listId'
 						element={
 							<ProtectedRoute isAuthenticated={isAuth}>
@@ -68,7 +66,6 @@ export const RouterRoot = () => {
 						}
 					/>
 					<Route
-						exact
 						path='products'
 						element={
 							<ProtectedRoute isAuthenticated={isAuth}>
@@ -77,7 +74,6 @@ export const RouterRoot = () => {
 						}
 					/>
 					<Route
-						exact
 						path='units'
 						element={
 							<ProtectedRoute isAuthenticated={isAuth}>
