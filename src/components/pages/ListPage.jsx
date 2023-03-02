@@ -24,7 +24,7 @@ const ListPage = () => {
 	useEffect(() => {
 		getList(listId);
 		getListProducts(listId);
-	}, []);
+	}, [getList, getListProducts, listId]);
 
 	const handleBack = () => {
 		navigate('/list');

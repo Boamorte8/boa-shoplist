@@ -1,4 +1,9 @@
-export const ErrorMessage = ({ children, image = '/error.svg' }) => {
+import { MessageProps } from '@lib/types/client';
+
+export const ErrorMessage = ({
+	children,
+	image = '/error.svg'
+}: MessageProps) => {
 	return (
 		<div className='flex flex-col items-center gap-4 px-2 py-6'>
 			<div>{children}</div>

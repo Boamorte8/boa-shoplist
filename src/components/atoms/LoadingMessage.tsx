@@ -1,4 +1,9 @@
-export const LoadingMessage = ({ children, image = '/loading.svg' }) => {
+import { MessageProps } from '@lib/types/client';
+
+export const LoadingMessage = ({
+	children,
+	image = '/loading.svg'
+}: MessageProps) => {
 	return (
 		<div className='flex flex-col items-center gap-4 px-2 py-6'>
 			<div>{children}</div>

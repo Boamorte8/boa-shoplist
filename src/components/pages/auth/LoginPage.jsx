@@ -40,7 +40,7 @@ export const LoginPage = () => {
 				alertBox.success(t('auth.confirmRegister.messages.success'));
 			}
 		}
-	}, []);
+	}, [location, searchParams, t]);
 
 	const loadData = () => {
 		getLists();

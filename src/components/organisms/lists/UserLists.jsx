@@ -62,7 +62,7 @@ export const UserLists = () => {
 
 	if (!lists || !lists.length)
 		return (
-			<EmptyMessage image='/empty-folder.svg'>
+			<EmptyMessage>
 				<p className='text-white font-light text-center'>
 					{t('listsPage.emptyLists')}
 				</p>
