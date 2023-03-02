@@ -7,7 +7,7 @@ export const BaseTab = ({ children, ...props }) => {
 		<Tab
 			className={({ selected }) =>
 				classNames(
-					'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
+					'w-full rounded-lg py-2.5 text-md font-medium leading-5',
 					'ring-primary ring-opacity-60 ring-offset-2 ring-offset-primary focus:outline-none focus:ring-2',
 					selected
 						? 'bg-primary text-white shadow hover:bg-primary-700'

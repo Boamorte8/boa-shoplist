@@ -1,16 +1,23 @@
-import { Tab } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 
-import { BaseTab } from '../../atoms/BaseTab';
 import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 import { EmptyMessage } from '../../atoms/EmptyMessage';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
 import { LoadingMessage } from '../../atoms/LoadingMessage';
+import { useList } from '../../../lib/providers/ListProvider';
+import { useListProduct } from '../../../lib/providers/ListProductProvider';
+import { TabsSection } from './TabsSection';
 
 export const UserList = ({ list, listProducts, loading, error }) => {
-	console.log(listProducts);
 	const { t } = useTranslation();
-	const getProducts = () => {};
+	const { getList } = useList();
+	const { getListProducts } = useListProduct();
+
+	const getProducts = () => {
+		getList(list.id);
+		getListProducts(list.id);
+	};
+
 	if (loading)
 		return (
 			<LoadingMessage>
@@ -43,22 +50,5 @@ export const UserList = ({ list, listProducts, loading, error }) => {
 			</EmptyMessage>
 		);
 
-	return (
-		<main className='flex flex-col gap-5 min-h-full'>
-			<Tab.Group>
-				<Tab.List className='flex space-x-1 rounded-xl bg-background-700 p-1'>
-					<BaseTab key='buy'>Buy</BaseTab>
-					<BaseTab key='basket'>Basket</BaseTab>
-				</Tab.List>
-				<Tab.Panels className=''>
-					<Tab.Panel key='buy'>
-						<p>Buy</p>
-					</Tab.Panel>
-					<Tab.Panel key='basket'>
-						<p>Basket</p>
-					</Tab.Panel>
-				</Tab.Panels>
-			</Tab.Group>
-		</main>
-	);
+	return <TabsSection listProducts={listProducts} />;
 };

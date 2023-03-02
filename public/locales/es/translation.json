@@ -153,6 +153,11 @@
 			"title": "Actualizar producto"
 		}
 	},
+	"tabs": {
+		"buy": "Lista",
+		"cart": "Carrito",
+		"purchase": "Comprado"
+	},
 	"unitsPage": {
 		"allUnits": "Todas tus unidades",
 		"emptyUnits": "No hay unidades creados aún. Puedes empezar creando uno",

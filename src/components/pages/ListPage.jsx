@@ -7,7 +7,7 @@ import { ArrowRightComplete } from '../atoms/icons/ArrowRightComplete';
 import { IconButton } from '../atoms/buttons/IconButton';
 import { useList } from '../../lib/providers/ListProvider';
 import { useListProduct } from '../../lib/providers/ListProductProvider';
-import { UserList } from '../organisms/lists/UserList';
+import { UserList } from '../organisms/list/UserList';
 
 const ListPage = () => {
 	const { listId } = useParams();

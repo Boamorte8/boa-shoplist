@@ -152,6 +152,11 @@
 			"title": "Update product"
 		}
 	},
+	"tabs": {
+		"buy": "Buy",
+		"cart": "Cart",
+		"purchase": "Purchase"
+	},
 	"unitsPage": {
 		"allUnits": "All your units",
 		"emptyUnits": "There are not units created yet. You can start creating one",
