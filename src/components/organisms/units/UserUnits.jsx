@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 import { ConfirmDeleteUnitModal } from './ConfirmDeleteUnitModal';
-import { EmptyMessage } from '../../atoms/EmptyMessage';
-import { ErrorMessage } from '../../atoms/ErrorMessage';
-import { LoadingMessage } from '../../atoms/LoadingMessage';
+import { EmptyMessage } from '../../atoms/messages/EmptyMessage';
+import { ErrorMessage } from '../../atoms/messages/ErrorMessage';
+import { LoadingMessage } from '../../atoms/messages/LoadingMessage';
 import { UnitCard } from '../../molecules/units/UnitCard';
 import { useUnit } from '../../../lib/providers/UnitProvider';
 import { UpdateUnitModal } from './UpdateUnitModal';

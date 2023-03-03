@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
 
-import { BaseCard } from '../../atoms/BaseCard';
-import { PageFlipIcon } from '../../atoms/icons/PageFlipIcon';
+import { BaseCard } from '@atoms/BaseCard';
+import { PageFlipIcon } from '@atoms/icons/PageFlipIcon';
+import { List } from '@lib/types/list';
 import { ListCardOptions } from '../ListCardOptions';
 
-export const ListCard = ({ list, onDelete, onEdit }) => {
+export type ListCardProps = {
+	list: List;
+	onDelete: (list: List) => void;
+	onEdit: (list: List) => void;
+};
+
+export const ListCard = ({ list, onDelete, onEdit }: ListCardProps) => {
 	const handleEdit = () => {
 		onEdit(list);
 	};

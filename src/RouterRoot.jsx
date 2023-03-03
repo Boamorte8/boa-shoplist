@@ -7,20 +7,18 @@ import {
 import { lazy, Suspense } from 'react';
 
 import { App } from './App';
-import { FirstRoute } from './components/atoms/FirstRoute';
-import { LoadingPage } from './components/pages/LoadingPage';
-import { LoginPage } from './components/pages/auth/LoginPage';
-import { NotFoundPage } from './components/pages/NotFoundPage';
-import { ProtectedRoute } from './components/atoms/ProtectedRoute';
-import { PublicRoute } from './components/atoms/PublicRoute';
-import { useAuth } from './lib/providers/AuthProvider';
-const LazyListPage = lazy(() => import('./components/pages/ListPage'));
-const LazyListsPage = lazy(() => import('./components/pages/ListsPage'));
-const LazyProductsPage = lazy(() => import('./components/pages/ProductsPage'));
-const LazyRegisterPage = lazy(
-	() => import('./components/pages/auth/RegisterPage')
-);
-const LazyUnitsPage = lazy(() => import('./components/pages/UnitsPage'));
+import { FirstRoute } from '@atoms/routes/FirstRoute';
+import { LoadingPage } from '@pages/LoadingPage';
+import { LoginPage } from '@pages/auth/LoginPage';
+import { NotFoundPage } from '@pages/NotFoundPage';
+import { ProtectedRoute } from '@atoms/routes/ProtectedRoute';
+import { PublicRoute } from '@atoms/routes/PublicRoute';
+import { useAuth } from '@lib/providers/AuthProvider';
+const LazyListPage = lazy(() => import('@pages/ListPage'));
+const LazyListsPage = lazy(() => import('@pages/ListsPage'));
+const LazyProductsPage = lazy(() => import('@pages/ProductsPage'));
+const LazyRegisterPage = lazy(() => import('@pages/auth/RegisterPage'));
+const LazyUnitsPage = lazy(() => import('@pages/UnitsPage'));
 
 export const RouterRoot = () => {
 	const { user } = useAuth();

@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 
-import { useAuth } from '../../lib/providers/AuthProvider';
+import { useAuth } from '../../../lib/providers/AuthProvider';
 
 export const FirstRoute = () => {
 	const { user } = useAuth();

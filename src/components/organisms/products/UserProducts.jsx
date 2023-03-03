@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { ButtonLink } from '../../atoms/buttons/ButtonLink';
 import { ConfirmDeleteProductModal } from './ConfirmDeleteProductModal';
-import { EmptyMessage } from '../../atoms/EmptyMessage';
-import { ErrorMessage } from '../../atoms/ErrorMessage';
-import { LoadingMessage } from '../../atoms/LoadingMessage';
+import { EmptyMessage } from '../../atoms/messages/EmptyMessage';
+import { ErrorMessage } from '../../atoms/messages/ErrorMessage';
+import { LoadingMessage } from '../../atoms/messages/LoadingMessage';
 import { ProductCard } from '../../molecules/products/ProductCard';
 import { UpdateProductModal } from './UpdateProductModal';
 import { useProduct } from '../../../lib/providers/ProductProvider';

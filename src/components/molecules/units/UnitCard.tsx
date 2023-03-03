@@ -1,8 +1,15 @@
-import { BaseCard } from '../../atoms/BaseCard';
+import { BaseCard } from '@atoms/BaseCard';
 import { ListCardOptions } from '../ListCardOptions';
-import { UnitIcon } from '../../atoms/icons/UnitIcon';
+import { Unit } from '@lib/types/unit';
+import { UnitIcon } from '@atoms/icons/UnitIcon';
 
-export const UnitCard = ({ unit, onDelete, onEdit }) => {
+export type UnitCardProps = {
+	unit: Unit;
+	onDelete: (unit: Unit) => void;
+	onEdit: (unit: Unit) => void;
+};
+
+export const UnitCard = ({ unit, onDelete, onEdit }: UnitCardProps) => {
 	const handleEdit = () => {
 		onEdit(unit);
 	};

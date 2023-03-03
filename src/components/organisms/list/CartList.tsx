@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { EmptyMessage } from '../../atoms/EmptyMessage';
+import { EmptyMessage } from '@atoms/messages/EmptyMessage';
+import { ListProductsProps } from '@lib/types/list';
 
-export const CartList = ({ products }) => {
+export const CartList = ({ products }: ListProductsProps) => {
 	const { t } = useTranslation();
 	if (!products || !products.length)
 		return (

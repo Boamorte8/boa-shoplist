@@ -1,15 +1,17 @@
 import { Tab } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 
-import { BaseTab } from '../../atoms/BaseTab';
+import { BaseTab } from '@atoms/BaseTab';
 import { BuyList } from './BuyList';
 import { CartList } from './CartList';
-import { ListBulletIcon } from '../../atoms/icons/ListBulletIcon';
+import { GroupProduct, ListProduct } from '@lib/types/list';
+import { ListBulletIcon } from '@atoms/icons/ListBulletIcon';
 import { PurchaseList } from './PurchaseList';
-import { ReceiptIcon } from '../../atoms/icons/ReceiptIcon';
-import { ShopCartIcon } from '../../atoms/icons/ShopCartIcon';
+import { ReceiptIcon } from '@atoms/icons/ReceiptIcon';
+import { ShopCartIcon } from '@atoms/icons/ShopCartIcon';
+import { TabItem } from '@lib/types/client';
 
-const TABS = {
+const TABS: { [key: string]: TabItem } = {
 	buy: {
 		icon: ListBulletIcon,
 		text: 'tabs.buy'
@@ -24,18 +26,19 @@ const TABS = {
 	}
 };
 
-export const TabsSection = ({ listProducts }) => {
+export const TabsSection = ({
+	listProducts
+}: {
+	listProducts: ListProduct[];
+}) => {
 	const { t } = useTranslation();
-	let products;
+	let products: GroupProduct = { buy: [], cart: [], purchase: [] };
 
 	if (listProducts) {
-		products = listProducts.reduce(
-			(acc, prod) => {
-				acc[prod.status].push(prod);
-				return acc;
-			},
-			{ buy: [], cart: [], purchase: [] }
-		);
+		products = listProducts.reduce<GroupProduct>((acc, prod) => {
+			acc[prod.status].push(prod);
+			return acc;
+		}, products);
 	}
 
 	return (

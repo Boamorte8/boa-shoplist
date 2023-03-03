@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { alertBox } from '../../../lib/events/alertEvents';
-import { Button } from '../../atoms/buttons/Button';
-import { Modal } from '../../atoms/modal/Modal';
-import { useList } from '../../../lib/providers/ListProvider';
+import { alertBox } from '@lib/events/alertEvents';
+import { Button } from '@atoms/buttons/Button';
+import { Modal } from '@atoms/modal/Modal';
+import { useList } from '@lib/providers/ListProvider';
 
 export const ConfirmDeleteListModal = ({ open, setToggleModal, list }) => {
 	const { t } = useTranslation();

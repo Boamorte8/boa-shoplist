@@ -1,8 +1,19 @@
-import { BaseCard } from '../../atoms/BaseCard';
-import { CubeIcon } from '../../atoms/icons/CubeIcon';
+import { BaseCard } from '@atoms/BaseCard';
+import { CubeIcon } from '@atoms/icons/CubeIcon';
 import { ListCardOptions } from '../ListCardOptions';
+import { Product } from '@lib/types/product';
 
-export const ProductCard = ({ product, onDelete, onEdit }) => {
+export type ProductCardProps = {
+	product: Product;
+	onDelete: (product: Product) => void;
+	onEdit: (product: Product) => void;
+};
+
+export const ProductCard = ({
+	product,
+	onDelete,
+	onEdit
+}: ProductCardProps) => {
 	const { title, description, units } = product;
 
 	const handleEdit = () => {

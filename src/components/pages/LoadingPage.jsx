@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { LoadingMessage } from '../atoms/LoadingMessage';
+import { LoadingMessage } from '../atoms/messages/LoadingMessage';
 
 export const LoadingPage = () => {
 	const { t } = useTranslation();

@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
-import { ButtonLink } from '../../atoms/buttons/ButtonLink';
-import { EmptyMessage } from '../../atoms/EmptyMessage';
-import { ErrorMessage } from '../../atoms/ErrorMessage';
-import { LoadingMessage } from '../../atoms/LoadingMessage';
-import { useList } from '../../../lib/providers/ListProvider';
-import { useListProduct } from '../../../lib/providers/ListProductProvider';
+import { ButtonLink } from '@atoms/buttons/ButtonLink';
+import { EmptyMessage } from '@atoms/messages/EmptyMessage';
+import { ErrorMessage } from '@atoms/messages/ErrorMessage';
+import { LoadingMessage } from '@atoms/messages/LoadingMessage';
 import { TabsSection } from './TabsSection';
+import { useList } from '@lib/providers/ListProvider';
+import { useListProduct } from '@lib/providers/ListProductProvider';
 
 export const UserList = ({ list, listProducts, loading, error }) => {
 	const { t } = useTranslation();

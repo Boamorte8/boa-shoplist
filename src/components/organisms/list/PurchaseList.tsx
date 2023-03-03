@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 
-import { EmptyMessage } from '../../atoms/EmptyMessage';
+import { EmptyMessage } from '@atoms/messages/EmptyMessage';
+import { ListProductsProps } from '@lib/types/list';
 
-export const BuyList = ({ products }) => {
+export const PurchaseList = ({ products }: ListProductsProps) => {
 	const { t } = useTranslation();
-	console.log(products);
 	if (!products || !products.length)
 		return (
 			<EmptyMessage image='/empty-canvas.svg'>
@@ -13,5 +13,5 @@ export const BuyList = ({ products }) => {
 				</p>
 			</EmptyMessage>
 		);
-	return <p>Buy list</p>;
+	return <p>Purchase list</p>;
 };

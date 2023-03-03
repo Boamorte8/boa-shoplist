@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ButtonLink } from '../../atoms/buttons/ButtonLink';
+import { ButtonLink } from '@atoms/buttons/ButtonLink';
 import { ConfirmDeleteListModal } from './ConfirmDeleteListModal';
-import { EmptyMessage } from '../../atoms/EmptyMessage';
-import { ErrorMessage } from '../../atoms/ErrorMessage';
-import { ListCard } from '../../molecules/lists/ListCard';
-import { LoadingMessage } from '../../atoms/LoadingMessage';
+import { EmptyMessage } from '@atoms/messages/EmptyMessage';
+import { ErrorMessage } from '@atoms/messages/ErrorMessage';
+import { ListCard } from '@molecules/lists/ListCard';
+import { LoadingMessage } from '@atoms/messages/LoadingMessage';
 import { UpdateListModal } from './UpdateListModal';
-import { useList } from '../../../lib/providers/ListProvider';
+import { useList } from '@lib/providers/ListProvider';
 
 export const UserLists = () => {
 	const { t } = useTranslation();
