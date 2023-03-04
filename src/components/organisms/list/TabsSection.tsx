@@ -1,4 +1,5 @@
 import { Tab } from '@headlessui/react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { BaseTab } from '@atoms/BaseTab';
@@ -10,6 +11,7 @@ import { PurchaseList } from './PurchaseList';
 import { ReceiptIcon } from '@atoms/icons/ReceiptIcon';
 import { ShopCartIcon } from '@atoms/icons/ShopCartIcon';
 import { TabItem } from '@lib/types/client';
+import { ConfirmDeleteListProductModal } from './ConfirmDeleteListProductModal';
 
 const TABS: { [key: string]: TabItem } = {
 	buy: {
@@ -32,6 +34,8 @@ export const TabsSection = ({
 	listProducts: ListProduct[];
 }) => {
 	const { t } = useTranslation();
+	const [openDeleteModal, setOpenDeleteModal] = useState(false);
+	const [listProduct, setListProduct] = useState<ListProduct | null>(null);
 	let products: GroupProduct = { buy: [], cart: [], purchase: [] };
 
 	if (listProducts) {
@@ -40,6 +44,16 @@ export const TabsSection = ({
 			return acc;
 		}, products);
 	}
+
+	const onDelete = (listProduct: ListProduct) => {
+		setListProduct(listProduct);
+		toggleDeleteModal(true);
+	};
+
+	const toggleDeleteModal = (toggle: boolean) => {
+		setOpenDeleteModal(toggle);
+		if (!toggle) setListProduct(null);
+	};
 
 	return (
 		<main className='flex flex-col gap-5 min-h-full'>
@@ -60,16 +74,24 @@ export const TabsSection = ({
 
 				<Tab.Panels className=''>
 					<Tab.Panel key='buy'>
-						<BuyList products={products.buy} />
+						<BuyList products={products.buy} onDelete={onDelete} />
 					</Tab.Panel>
 					<Tab.Panel key='cart'>
-						<CartList products={products.cart} />
+						<CartList products={products.cart} onDelete={onDelete} />
 					</Tab.Panel>
 					<Tab.Panel key='purchase'>
-						<PurchaseList products={products.purchase} />
+						<PurchaseList products={products.purchase} onDelete={onDelete} />
 					</Tab.Panel>
 				</Tab.Panels>
 			</Tab.Group>
+
+			{listProduct && (
+				<ConfirmDeleteListProductModal
+					open={openDeleteModal}
+					setToggleModal={toggleDeleteModal}
+					listProduct={listProduct}
+				/>
+			)}
 		</main>
 	);
 };

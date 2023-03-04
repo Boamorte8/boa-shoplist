@@ -1,4 +1,6 @@
-export const CrossIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const UnitIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -7,7 +9,7 @@ export const CrossIcon = props => (
 		xmlns='http://www.w3.org/2000/svg'
 	>
 		<path
-			d='M6 18L18 6M6 6l12 12'
+			d='M3.75 9h16.5m-16.5 6.75h16.5'
 			strokeWidth='2'
 			strokeLinecap='round'
 			strokeLinejoin='round'

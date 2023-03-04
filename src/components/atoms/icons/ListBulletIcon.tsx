@@ -1,4 +1,6 @@
-export const ListBulletIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const ListBulletIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

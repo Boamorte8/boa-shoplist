@@ -1,4 +1,6 @@
-export const PageFlipIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const PageFlipIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

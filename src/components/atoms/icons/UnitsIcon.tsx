@@ -1,4 +1,6 @@
-export const UnitsIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const UnitsIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		color='currentColor'

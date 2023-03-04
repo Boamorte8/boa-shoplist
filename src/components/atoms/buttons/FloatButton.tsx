@@ -1,6 +1,10 @@
 import { CrossIcon } from '../icons/CrossIcon';
 
-export const FloatButton = props => {
+type FloatButtonProps = {
+	className?: string;
+};
+
+export const FloatButton = (props: FloatButtonProps) => {
 	return (
 		<button
 			{...props}

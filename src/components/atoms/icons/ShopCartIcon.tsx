@@ -1,4 +1,6 @@
-export const ShopCartIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const ShopCartIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

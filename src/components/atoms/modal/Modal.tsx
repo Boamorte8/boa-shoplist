@@ -1,10 +1,17 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Fragment, ReactNode } from 'react';
 
 import { CrossIcon } from '../icons/CrossIcon';
 import { IconButton } from '../buttons/IconButton';
 
-export const Modal = ({ isOpen, setIsOpen, title, children }) => {
+type ModalProps = {
+	isOpen: boolean;
+	setIsOpen: (value: boolean) => void;
+	title: string;
+	children: ReactNode;
+};
+
+export const Modal = ({ isOpen, setIsOpen, title, children }: ModalProps) => {
 	const onClose = () => {
 		setIsOpen(false);
 	};

@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
 import { EmptyMessage } from '@atoms/messages/EmptyMessage';
-import { ListProductsProps } from '@lib/types/list';
+import { IconButton } from '@atoms/buttons/IconButton';
 import { ListProductCard } from '@molecules/list/ListProductCard';
+import { ListProductsProps } from '@lib/types/list';
+import { AddCartIcon } from '@atoms/icons/AddCartIcon';
 
-export const BuyList = ({ products }: ListProductsProps) => {
+export const BuyList = ({ products, onDelete }: ListProductsProps) => {
 	const { t } = useTranslation();
 	console.log(products);
 	if (!products || !products.length)
@@ -16,9 +18,6 @@ export const BuyList = ({ products }: ListProductsProps) => {
 			</EmptyMessage>
 		);
 
-	const onDelete = () => {
-		console.log('onDelete');
-	};
 	return (
 		<main className='flex flex-col gap-5 min-h-full lg:gap-7'>
 			{products.map(product => (
@@ -27,17 +26,10 @@ export const BuyList = ({ products }: ListProductsProps) => {
 					listProduct={product}
 					onDelete={onDelete}
 				>
-					<span>+</span>
+					<IconButton filled icon={AddCartIcon} />
 				</ListProductCard>
 			))}
 			{/* {list && (
-				<ConfirmDeleteListModal
-					open={openDeleteModal}
-					setToggleModal={toggleDeleteModal}
-					list={list}
-				/>
-			)}
-			{list && (
 				<UpdateListModal
 					open={openUpdateModal}
 					setToggleModal={toggleUpdateModal}

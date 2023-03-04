@@ -34,3 +34,7 @@ export type SeoProps = {
 	ogTitle?: string;
 	title: string;
 };
+
+export type IconProps = {
+	className?: string;
+};

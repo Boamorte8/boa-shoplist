@@ -1,4 +1,6 @@
-export const HamburguerIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const HamburguerIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

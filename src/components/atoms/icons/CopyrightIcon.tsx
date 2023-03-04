@@ -1,4 +1,6 @@
-export const CopyrightIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const CopyrightIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		id='Ico_copyright'

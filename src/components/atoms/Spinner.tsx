@@ -1,4 +1,8 @@
-export const Spinner = ({ className, ...props }) => (
+type SpinnerProps = {
+	className?: string;
+};
+
+export const Spinner = ({ className, ...props }: SpinnerProps) => (
 	<div className='p-4'>
 		<svg
 			{...props}

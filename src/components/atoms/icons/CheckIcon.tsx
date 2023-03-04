@@ -1,4 +1,6 @@
-export const UnitIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const CheckIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'
@@ -7,7 +9,7 @@ export const UnitIcon = props => (
 		xmlns='http://www.w3.org/2000/svg'
 	>
 		<path
-			d='M3.75 9h16.5m-16.5 6.75h16.5'
+			d='M5 13l4 4L19 7'
 			strokeWidth='2'
 			strokeLinecap='round'
 			strokeLinejoin='round'

@@ -1,4 +1,6 @@
-export const TrashIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const TrashIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

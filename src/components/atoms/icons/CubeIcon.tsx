@@ -1,4 +1,6 @@
-export const CubeIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const CubeIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

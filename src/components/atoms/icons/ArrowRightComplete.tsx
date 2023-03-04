@@ -1,4 +1,6 @@
-export const ArrowRightComplete = props => (
+import { IconProps } from '@lib/types/client';
+
+export const ArrowRightComplete = (props: IconProps) => (
 	<svg
 		{...props}
 		xmlns='http://www.w3.org/2000/svg'

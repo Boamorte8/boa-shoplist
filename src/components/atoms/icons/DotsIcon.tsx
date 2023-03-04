@@ -1,4 +1,6 @@
-export const DotsIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const DotsIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

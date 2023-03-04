@@ -1,4 +1,6 @@
-export const ReceiptIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const ReceiptIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		viewBox='0 0 24 24'

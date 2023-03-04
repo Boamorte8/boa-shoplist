@@ -1,4 +1,12 @@
-import { forwardRef } from 'react';
+import { FC, forwardRef } from 'react';
+
+type IconButtonProps = {
+	icon: FC<{ className: string }>;
+	kind?: 'normal' | 'error';
+	filled?: boolean;
+	className?: string;
+	onClick?: () => void;
+};
 
 const CLASSNAMES = {
 	normal: {
@@ -13,7 +21,7 @@ const CLASSNAMES = {
 	}
 };
 
-export const IconButton = forwardRef(
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 	({ kind = 'normal', filled, icon: Icon, className, ...props }, ref) => {
 		const classNames = CLASSNAMES[kind];
 		const classNameKey = filled ? 'filled' : 'normal';

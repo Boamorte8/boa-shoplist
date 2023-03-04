@@ -1,4 +1,6 @@
-export const PackagesIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const PackagesIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

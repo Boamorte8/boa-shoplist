@@ -1,10 +1,17 @@
+type BaseInputProps = {
+	label: string;
+	error: string;
+	className?: string;
+	placeholder?: string;
+};
+
 export const BaseInput = ({
 	label,
 	error,
 	className,
 	placeholder,
 	...props
-}) => (
+}: BaseInputProps) => (
 	<label className={`block text-white ${className || ''}`}>
 		<span className='text-sm font-bold pl-2'>{label}</span>
 		<input

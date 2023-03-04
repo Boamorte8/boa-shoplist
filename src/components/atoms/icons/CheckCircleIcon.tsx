@@ -1,4 +1,6 @@
-export const CheckCircle = props => (
+import { IconProps } from '@lib/types/client';
+
+export const CheckCircle = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

@@ -1,4 +1,6 @@
-export const CrossCircle = props => (
+import { IconProps } from '@lib/types/client';
+
+export const CrossCircle = (props: IconProps) => (
 	<svg
 		{...props}
 		stroke='currentColor'

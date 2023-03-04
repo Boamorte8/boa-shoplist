@@ -1,6 +1,17 @@
+import { ReactNode } from 'react';
+
 import { Spinner } from '../Spinner';
 
-const KIND_CLASSNAME = {
+type KindButton = 'primary' | 'secondary';
+
+type ButtonProps = {
+	kind?: KindButton;
+	className?: string;
+	loading?: boolean;
+	children?: ReactNode;
+};
+
+const KIND_CLASSNAME: { [key: string]: string } = {
 	primary:
 		'bg-primary text-white enabled:hover:bg-primary-700 enabled:hover:border-primary-700 enabled:focus:bg-primary-700 enabled:focus:border-primary-300',
 	secondary:
@@ -13,7 +24,7 @@ export const Button = ({
 	loading,
 	children,
 	...props
-}) => {
+}: ButtonProps) => {
 	return (
 		<button
 			{...props}

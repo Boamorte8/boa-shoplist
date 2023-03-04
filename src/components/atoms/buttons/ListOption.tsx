@@ -1,7 +1,18 @@
-import { Fragment } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 
-export const ListOption = ({ label, children, onClick, ...props }) => {
+type ListOptionProps = {
+	label: string;
+	children: ReactNode;
+	onClick: (args: unknown) => void;
+};
+
+export const ListOption = ({
+	label,
+	children,
+	onClick,
+	...props
+}: ListOptionProps) => {
 	return (
 		<Menu.Item as={Fragment}>
 			{({ active, close }) => (

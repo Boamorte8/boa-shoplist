@@ -6,7 +6,7 @@ async function getListProducts(listId) {
 	try {
 		return supabase
 			.from('list_products')
-			.select('*, products (*)')
+			.select('*, products (*, units (*))')
 			.eq('list_id', listId);
 	} catch (error) {
 		alertBox.error(i18next.t('errors.server'));

@@ -1,4 +1,6 @@
-export const ArrowUpDownIcon = props => (
+import { IconProps } from '@lib/types/client';
+
+export const ArrowUpDownIcon = (props: IconProps) => (
 	<svg
 		{...props}
 		color='currentColor'
