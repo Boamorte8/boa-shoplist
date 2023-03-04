@@ -38,11 +38,9 @@ export const ListCardOptions = ({ onEdit, onDelete }) => {
 					className='absolute right-0 w-32 origin-top-right z-50 rounded-md bg-background-700 shadow-sm shadow-primary-700 ring-1 ring-primary-300 ring-opacity-5 focus:outline-none'
 				>
 					<div className='px-1 py-1 '>
-						{onEdit && (
-							<ListOption label={t('edit')} onClick={handleEdit}>
-								<PencilIcon alt='Edit icon' className='h-6 w-6' />
-							</ListOption>
-						)}
+						<ListOption label={t('edit')} onClick={handleEdit}>
+							<PencilIcon alt='Edit icon' className='h-6 w-6' />
+						</ListOption>
 						<ListOption label={t('delete')} onClick={handleDelete}>
 							<TrashIcon alt='Delete icon' className='h-6 w-6 text-error-700' />
 						</ListOption>

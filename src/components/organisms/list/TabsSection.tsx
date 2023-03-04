@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { BaseTab } from '@atoms/BaseTab';
 import { BuyList } from './BuyList';
 import { CartList } from './CartList';
+import { ConfirmDeleteListProductModal } from './ConfirmDeleteListProductModal';
 import { GroupProduct, ListProduct } from '@lib/types/list';
 import { ListBulletIcon } from '@atoms/icons/ListBulletIcon';
 import { PurchaseList } from './PurchaseList';
 import { ReceiptIcon } from '@atoms/icons/ReceiptIcon';
 import { ShopCartIcon } from '@atoms/icons/ShopCartIcon';
 import { TabItem } from '@lib/types/client';
-import { ConfirmDeleteListProductModal } from './ConfirmDeleteListProductModal';
 
 const TABS: { [key: string]: TabItem } = {
 	buy: {

@@ -36,5 +36,6 @@ export type SeoProps = {
 };
 
 export type IconProps = {
+	alt?: string;
 	className?: string;
 };

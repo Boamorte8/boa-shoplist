@@ -14,7 +14,6 @@ import {
 import { FloatButton } from '../../atoms/buttons/FloatButton';
 import { Modal } from '../../atoms/modal/Modal';
 import { useAddListForm } from '../../../lib/hooks/useAddListForm';
-import { useList } from '../../../lib/providers/ListProvider';
 import { useListProduct } from '../../../lib/providers/ListProductProvider';
 import { useProduct } from '../../../lib/providers/ProductProvider';
 
@@ -25,13 +24,12 @@ export const AddProductModal = ({ list }) => {
 	const [openModal, setOpenModal] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { products, getProducts } = useProduct();
-	const { getLists } = useList();
-	const { createListProduct } = useListProduct();
+	const { getListProducts, createListProduct } = useListProduct();
 	const { product, quantity, isFormInvalid, dispatchAddListForm } =
 		useAddListForm();
 
 	const onCreateListSuccess = () => {
-		getLists();
+		getListProducts(list.id);
 		toggleModal(false);
 	};
 

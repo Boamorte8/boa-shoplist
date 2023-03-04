@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { alertBox } from '@lib/events/alertEvents';
 import { Button } from '@atoms/buttons/Button';
 import { Modal } from '@atoms/modal/Modal';
-import { useList } from '@lib/providers/ListProvider';
+import { useListProduct } from '@lib/providers/ListProductProvider';
 
 export const ConfirmDeleteListProductModal = ({
 	open,
@@ -13,10 +13,10 @@ export const ConfirmDeleteListProductModal = ({
 }) => {
 	const { t } = useTranslation();
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const { deleteList, getLists } = useList();
+	const { getListProducts, deleteListProduct } = useListProduct();
 
-	const onDeleteListSuccess = () => {
-		getLists();
+	const onDeleteProductSuccess = () => {
+		getListProducts(listProduct.list_id);
 		toggleModal(false);
 	};
 
@@ -28,12 +28,12 @@ export const ConfirmDeleteListProductModal = ({
 		<Modal
 			isOpen={open}
 			setIsOpen={toggleModal}
-			title={t('listsPage.deleteModal.title')}
+			title={t('productsPage.deleteModal.title')}
 		>
 			<div className='w-full flex flex-col gap-2 items-center py-2'>
 				<p>
-					{t('listsPage.deleteModal.description', {
-						listProduct: listProduct.title
+					{t('productsPage.deleteModal.description', {
+						product: listProduct.products.title
 					})}
 				</p>
 				<div className='flex justify-around w-full'>
@@ -53,9 +53,9 @@ export const ConfirmDeleteListProductModal = ({
 								ev,
 								listProduct.id,
 								setIsSubmitting,
-								deleteList,
+								deleteListProduct,
 								t,
-								onDeleteListSuccess
+								onDeleteProductSuccess
 							)
 						}
 					>
@@ -69,9 +69,9 @@ export const ConfirmDeleteListProductModal = ({
 
 const handleDelete = async (
 	ev,
-	listId,
+	listProductId,
 	setIsSubmitting,
-	deleteList,
+	deleteListProduct,
 	t,
 	onSuccess
 ) => {
@@ -79,13 +79,13 @@ const handleDelete = async (
 
 	setIsSubmitting(true);
 
-	const { error } = await deleteList(listId);
+	const { error } = await deleteListProduct(listProductId);
 
 	if (!error) {
-		alertBox.success(t('listsPage.deleteModal.success'));
+		alertBox.success(t('productsPage.deleteModal.success'));
 		onSuccess();
 	} else {
-		alertBox.error(t('listsPage.deleteModal.error'));
+		alertBox.error(t('productsPage.deleteModal.error'));
 	}
 	setIsSubmitting(false);
 };

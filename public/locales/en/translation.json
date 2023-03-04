@@ -91,12 +91,6 @@
 			"error": "Error adding product to list. Try again",
 			"success": "Added product to list successfully"
 		},
-		"deleteModal": {
-			"description": "Are you sure you want to delete list called {{list}}?",
-			"error": "Error deleting list. Try again",
-			"success": "Deleted list successfully",
-			"title": "Confirm delete list"
-		},
 		"updateModal": {
 			"error": "Error updating list. Try again",
 			"success": "Updated list successfully",
