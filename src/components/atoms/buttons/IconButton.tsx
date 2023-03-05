@@ -1,11 +1,14 @@
-import { FC, forwardRef } from 'react';
+import { FC, forwardRef, MouseEvent } from 'react';
+
+import { Spinner } from '@atoms/Spinner';
 
 type IconButtonProps = {
 	icon: FC<{ className: string }>;
 	kind?: 'normal' | 'error';
 	filled?: boolean;
 	className?: string;
-	onClick?: () => void;
+	loading?: boolean;
+	onClick?: (event: MouseEvent) => void;
 };
 
 const CLASSNAMES = {
@@ -22,7 +25,10 @@ const CLASSNAMES = {
 };
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-	({ kind = 'normal', filled, icon: Icon, className, ...props }, ref) => {
+	(
+		{ kind = 'normal', filled, icon: Icon, className, loading, ...props },
+		ref
+	) => {
 		const classNames = CLASSNAMES[kind];
 		const classNameKey = filled ? 'filled' : 'normal';
 		const kindClassName = classNames[classNameKey];
@@ -35,7 +41,11 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 					className || ''
 				}`}
 			>
-				<Icon className='h-5 w-5 border-none outline-none' />
+				{loading ? (
+					<Spinner className='h-5 w-5' />
+				) : (
+					<Icon className='h-5 w-5 border-none outline-none' />
+				)}
 			</button>
 		);
 	}

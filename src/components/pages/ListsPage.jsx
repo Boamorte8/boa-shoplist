@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import { CreateListModal } from '../organisms/lists/CreateListModal';
-import { DrawerIcon } from '../atoms/icons/DrawerIcon';
-import { UserLists } from '../organisms/lists/UserLists';
+import { CreateListModal } from '@organisms/lists/CreateListModal';
+import { DrawerIcon } from '@atoms/icons/DrawerIcon';
+import { UserLists } from '@organisms/lists/UserLists';
 
 const ListsPage = () => {
 	const { t } = useTranslation();

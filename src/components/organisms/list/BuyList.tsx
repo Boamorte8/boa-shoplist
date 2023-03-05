@@ -1,20 +1,44 @@
+import { MouseEvent, useState } from 'react';
+import { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import { AddCartIcon } from '@atoms/icons/AddCartIcon';
+import { alertBox } from '@lib/events/alertEvents';
 import { EmptyMessage } from '@atoms/messages/EmptyMessage';
 import { IconButton } from '@atoms/buttons/IconButton';
-import { ListProduct, ListProductsProps } from '@lib/types/list';
+import {
+	ListProduct,
+	ListProductsProps,
+	ListProductStatus
+} from '@lib/types/list';
 import { ListProductCard } from '@molecules/list/ListProductCard';
-// import { useListProduct } from '@lib/providers/ListProductProvider';
+import { LoadingMessage } from '@atoms/messages/LoadingMessage';
+import { useListProduct } from '@lib/providers/ListProductProvider';
 
 export const BuyList = ({ products, onDelete }: ListProductsProps) => {
 	const { t } = useTranslation();
-	// const { getListProducts, updateListProduct } = useListProduct();
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const { getListProducts, updateListProduct } = useListProduct();
 	console.log(products);
 
-	const moveToCart = (product: ListProduct) => {
-		console.log('moveToCart', product);
+	const onSuccess = (product: ListProduct) => {
+		getListProducts(product.list_id);
 	};
+
+	const moveToCart = (event: MouseEvent, product: ListProduct) => {
+		event.preventDefault();
+		product.status = ListProductStatus.CART;
+		handleSubmit(product, setIsSubmitting, updateListProduct, t, onSuccess);
+	};
+
+	if (isSubmitting)
+		return (
+			<LoadingMessage>
+				<p className='text-white font-light text-center'>
+					{t('listPage.loading')}
+				</p>
+			</LoadingMessage>
+		);
 
 	if (!products || !products.length)
 		return (
@@ -36,7 +60,7 @@ export const BuyList = ({ products, onDelete }: ListProductsProps) => {
 					<IconButton
 						filled
 						icon={AddCartIcon}
-						onClick={() => moveToCart(product)}
+						onClick={(event: MouseEvent) => moveToCart(event, product)}
 					/>
 				</ListProductCard>
 			))}
@@ -51,31 +75,25 @@ export const BuyList = ({ products, onDelete }: ListProductsProps) => {
 	);
 };
 
-// const handleSubmit = async (
-// 	ev,
-// 	{ id, title, description, unit },
-// 	setIsSubmitting,
-// 	updateProduct,
-// 	t,
-// 	closeModal
-// ) => {
-// 	ev.preventDefault();
+const handleSubmit = async (
+	listProduct: ListProduct,
+	setIsSubmitting: (submitted: boolean) => void,
+	updateListProduct: (
+		listProductId: string,
+		listProduct: ListProduct
+	) => { error: string },
+	t: TFunction,
+	onSuccess: (product: ListProduct) => void
+) => {
+	setIsSubmitting(true);
 
-// 	setIsSubmitting(true);
+	const { error } = await updateListProduct(listProduct.id, listProduct);
 
-// 	const product = {
-// 		title: title.value,
-// 		description: description.value,
-// 		unit: unit.value.id
-// 	};
-
-// 	const { error } = await updateProduct(id, product);
-
-// 	if (!error) {
-// 		alertBox.success(t('productsPage.updateModal.success'));
-// 		closeModal();
-// 	} else {
-// 		alertBox.error(t('productsPage.updateModal.error'));
-// 	}
-// 	setIsSubmitting(false);
-// };
+	if (!error) {
+		alertBox.success(t('productsPage.updateModal.success'));
+		onSuccess(listProduct);
+	} else {
+		alertBox.error(t('productsPage.updateModal.error'));
+	}
+	setIsSubmitting(false);
+};

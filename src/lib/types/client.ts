@@ -18,7 +18,7 @@ export type MenuOption = {
 };
 
 export type MessageProps = {
-	image: string;
+	image?: string;
 	children: ReactNode;
 };
 

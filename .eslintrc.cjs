@@ -1,4 +1,5 @@
 module.exports = {
+	root: true,
 	parser: '@typescript-eslint/parser',
 	env: {
 		browser: true,
@@ -13,9 +14,9 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react/recommended',
-		'plugin:react/jsx-runtime',
 		'plugin:react-hooks/recommended',
 		'plugin:jsx-a11y/recommended',
+		'plugin:react/jsx-runtime',
 		'standard',
 		'eslint-config-prettier'
 	],
@@ -26,8 +27,10 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module'
 	},
-	plugins: ['react'],
+	plugins: ['react', '@typescript-eslint'],
 	rules: {
-		'react/prop-types': 'off'
+		'react/prop-types': 'off',
+		'no-unused-vars': 'off',
+		'@typescript-eslint/no-unused-vars': 'warn'
 	}
 };

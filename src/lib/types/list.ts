@@ -2,7 +2,11 @@ import { Product } from './product';
 
 export type ListStatus = 'active' | 'archived';
 
-export type ListProductStatus = 'buy' | 'cart' | 'purchase';
+export enum ListProductStatus {
+	BUY = 'buy',
+	CART = 'cart',
+	PURCHASE = 'purchase'
+}
 
 export type List = {
 	id: string;

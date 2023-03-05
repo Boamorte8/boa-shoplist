@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { alertBox } from '../../../lib/events/alertEvents';
-import { BaseInput } from '../../atoms/forms/BaseInput';
-import { Button } from '../../atoms/buttons/Button';
+import { alertBox } from '@lib/events/alertEvents';
+import { BaseInput } from '@atoms/forms/BaseInput';
+import { Button } from '@atoms/buttons/Button';
 import {
 	descriptionChangedCreateListForm,
 	resetCreateListForm,
 	titleChangedCreateListForm
-} from '../../../lib/actions/createListFormActions';
-import { FloatButton } from '../../atoms/buttons/FloatButton';
-import { Modal } from '../../atoms/modal/Modal';
-import { useCreateListForm } from '../../../lib/hooks/useCreateListForm';
-import { useList } from '../../../lib/providers/ListProvider';
+} from '@lib/actions/createListFormActions';
+import { FloatButton } from '@atoms/buttons/FloatButton';
+import { Modal } from '@atoms/modal/Modal';
+import { useCreateListForm } from '@lib/hooks/useCreateListForm';
+import { useList } from '@lib/providers/ListProvider';
 
 export const CreateListModal = () => {
 	const { t } = useTranslation();

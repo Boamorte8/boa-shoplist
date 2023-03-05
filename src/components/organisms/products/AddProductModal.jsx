@@ -131,8 +131,7 @@ const handleSubmit = async (
 		list_id: listId
 	};
 
-	const { error, ...result } = await createListProduct(listProduct);
-	console.log(result);
+	const { error } = await createListProduct(listProduct);
 
 	if (!error) {
 		alertBox.success(t('listPage.addModal.success'));
