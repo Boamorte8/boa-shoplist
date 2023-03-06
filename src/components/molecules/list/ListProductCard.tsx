@@ -9,21 +9,20 @@ import { ShoppingCodeIcon } from '@atoms/icons/ShoppingCodeIcon';
 export type ListProductCardProps = {
 	listProduct: ListProduct;
 	onDelete: (listProduct: ListProduct) => void;
+	onEdit: (listProduct: ListProduct) => void;
 	children: ReactNode;
 };
 
 export const ListProductCard = ({
 	listProduct,
 	children,
-	onDelete
+	onDelete,
+	onEdit
 }: ListProductCardProps) => {
 	const { t } = useTranslation();
-	const handleConfirmDelete = () => {
-		onDelete(listProduct);
-	};
 
 	return (
-		<BaseCard classes='grid grid-cols-[1fr_2.5rem] md:grid-cols-[1fr_6rem] gap-2 items-center w-full max-w-4xl mx-auto outline-none hover:bg-background-700 focus:bg-background-700 hover:cursor-pointer transition-transform'>
+		<BaseCard classes='grid grid-cols-[1fr_2.5rem] md:grid-cols-[1fr_8rem] gap-2 items-center w-full max-w-4xl mx-auto outline-none hover:bg-background-700 focus:bg-background-700 hover:cursor-pointer transition-transform'>
 			<article>
 				<div className='flex items-center gap-2 text-primary-300 mb-1 max-w'>
 					<ShoppingCodeIcon className='h-5' />
@@ -37,8 +36,11 @@ export const ListProductCard = ({
 					{listProduct.products?.description}
 				</p>
 			</article>
-			<div className='flex flex-col justify-between items-end h-full w-10 md:flex-row-reverse md:w-24 md:items-center'>
-				<ListCardOptions onEdit={null} onDelete={handleConfirmDelete} />
+			<div className='flex flex-col gap-3 justify-between items-end h-full w-10 md:flex-row-reverse md:w-32 md:items-center'>
+				<ListCardOptions
+					onEdit={() => onEdit(listProduct)}
+					onDelete={() => onDelete(listProduct)}
+				/>
 				{children}
 			</div>
 		</BaseCard>

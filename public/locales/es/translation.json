@@ -84,6 +84,7 @@
 	},
 	"listPage": {
 		"products": "Lista: '{{name}}'",
+		"emptyCartList": "No hay productos añadidos a la lista aún",
 		"emptyList": "No hay productos añadidos a la lista aún. Puedes empezar añadiendo uno",
 		"error": "Error cargando tu lista",
 		"loading": "Cargando tu lista...",

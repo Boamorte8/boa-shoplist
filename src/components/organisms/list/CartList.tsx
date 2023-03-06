@@ -1,17 +1,19 @@
-import { useTranslation } from 'react-i18next';
+import { Tab } from '@headlessui/react';
 
-import { EmptyMessage } from '@atoms/messages/EmptyMessage';
+import { CartOptions } from '@molecules/list/CartOptions';
 import { ListProductsProps } from '@lib/types/list';
+import { ListProducts } from './ListProducts';
 
-export const CartList = ({ products }: ListProductsProps) => {
-	const { t } = useTranslation();
-	if (!products || !products.length)
-		return (
-			<EmptyMessage image='/empty-canvas.svg'>
-				<p className='text-white font-light text-center'>
-					{t('listPage.emptyList')}
-				</p>
-			</EmptyMessage>
-		);
-	return <p>Cart list</p>;
+export const CartList = ({ products, onDelete, onEdit }: ListProductsProps) => {
+	return (
+		<Tab.Panel key='cart'>
+			<ListProducts
+				products={products}
+				onDelete={onDelete}
+				onEdit={onEdit}
+				emptyMessageCode={'listPage.emptyList'}
+				options={CartOptions}
+			/>
+		</Tab.Panel>
+	);
 };

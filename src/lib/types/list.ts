@@ -36,4 +36,5 @@ export type GroupProduct = {
 export type ListProductsProps = {
 	products: ListProduct[];
 	onDelete: (product: ListProduct) => void;
+	onEdit: (product: ListProduct) => void;
 };

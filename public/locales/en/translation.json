@@ -84,6 +84,7 @@
 	},
 	"listPage": {
 		"products": "List: '{{name}}'",
+		"emptyCartList": "There are not products added to this list yet",
 		"emptyList": "There are not products added to this list yet. You can start adding one",
 		"error": "Error loading your list",
 		"loading": "Loading your list...",
@@ -147,9 +148,9 @@
 		}
 	},
 	"tabs": {
-		"buy": "Buy",
+		"buy": "To Buy",
 		"cart": "Cart",
-		"purchase": "Purchase"
+		"purchase": "Purchased"
 	},
 	"unitsPage": {
 		"allUnits": "All your units",
