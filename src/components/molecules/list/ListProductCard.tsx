@@ -30,7 +30,9 @@ export const ListProductCard = ({
 				</div>
 				<dl className='flex gap-1 font-extralight text-sm text-white mb-2'>
 					<dt className='text-primary/80'>{t('quantity_one')}:</dt>
-					<dd>{listProduct.products?.units.display}</dd>
+					<dd>
+						{listProduct.quantity} {listProduct.products?.units.display}
+					</dd>
 				</dl>
 				<p className='font-extralight text-sm text-white'>
 					{listProduct.products?.description}

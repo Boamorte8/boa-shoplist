@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
+import { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import { alertBox } from '@lib/events/alertEvents';
@@ -6,41 +7,40 @@ import { Button } from '@atoms/buttons/Button';
 import { Modal } from '@atoms/modal/Modal';
 import { useListProduct } from '@lib/providers/ListProductProvider';
 
-export const ConfirmDeleteListProductModal = ({
-	open,
-	setToggleModal,
-	listProduct
-}) => {
+export const ConfirmDeleteListProductModal = () => {
 	const { t } = useTranslation();
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const { getListProducts, deleteListProduct } = useListProduct();
+	const {
+		getListProducts,
+		deleteListProduct,
+		listProductDelete,
+		setListProductDelete
+	} = useListProduct();
+
+	if (!listProductDelete) return null;
 
 	const onDeleteProductSuccess = () => {
-		getListProducts(listProduct.list_id);
-		toggleModal(false);
-	};
-
-	const toggleModal = toggle => {
-		setToggleModal(toggle);
+		getListProducts(listProductDelete.list_id);
+		setListProductDelete(null);
 	};
 
 	return (
 		<Modal
-			isOpen={open}
-			setIsOpen={toggleModal}
+			isOpen={!!listProductDelete}
+			setIsOpen={setListProductDelete}
 			title={t('productsPage.deleteModal.title')}
 		>
 			<div className='w-full flex flex-col gap-2 items-center py-2'>
 				<p>
 					{t('productsPage.deleteModal.description', {
-						product: listProduct.products.title
+						product: listProductDelete.products?.title
 					})}
 				</p>
 				<div className='flex justify-around w-full'>
 					<Button
 						kind='secondary'
 						className='mt-6 mb-2'
-						onClick={() => toggleModal(false)}
+						onClick={() => setListProductDelete(null)}
 					>
 						{t('cancel')}
 					</Button>
@@ -51,7 +51,7 @@ export const ConfirmDeleteListProductModal = ({
 						onClick={ev =>
 							handleDelete(
 								ev,
-								listProduct.id,
+								listProductDelete.id,
 								setIsSubmitting,
 								deleteListProduct,
 								t,
@@ -68,12 +68,12 @@ export const ConfirmDeleteListProductModal = ({
 };
 
 const handleDelete = async (
-	ev,
-	listProductId,
-	setIsSubmitting,
-	deleteListProduct,
-	t,
-	onSuccess
+	ev: MouseEvent,
+	listProductId: string,
+	setIsSubmitting: (value: boolean) => void,
+	deleteListProduct: (productId: string) => Promise<{ error: string }>,
+	t: TFunction,
+	onSuccess: () => void
 ) => {
 	ev.preventDefault();
 

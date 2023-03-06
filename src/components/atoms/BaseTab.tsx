@@ -1,8 +1,9 @@
+import { ReactNode } from 'react';
 import { Tab } from '@headlessui/react';
 
 import { classNames } from '../../lib/utils/utils';
 
-export const BaseTab = ({ children, ...props }) => {
+export const BaseTab = ({ children, ...props }: { children: ReactNode }) => {
 	return (
 		<Tab
 			className={({ selected }) =>

@@ -1,20 +1,18 @@
 import { Tab } from '@headlessui/react';
-import { useState } from 'react';
 
-import { BuyList } from './BuyList';
-import { CartList } from './CartList';
-import { ConfirmDeleteListProductModal } from './ConfirmDeleteListProductModal';
+import { BuyOptions } from '@molecules/list/BuyOptions';
+import { CartOptions } from '@molecules/list/CartOptions';
 import { GroupProduct, ListProduct } from '@lib/types/list';
-import { PurchaseList } from './PurchaseList';
+import { ListProducts } from './ListProducts';
+import { PurchaseOptions } from '@molecules/list/PurchaseOptions';
 import { TabHeaderList } from '@molecules/list/TabHeaderList';
+import { ConfirmDeleteListProductModal } from './ConfirmDeleteListProductModal';
 
 export const TabsSection = ({
 	listProducts
 }: {
 	listProducts: ListProduct[];
 }) => {
-	const [openDeleteModal, setOpenDeleteModal] = useState(false);
-	const [listProduct, setListProduct] = useState<ListProduct | null>(null);
 	let products: GroupProduct = { buy: [], cart: [], purchase: [] };
 
 	if (listProducts) {
@@ -29,47 +27,42 @@ export const TabsSection = ({
 		console.log('onEdit', listProduct);
 	};
 
-	const onDelete = (listProduct: ListProduct) => {
-		setListProduct(listProduct);
-		toggleDeleteModal(true);
-	};
-
-	const toggleDeleteModal = (toggle: boolean) => {
-		setOpenDeleteModal(toggle);
-		if (!toggle) setListProduct(null);
-	};
-
 	return (
 		<main className='flex flex-col gap-5 min-h-full'>
 			<Tab.Group>
 				<TabHeaderList products={products} />
 
 				<Tab.Panels className=''>
-					<BuyList
-						products={products.buy}
-						onDelete={onDelete}
-						onEdit={onEdit}
-					/>
-					<CartList
-						products={products.cart}
-						onDelete={onDelete}
-						onEdit={onEdit}
-					/>
-					<PurchaseList
-						products={products.purchase}
-						onDelete={onDelete}
-						onEdit={onEdit}
-					/>
+					<Tab.Panel key='buy'>
+						<ListProducts
+							products={products.buy}
+							onEdit={onEdit}
+							emptyMessageCode={'listPage.emptyList'}
+							options={BuyOptions}
+						/>
+					</Tab.Panel>
+
+					<Tab.Panel key='cart'>
+						<ListProducts
+							products={products.cart}
+							onEdit={onEdit}
+							emptyMessageCode={'listPage.emptyList'}
+							options={CartOptions}
+						/>
+					</Tab.Panel>
+
+					<Tab.Panel key='purchase'>
+						<ListProducts
+							products={products.purchase}
+							onEdit={onEdit}
+							emptyMessageCode={'listPage.emptyCartList'}
+							options={PurchaseOptions}
+						/>
+					</Tab.Panel>
 				</Tab.Panels>
 			</Tab.Group>
 
-			{listProduct && (
-				<ConfirmDeleteListProductModal
-					open={openDeleteModal}
-					setToggleModal={toggleDeleteModal}
-					listProduct={listProduct}
-				/>
-			)}
+			<ConfirmDeleteListProductModal />
 		</main>
 	);
 };

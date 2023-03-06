@@ -14,6 +14,7 @@ ListProductContext.displayName = 'ListProductContext';
 
 function ListProductProvider(props) {
 	const [listProducts, setListProducts] = useState(null);
+	const [listProductDelete, setListProductDelete] = useState(null);
 	const [errorListProducts, setErrorListProducts] = useState(false);
 	const [loadingListProducts, setLoadingListProducts] = useState(false);
 	const { user } = useAuth();
@@ -56,21 +57,25 @@ function ListProductProvider(props) {
 			listProducts,
 			loadingListProducts,
 			errorListProducts,
+			listProductDelete,
 			setErrorListProducts,
 			getListProducts,
 			createListProduct,
 			updateListProduct,
-			deleteListProduct
+			deleteListProduct,
+			setListProductDelete
 		}),
 		[
 			listProducts,
 			loadingListProducts,
 			errorListProducts,
+			listProductDelete,
 			getListProducts,
 			setErrorListProducts,
 			createListProduct,
 			updateListProduct,
-			deleteListProduct
+			deleteListProduct,
+			setListProductDelete
 		]
 	);
 

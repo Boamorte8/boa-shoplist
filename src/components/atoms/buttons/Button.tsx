@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { MouseEvent, ReactNode } from 'react';
 
 import { Spinner } from '../Spinner';
 
@@ -9,6 +9,8 @@ type ButtonProps = {
 	className?: string;
 	loading?: boolean;
 	children?: ReactNode;
+	onClick?: (event: MouseEvent) => void;
+	disabled?: boolean;
 };
 
 const KIND_CLASSNAME: { [key: string]: string } = {
