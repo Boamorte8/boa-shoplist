@@ -19,7 +19,6 @@ export const BuyList = ({ products, onDelete }: ListProductsProps) => {
 	const { t } = useTranslation();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const { getListProducts, updateListProduct } = useListProduct();
-	console.log(products);
 
 	const onSuccess = (product: ListProduct) => {
 		getListProducts(product.list_id);
@@ -27,8 +26,16 @@ export const BuyList = ({ products, onDelete }: ListProductsProps) => {
 
 	const moveToCart = (event: MouseEvent, product: ListProduct) => {
 		event.preventDefault();
-		product.status = ListProductStatus.CART;
-		handleSubmit(product, setIsSubmitting, updateListProduct, t, onSuccess);
+		const updatedProduct = { ...product };
+		updatedProduct.status = ListProductStatus.CART;
+		delete updatedProduct.products;
+		handleSubmit(
+			updatedProduct,
+			setIsSubmitting,
+			updateListProduct,
+			t,
+			onSuccess
+		);
 	};
 
 	if (isSubmitting)
@@ -64,13 +71,6 @@ export const BuyList = ({ products, onDelete }: ListProductsProps) => {
 					/>
 				</ListProductCard>
 			))}
-			{/* {list && (
-				<UpdateListModal
-					open={openUpdateModal}
-					setToggleModal={toggleUpdateModal}
-					list={list}
-				/>
-			)} */}
 		</main>
 	);
 };
