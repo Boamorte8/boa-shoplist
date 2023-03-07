@@ -4,7 +4,7 @@ import { MouseEvent, ReactNode } from 'react';
 type ButtonLinkProps = {
 	className: string;
 	to?: string;
-	onClick: (event: MouseEvent) => void;
+	onClick?: (event: MouseEvent) => void;
 	children: ReactNode;
 };
 

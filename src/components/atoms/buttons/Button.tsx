@@ -11,6 +11,7 @@ type ButtonProps = {
 	children?: ReactNode;
 	onClick?: (event: MouseEvent) => void;
 	disabled?: boolean;
+	type?: 'button' | 'submit' | 'reset' | undefined;
 };
 
 const KIND_CLASSNAME: { [key: string]: string } = {

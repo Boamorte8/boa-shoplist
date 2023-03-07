@@ -2,6 +2,7 @@ import { CrossIcon } from '../icons/CrossIcon';
 
 type FloatButtonProps = {
 	className?: string;
+	onClick?: () => void;
 };
 
 export const FloatButton = (props: FloatButtonProps) => {

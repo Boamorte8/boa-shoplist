@@ -1,6 +1,6 @@
 import { alertBox } from '../events/alertEvents';
-import { supabase } from './client';
 import i18next from '../utils/i18n';
+import { supabase } from './client';
 
 const localStorageKey = '__auth_provider_token__';
 
@@ -8,13 +8,18 @@ async function getToken() {
 	return window.localStorage.getItem(localStorageKey);
 }
 
-async function login({ email, password }) {
+type LoginProps = {
+	email: string;
+	password: string;
+};
+
+async function login({ email, password }: LoginProps) {
 	try {
 		return supabase.auth.signInWithPassword({ email, password }).then(data => {
 			if (!data.error) {
 				window.localStorage.setItem(
 					localStorageKey,
-					data.data.session.access_token
+					data.data.session?.access_token || ''
 				);
 			}
 			return data;
@@ -24,7 +29,7 @@ async function login({ email, password }) {
 	}
 }
 
-async function register({ email, password, ...metadata }) {
+async function register({ email, password, ...metadata }: LoginProps) {
 	try {
 		return supabase.auth.signUp({
 			email,

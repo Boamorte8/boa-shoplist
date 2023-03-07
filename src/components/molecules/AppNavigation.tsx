@@ -21,7 +21,6 @@ export const AppNavigation = ({
 }: AppNavigationProps) => {
 	const { t } = useTranslation();
 	const [menuClass, setMenuClass] = useState('animate-slide-in-left');
-	console.log(open);
 
 	if (!open) return null;
 

@@ -1,3 +1,4 @@
+import { MenuOption } from '@lib/types/client';
 import { useState } from 'react';
 
 import { useAuth } from '../providers/AuthProvider';
@@ -14,17 +15,19 @@ const unauthOptions = [
 ];
 
 export const useMenu = () => {
-	const { user, setOpenConfirmLogout } = useAuth();
+	const { user, setOpenConfirmLogout } = useAuth() || {};
 	const [open, setOpen] = useState(false);
 
 	const authActions = [
 		{
 			code: 'logout',
-			onClick: () => setOpenConfirmLogout(true)
+			onClick: () => setOpenConfirmLogout?.(true)
 		}
 	];
 
-	const menuOptions = user ? [...authOptions, ...authActions] : unauthOptions;
+	const menuOptions: MenuOption[] = user
+		? [...authOptions, ...authActions]
+		: unauthOptions;
 
 	const openMenu = () => setOpen(true);
 	const closeMenu = () => setOpen(false);

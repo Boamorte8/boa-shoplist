@@ -2,7 +2,8 @@ type BaseInputProps = {
 	label: string;
 	error: string;
 	className?: string;
-	placeholder?: string;
+	placeholder?: string | undefined;
+	id?: string;
 };
 
 export const BaseInput = ({
