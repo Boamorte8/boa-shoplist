@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { useAuth } from '../providers/AuthProvider';
 
 const authOptions = [
-	{ code: 'lists_two', url: '/list' },
-	{ code: 'products_two', url: '/products' },
-	{ code: 'unit_two', url: '/units' }
+	{ code: 'lists_two', to: '/list' },
+	{ code: 'products_two', to: '/products' },
+	{ code: 'unit_two', to: '/units' }
 ];
 
 const unauthOptions = [
-	{ code: 'login', url: '/login' },
-	{ code: 'register', url: '/register' }
+	{ code: 'login', to: '/login' },
+	{ code: 'register', to: '/register' }
 ];
 
 export const useMenu = () => {
@@ -20,7 +20,6 @@ export const useMenu = () => {
 	const authActions = [
 		{
 			code: 'logout',
-			url: '',
 			onClick: () => setOpenConfirmLogout(true)
 		}
 	];

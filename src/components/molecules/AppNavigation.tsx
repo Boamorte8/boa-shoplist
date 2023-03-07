@@ -5,11 +5,23 @@ import { useTranslation } from 'react-i18next';
 import { AppFooter } from './AppFooter';
 import { CrossIcon } from '../atoms/icons/CrossIcon';
 import { IconButton } from '../atoms/buttons/IconButton';
+import { MenuOption } from '@lib/types/client';
 import { NavigationLink } from '../atoms/buttons/NavigationLink';
 
-export const AppNavigation = ({ open, closeMenu, menuOptions }) => {
+type AppNavigationProps = {
+	open: boolean;
+	closeMenu: () => void;
+	menuOptions: MenuOption[];
+};
+
+export const AppNavigation = ({
+	open,
+	closeMenu,
+	menuOptions
+}: AppNavigationProps) => {
 	const { t } = useTranslation();
 	const [menuClass, setMenuClass] = useState('animate-slide-in-left');
+	console.log(open);
 
 	if (!open) return null;
 
@@ -17,14 +29,15 @@ export const AppNavigation = ({ open, closeMenu, menuOptions }) => {
 		setMenuClass('animate-slide-out-left');
 		setTimeout(() => {
 			closeMenu();
+			setMenuClass('animate-slide-in-left');
 		}, 1000);
 	};
 
-	const links = menuOptions.map(({ code, url, onClick }) => (
+	const links = menuOptions.map(({ code, to, onClick }) => (
 		<NavigationLink
 			key={code}
 			code={code}
-			to={url}
+			to={to}
 			onClick={() => {
 				onClick && onClick();
 				closeSelector();
@@ -55,6 +68,6 @@ export const AppNavigation = ({ open, closeMenu, menuOptions }) => {
 			</div>
 			<AppFooter />
 		</div>,
-		document.getElementById('navpanel')
+		document.getElementById('navpanel') as HTMLElement
 	);
 };

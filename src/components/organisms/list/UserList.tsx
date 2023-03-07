@@ -7,8 +7,21 @@ import { LoadingMessage } from '@atoms/messages/LoadingMessage';
 import { TabsSection } from './TabsSection';
 import { useList } from '@lib/providers/ListProvider';
 import { useListProduct } from '@lib/providers/ListProductProvider';
+import { List, ListProduct } from '@lib/types/list';
 
-export const UserList = ({ list, listProducts, loading, error }) => {
+type UserListProps = {
+	list: List;
+	listProducts: ListProduct[];
+	loading: boolean;
+	error: string;
+};
+
+export const UserList = ({
+	list,
+	listProducts,
+	loading,
+	error
+}: UserListProps) => {
 	const { t } = useTranslation();
 	const { getList } = useList();
 	const { getListProducts } = useListProduct();

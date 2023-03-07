@@ -14,7 +14,7 @@ export type AuthRoutesProps = {
 export type MenuOption = {
 	code: string;
 	to: string;
-	onClick: () => void;
+	onClick?: () => void;
 };
 
 export type MessageProps = {

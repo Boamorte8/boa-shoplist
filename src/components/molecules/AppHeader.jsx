@@ -11,8 +11,8 @@ import { useMenu } from '../../lib/hooks/useMenu';
 export const AppHeader = () => {
 	const { t } = useTranslation();
 	const { menuOptions, open, openMenu, closeMenu } = useMenu();
-	const links = menuOptions.map(({ code, url, onClick }) => (
-		<HeaderLink key={code} code={code} to={url} onClick={onClick} />
+	const links = menuOptions.map(({ code, to, onClick }) => (
+		<HeaderLink key={code} code={code} to={to} onClick={onClick} />
 	));
 	return (
 		<>

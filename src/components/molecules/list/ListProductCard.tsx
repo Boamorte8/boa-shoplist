@@ -5,10 +5,10 @@ import { BaseCard } from '@atoms/BaseCard';
 import { ListCardOptions } from '../ListCardOptions';
 import { ListProduct } from '@lib/types/list';
 import { ShoppingCodeIcon } from '@atoms/icons/ShoppingCodeIcon';
+import { useListProduct } from '@lib/providers/ListProductProvider';
 
 export type ListProductCardProps = {
 	listProduct: ListProduct;
-	onDelete: (listProduct: ListProduct) => void;
 	onEdit: (listProduct: ListProduct) => void;
 	children: ReactNode;
 };
@@ -16,10 +16,14 @@ export type ListProductCardProps = {
 export const ListProductCard = ({
 	listProduct,
 	children,
-	onDelete,
 	onEdit
 }: ListProductCardProps) => {
 	const { t } = useTranslation();
+	const { setListProductDelete } = useListProduct();
+
+	const onDelete = (product: ListProduct) => {
+		setListProductDelete(product);
+	};
 
 	return (
 		<BaseCard classes='grid grid-cols-[1fr_2.5rem] md:grid-cols-[1fr_8rem] gap-2 items-center w-full max-w-4xl mx-auto outline-none hover:bg-background-700 focus:bg-background-700 hover:cursor-pointer transition-transform'>

@@ -1,10 +1,10 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, MouseEvent, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 
 type ListOptionProps = {
 	label: string;
 	children: ReactNode;
-	onClick: (args: unknown) => void;
+	onClick: (event: MouseEvent) => void;
 };
 
 export const ListOption = ({

@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, MouseEvent } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 
@@ -8,15 +8,20 @@ import { ListOption } from '@atoms/buttons/ListOption';
 import { PencilIcon } from '@atoms/icons/PencilIcon';
 import { TrashIcon } from '@atoms/icons/TrashIcon';
 
-export const ListCardOptions = ({ onEdit, onDelete }) => {
+type ListCardOptionsProps = {
+	onEdit: () => void;
+	onDelete: () => void;
+};
+
+export const ListCardOptions = ({ onEdit, onDelete }: ListCardOptionsProps) => {
 	const { t } = useTranslation();
 
-	const handleEdit = event => {
+	const handleEdit = (event: MouseEvent) => {
 		event.preventDefault();
 		onEdit();
 	};
 
-	const handleDelete = event => {
+	const handleDelete = (event: MouseEvent) => {
 		event.preventDefault();
 		onDelete();
 	};
@@ -33,18 +38,13 @@ export const ListCardOptions = ({ onEdit, onDelete }) => {
 				leaveFrom='transform opacity-100 scale-100'
 				leaveTo='transform opacity-0 scale-95'
 			>
-				<Menu.Items
-					as={Fragment}
-					className='absolute right-0 w-32 origin-top-right z-50 rounded-md bg-background-700 shadow-sm shadow-primary-700 ring-1 ring-primary-300 ring-opacity-5 focus:outline-none'
-				>
-					<div className='px-1 py-1 '>
-						<ListOption label={t('edit')} onClick={handleEdit}>
-							<PencilIcon alt='Edit icon' className='h-6 w-6' />
-						</ListOption>
-						<ListOption label={t('delete')} onClick={handleDelete}>
-							<TrashIcon alt='Delete icon' className='h-6 w-6 text-error-700' />
-						</ListOption>
-					</div>
+				<Menu.Items className='px-1 py-1 absolute right-0 w-32 origin-top-right z-50 rounded-md bg-background-700 shadow-sm shadow-primary-700 ring-1 ring-primary-300 ring-opacity-5 focus:outline-none'>
+					<ListOption label={t('edit')} onClick={handleEdit}>
+						<PencilIcon alt='Edit icon' className='h-6 w-6' />
+					</ListOption>
+					<ListOption label={t('delete')} onClick={handleDelete}>
+						<TrashIcon alt='Delete icon' className='h-6 w-6 text-error-700' />
+					</ListOption>
 				</Menu.Items>
 			</Transition>
 		</Menu>
