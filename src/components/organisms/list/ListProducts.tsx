@@ -5,7 +5,6 @@ import { EmptyMessage } from '@atoms/messages/EmptyMessage';
 import { ListProduct, ListProductsProps } from '@lib/types/list';
 import { ListProductCard } from '@molecules/list/ListProductCard';
 import { LoadingMessage } from '@atoms/messages/LoadingMessage';
-import { useListProduct } from '@lib/providers/ListProductProvider';
 
 type ListProductListProps = ListProductsProps & {
 	options: JSXElementConstructor<{
@@ -23,11 +22,6 @@ export const ListProducts = ({
 }: ListProductListProps) => {
 	const { t } = useTranslation();
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const { setListProductDelete } = useListProduct();
-
-	const onDelete = (product: ListProduct) => {
-		setListProductDelete(product);
-	};
 
 	if (isSubmitting)
 		return (
@@ -50,12 +44,7 @@ export const ListProducts = ({
 	return (
 		<main className='flex flex-col gap-5 min-h-full lg:gap-7'>
 			{products.map(product => (
-				<ListProductCard
-					key={product.id}
-					listProduct={product}
-					onDelete={onDelete}
-					onEdit={onEdit}
-				>
+				<ListProductCard key={product.id} listProduct={product} onEdit={onEdit}>
 					<Options product={product} setIsSubmitting={setIsSubmitting} />
 				</ListProductCard>
 			))}
