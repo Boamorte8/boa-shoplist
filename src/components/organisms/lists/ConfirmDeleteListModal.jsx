@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { alertBox } from '@lib/events/alertEvents';
 import { Button } from '@atoms/buttons/Button';
+import { handleSubmitBase } from '@lib/utils/utils';
 import { Modal } from '@atoms/modal/Modal';
 import { useList } from '@lib/providers/ListProvider';
 
@@ -67,17 +67,14 @@ const handleDelete = async (
 	t,
 	onSuccess
 ) => {
-	ev.preventDefault();
+	const onDeleteListProduct = () => deleteList(listId);
 
-	setIsSubmitting(true);
-
-	const { error } = await deleteList(listId);
-
-	if (!error) {
-		alertBox.success(t('listsPage.deleteModal.success'));
-		onSuccess();
-	} else {
-		alertBox.error(t('listsPage.deleteModal.error'));
-	}
-	setIsSubmitting(false);
+	handleSubmitBase(
+		ev,
+		onDeleteListProduct,
+		setIsSubmitting,
+		t('listsPage.deleteModal.success'),
+		t('listsPage.deleteModal.error'),
+		onSuccess
+	);
 };

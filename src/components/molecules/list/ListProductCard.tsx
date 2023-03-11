@@ -9,20 +9,22 @@ import { useListProduct } from '@lib/providers/ListProductProvider';
 
 export type ListProductCardProps = {
 	listProduct: ListProduct;
-	onEdit: (listProduct: ListProduct) => void;
 	children: ReactNode;
 };
 
 export const ListProductCard = ({
 	listProduct,
-	children,
-	onEdit
+	children
 }: ListProductCardProps) => {
 	const { t } = useTranslation();
-	const { setListProductDelete } = useListProduct();
+	const { setListProductDelete, setListProductUpdate } = useListProduct();
 
 	const onDelete = (product: ListProduct) => {
 		setListProductDelete(product);
+	};
+
+	const onEdit = (product: ListProduct) => {
+		setListProductUpdate(product);
 	};
 
 	return (

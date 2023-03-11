@@ -35,5 +35,4 @@ export type GroupProduct = {
 
 export type ListProductsProps = {
 	products: ListProduct[];
-	onEdit: (product: ListProduct) => void;
 };

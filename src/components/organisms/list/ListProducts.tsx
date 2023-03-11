@@ -17,8 +17,7 @@ type ListProductListProps = ListProductsProps & {
 export const ListProducts = ({
 	products,
 	emptyMessageCode,
-	options: Options,
-	onEdit
+	options: Options
 }: ListProductListProps) => {
 	const { t } = useTranslation();
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,7 +43,7 @@ export const ListProducts = ({
 	return (
 		<main className='flex flex-col gap-5 min-h-full lg:gap-7'>
 			{products.map(product => (
-				<ListProductCard key={product.id} listProduct={product} onEdit={onEdit}>
+				<ListProductCard key={product.id} listProduct={product}>
 					<Options product={product} setIsSubmitting={setIsSubmitting} />
 				</ListProductCard>
 			))}

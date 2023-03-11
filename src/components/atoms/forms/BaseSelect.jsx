@@ -6,6 +6,7 @@ import { ArrowUpDownIcon } from '../icons/ArrowUpDownIcon';
 import { CheckIcon } from '../icons/CheckIcon';
 
 export const BaseSelect = ({
+	id,
 	label,
 	error,
 	className,
@@ -14,13 +15,14 @@ export const BaseSelect = ({
 	keyProp,
 	selected,
 	setSelected,
-	emptyMessage
+	emptyMessage,
+	...props
 }) => {
 	const { t } = useTranslation();
 	return (
 		<label className={`block text-white ${className || ''}`}>
 			<span className='text-sm font-bold pl-2'>{label}</span>
-			<Listbox value={selected} onChange={setSelected}>
+			<Listbox id={id} value={selected} onChange={setSelected} {...props}>
 				<div className='relative mt-2'>
 					<Listbox.Button
 						className={`relative text-left w-full cursor-default shadow-sm shadow-primary-700 border-2 rounded-lg bg-background py-2 pl-4 pr-10 outline-none focus:shadow-md enabled:focus:border-primary placeholder:text-gray-300  ${

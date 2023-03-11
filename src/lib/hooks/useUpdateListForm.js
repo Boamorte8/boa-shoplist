@@ -1,8 +1,8 @@
 import { useReducer } from 'react';
 
 import {
-	updateListFormReducer,
-	getUpdateFormInitialState
+	getUpdateFormInitialState,
+	updateListFormReducer
 } from '../reducers/updateListFormReducer';
 
 export const useUpdateListForm = list => {

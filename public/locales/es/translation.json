@@ -38,7 +38,7 @@
 	"addProductList": {
 		"error": "Error añadiendo la lista. Intenta de nuevo",
 		"success": "Nueva lista añadida correctamente",
-		"title": "Añadir producto a lal lista"
+		"title": "Añadir producto a la lista"
 	},
 	"auth": {
 		"checkEmail": "Revisa tu correo por el mensaje de confirmación",
@@ -173,5 +173,10 @@
 			"success": "Unidad actualizada exitosamente",
 			"title": "Actualizar unidad"
 		}
+	},
+	"updateProductList": {
+		"error": "Error actualizando el producto de la lista. Intenta de nuevo",
+		"success": "Producto actualizado correctamente",
+		"title": "Actualizar producto de la lista"
 	}
 }

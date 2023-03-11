@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { alertBox } from '@lib/events/alertEvents';
 import { BaseInput } from '@atoms/forms/BaseInput';
 import { Button } from '@atoms/buttons/Button';
 import {
@@ -10,6 +9,7 @@ import {
 	titleChangedCreateListForm
 } from '@lib/actions/createListFormActions';
 import { FloatButton } from '@atoms/buttons/FloatButton';
+import { handleSubmitBase } from '@lib/utils/utils';
 import { Modal } from '@atoms/modal/Modal';
 import { useCreateListForm } from '@lib/hooks/useCreateListForm';
 import { useList } from '@lib/providers/ListProvider';
@@ -108,22 +108,21 @@ const handleSubmit = async (
 	t,
 	closeModal
 ) => {
-	ev.preventDefault();
+	const onCreateList = () => {
+		const list = {
+			title: title.value,
+			description: description.value
+		};
 
-	setIsSubmitting(true);
-
-	const list = {
-		title: title.value,
-		description: description.value
+		return createList(list);
 	};
 
-	const { error } = await createList(list);
-
-	if (!error) {
-		alertBox.success(t('listsPage.createModal.success'));
-		closeModal();
-	} else {
-		alertBox.error(t('listsPage.createModal.error'));
-	}
-	setIsSubmitting(false);
+	handleSubmitBase(
+		ev,
+		onCreateList,
+		setIsSubmitting,
+		t('listsPage.createModal.success'),
+		t('listsPage.createModal.error'),
+		closeModal
+	);
 };

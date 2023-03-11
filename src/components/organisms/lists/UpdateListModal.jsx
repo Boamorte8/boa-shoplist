@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { alertBox } from '@lib/events/alertEvents';
 import { BaseInput } from '@atoms/forms/BaseInput';
 import { Button } from '@atoms/buttons/Button';
 import {
@@ -9,6 +8,7 @@ import {
 	resetUpdateListForm,
 	titleChangedUpdateListForm
 } from '@lib/actions/updateListFormActions';
+import { handleSubmitBase } from '@lib/utils/utils';
 import { Modal } from '@atoms/modal/Modal';
 import { useList } from '@lib/providers/ListProvider';
 import { useUpdateListForm } from '@lib/hooks/useUpdateListForm';
@@ -117,22 +117,21 @@ const handleSubmit = async (
 	t,
 	onSuccess
 ) => {
-	ev.preventDefault();
+	const onUpdateList = () => {
+		const list = {
+			title: title.value,
+			description: description.value
+		};
 
-	setIsSubmitting(true);
-
-	const list = {
-		title: title.value,
-		description: description.value
+		return updateList(id, list);
 	};
 
-	const { error } = await updateList(id, list);
-
-	if (!error) {
-		alertBox.success(t('listsPage.updateModal.success'));
-		onSuccess();
-	} else {
-		alertBox.error(t('listsPage.updateModal.error'));
-	}
-	setIsSubmitting(false);
+	handleSubmitBase(
+		ev,
+		onUpdateList,
+		setIsSubmitting,
+		t('listsPage.updateModal.success'),
+		t('listsPage.updateModal.error'),
+		onSuccess
+	);
 };

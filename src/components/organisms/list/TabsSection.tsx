@@ -7,6 +7,7 @@ import { ListProducts } from './ListProducts';
 import { PurchaseOptions } from '@molecules/list/PurchaseOptions';
 import { TabHeaderList } from '@molecules/list/TabHeaderList';
 import { ConfirmDeleteListProductModal } from './ConfirmDeleteListProductModal';
+import { UpdateListProductModal } from './UpdateListProductModal';
 
 export const TabsSection = ({
 	listProducts
@@ -22,11 +23,6 @@ export const TabsSection = ({
 		}, products);
 	}
 
-	const onEdit = (listProduct: ListProduct) => {
-		// TODO Implement update list product feature
-		console.log('onEdit', listProduct);
-	};
-
 	return (
 		<main className='flex flex-col gap-5 min-h-full'>
 			<Tab.Group>
@@ -36,7 +32,6 @@ export const TabsSection = ({
 					<Tab.Panel key='buy'>
 						<ListProducts
 							products={products.buy}
-							onEdit={onEdit}
 							emptyMessageCode={'listPage.emptyList'}
 							options={BuyOptions}
 						/>
@@ -45,7 +40,6 @@ export const TabsSection = ({
 					<Tab.Panel key='cart'>
 						<ListProducts
 							products={products.cart}
-							onEdit={onEdit}
 							emptyMessageCode={'listPage.emptyList'}
 							options={CartOptions}
 						/>
@@ -54,7 +48,6 @@ export const TabsSection = ({
 					<Tab.Panel key='purchase'>
 						<ListProducts
 							products={products.purchase}
-							onEdit={onEdit}
 							emptyMessageCode={'listPage.emptyCartList'}
 							options={PurchaseOptions}
 						/>
@@ -63,6 +56,7 @@ export const TabsSection = ({
 			</Tab.Group>
 
 			<ConfirmDeleteListProductModal />
+			<UpdateListProductModal />
 		</main>
 	);
 };

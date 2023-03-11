@@ -1,9 +1,15 @@
+import { ChangeEvent } from 'react';
+
 type BaseInputProps = {
 	label: string;
 	error: string;
 	className?: string;
-	placeholder?: string | undefined;
+	placeholder?: string;
 	id?: string;
+	type?: string;
+	name?: string;
+	value?: string | number;
+	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const BaseInput = ({

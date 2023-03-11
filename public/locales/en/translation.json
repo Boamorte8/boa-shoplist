@@ -172,5 +172,10 @@
 			"success": "Updated unit successfully",
 			"title": "Update unit"
 		}
+	},
+	"updateProductList": {
+		"error": "Error updating product. Please try again",
+		"success": "Product updated successfully",
+		"title": "Update product list"
 	}
 }

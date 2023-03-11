@@ -2,8 +2,8 @@ import { MouseEvent, useState } from 'react';
 import { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
-import { alertBox } from '@lib/events/alertEvents';
 import { Button } from '@atoms/buttons/Button';
+import { handleSubmitBase } from '@lib/utils/utils';
 import { Modal } from '@atoms/modal/Modal';
 import { useListProduct } from '@lib/providers/ListProductProvider';
 
@@ -75,17 +75,14 @@ const handleDelete = async (
 	t: TFunction,
 	onSuccess: () => void
 ) => {
-	ev.preventDefault();
+	const onDeleteListProduct = () => deleteListProduct(listProductId);
 
-	setIsSubmitting(true);
-
-	const { error } = await deleteListProduct(listProductId);
-
-	if (!error) {
-		alertBox.success(t('productsPage.deleteModal.success'));
-		onSuccess();
-	} else {
-		alertBox.error(t('productsPage.deleteModal.error'));
-	}
-	setIsSubmitting(false);
+	handleSubmitBase(
+		ev,
+		onDeleteListProduct,
+		setIsSubmitting,
+		t('productsPage.deleteModal.success'),
+		t('productsPage.deleteModal.error'),
+		onSuccess
+	);
 };
