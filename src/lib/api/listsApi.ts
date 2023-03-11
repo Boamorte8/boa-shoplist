@@ -1,6 +1,7 @@
+import { List } from '@lib/types/list';
 import { alertBox } from '../events/alertEvents';
-import { supabase } from './client';
 import i18next from '../utils/i18n';
+import { supabase } from './client';
 
 async function getLists() {
 	try {
@@ -10,7 +11,7 @@ async function getLists() {
 	}
 }
 
-async function getList(listId) {
+async function getList(listId: string) {
 	try {
 		return supabase.from('lists').select('*').eq('id', listId);
 	} catch (error) {
@@ -18,7 +19,7 @@ async function getList(listId) {
 	}
 }
 
-async function createList(newList) {
+async function createList(newList: List) {
 	try {
 		return supabase.from('lists').insert([newList]);
 	} catch (error) {
@@ -26,7 +27,7 @@ async function createList(newList) {
 	}
 }
 
-async function updateList(listId, newData) {
+async function updateList(listId: string, newData: List) {
 	try {
 		return supabase.from('lists').update(newData).eq('id', listId);
 	} catch (error) {
@@ -34,7 +35,7 @@ async function updateList(listId, newData) {
 	}
 }
 
-async function deleteList(listId) {
+async function deleteList(listId: string) {
 	try {
 		return supabase.from('lists').delete().eq('id', listId);
 	} catch (error) {

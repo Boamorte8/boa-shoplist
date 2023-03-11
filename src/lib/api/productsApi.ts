@@ -1,6 +1,7 @@
+import { Product } from '@lib/types/product';
 import { alertBox } from '../events/alertEvents';
-import { supabase } from './client';
 import i18next from '../utils/i18n';
+import { supabase } from './client';
 
 async function getProducts() {
 	try {
@@ -10,7 +11,7 @@ async function getProducts() {
 	}
 }
 
-async function createProduct(newProduct) {
+async function createProduct(newProduct: Product) {
 	try {
 		return supabase.from('products').insert([newProduct]);
 	} catch (error) {
@@ -18,7 +19,7 @@ async function createProduct(newProduct) {
 	}
 }
 
-async function updateProduct(productId, newData) {
+async function updateProduct(productId: string, newData: Product) {
 	try {
 		return supabase.from('products').update(newData).eq('id', productId);
 	} catch (error) {
@@ -26,7 +27,7 @@ async function updateProduct(productId, newData) {
 	}
 }
 
-async function deleteProduct(productId) {
+async function deleteProduct(productId: string) {
 	try {
 		return supabase.from('products').delete().eq('id', productId);
 	} catch (error) {

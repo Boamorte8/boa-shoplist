@@ -1,6 +1,7 @@
+import { Unit } from '@lib/types/unit';
 import { alertBox } from '../events/alertEvents';
-import { supabase } from './client';
 import i18next from '../utils/i18n';
+import { supabase } from './client';
 
 async function getUnits() {
 	try {
@@ -10,7 +11,7 @@ async function getUnits() {
 	}
 }
 
-async function createUnit(newUnit) {
+async function createUnit(newUnit: Unit) {
 	try {
 		return supabase.from('units').insert([newUnit]);
 	} catch (error) {
@@ -18,7 +19,7 @@ async function createUnit(newUnit) {
 	}
 }
 
-async function updateUnit(UnitId, newData) {
+async function updateUnit(UnitId: string, newData: Unit) {
 	try {
 		return supabase.from('units').update(newData).eq('id', UnitId);
 	} catch (error) {
@@ -26,7 +27,7 @@ async function updateUnit(UnitId, newData) {
 	}
 }
 
-async function deleteUnit(UnitId) {
+async function deleteUnit(UnitId: string) {
 	try {
 		return supabase.from('units').delete().eq('id', UnitId);
 	} catch (error) {
